@@ -77,12 +77,17 @@
     border:1px solid rgba(230,181,102,.42);border-radius:999px;padding:9px 18px;
     font-family:var(--serif);font-size:clamp(14px,2.6vw,19px);color:var(--amber2);letter-spacing:.01em}
   .tourribbon b{font-weight:600}
-  .tourstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:32px auto 0;max-width:780px}
+  .tourfeature{margin:30px auto 0;max-width:520px;border-radius:18px;overflow:hidden;
+    border:1px solid rgba(230,181,102,.35);box-shadow:0 16px 46px rgba(0,0,0,.55);background:var(--panel)}
+  .tourfeature img{width:100%;max-height:440px;object-fit:cover;object-position:50% 35%;display:block;cursor:zoom-in;background:var(--panel2)}
+  .tourfeature figcaption{padding:14px 18px;font-family:var(--serif);font-size:clamp(14px,2vw,16px);
+    color:var(--amber2);display:flex;align-items:center;gap:9px;justify-content:center;text-align:center}
+  .tourstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px auto 0;max-width:620px}
   .tourstrip figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line2);
     box-shadow:0 12px 34px rgba(0,0,0,.45);transition:transform .3s ease}
   .tourstrip figure:hover{transform:translateY(-4px)}
-  .tourstrip img{width:100%;height:clamp(150px,21vw,200px);object-fit:cover;display:block;background:var(--panel2);cursor:zoom-in}
-  @media(max-width:560px){.tourstrip{grid-template-columns:repeat(2,1fr);gap:9px}}
+  .tourstrip img{width:100%;height:clamp(130px,20vw,170px);object-fit:cover;display:block;background:var(--panel2);cursor:zoom-in}
+  @media(max-width:560px){.tourstrip{grid-template-columns:repeat(3,1fr);gap:7px}}
 
   .note{display:flex;gap:12px;align-items:flex-start;background:var(--panel);
     border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;
@@ -307,10 +312,13 @@
     <p class="date">Re'im · Western Negev · Israel</p>
     <h1>NOVA</h1>
     <p class="sub">Where the music stopped — 07 October 2023</p>
+    <figure class="tourfeature">
+      <img data-lb data-cap="The Sacharowitz family with their guide, Amler, on the private tour of the Gaza envelope — 6 July 2026." src="./img/tour-group.jpg" alt="The Sacharowitz family together with their guide Amler during the tour" loading="eager">
+      <figcaption><svg class="anemone" style="width:15px;height:15px"><use href="#anemone"/></svg> The Sacharowitz family with their guide, Amler</figcaption>
+    </figure>
     <div class="tourstrip">
-      <figure><img data-lb data-cap="On the Mediterranean shore, Israel — Amler's private tour for the Sacharowitz family, 6 July 2026." src="./img/tour-beach.jpg" alt="Two of the group on the Gaza-envelope coast" loading="eager"></figure>
+      <figure><img data-lb data-cap="On the Mediterranean shore, Israel — Amler's private tour for the Sacharowitz family, 6 July 2026." src="./img/tour-beach.jpg" alt="Two of the group on the Gaza-envelope coast" loading="lazy"></figure>
       <figure><img data-lb data-cap="Walking the Ashkelon seafront Avenue of Remembrance." src="./img/tour-promenade.jpg" alt="The family walking the memorial promenade by the sea" loading="lazy"></figure>
-      <figure><img data-lb data-cap="On the road together through the Gaza envelope." src="./img/tour-group.jpg" alt="The tour group travelling together" loading="lazy"></figure>
       <figure><img data-lb data-cap="On the way — the Sacharowitz family in Israel." src="./img/tour-tram.jpg" alt="Family members on the light rail" loading="lazy"></figure>
     </div>
     <p class="place">A dawn gathering of thousands who came to dance for peace became the deadliest single site of the October 7 attacks. This private tour retraces that day with care — a journey of remembrance for those who came to bear witness.</p>
