@@ -72,6 +72,17 @@
     font-size:clamp(18px,4.6vw,30px);margin:16px 0 0}
   .hero .place{margin:26px auto 0;max-width:60ch;color:var(--ink2)}
   .hero .scroll{margin-top:40px;color:var(--muted);font-size:12px;letter-spacing:.25em;text-transform:uppercase}
+  .tourribbon{display:inline-flex;align-items:center;gap:10px;margin:0 auto 20px;
+    background:linear-gradient(135deg,rgba(230,181,102,.18),rgba(230,181,102,.05));
+    border:1px solid rgba(230,181,102,.42);border-radius:999px;padding:9px 18px;
+    font-family:var(--serif);font-size:clamp(14px,2.6vw,19px);color:var(--amber2);letter-spacing:.01em}
+  .tourribbon b{font-weight:600}
+  .tourstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:32px auto 0;max-width:780px}
+  .tourstrip figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line2);
+    box-shadow:0 12px 34px rgba(0,0,0,.45);transition:transform .3s ease}
+  .tourstrip figure:hover{transform:translateY(-4px)}
+  .tourstrip img{width:100%;height:clamp(150px,21vw,200px);object-fit:cover;display:block;background:var(--panel2);cursor:zoom-in}
+  @media(max-width:560px){.tourstrip{grid-template-columns:repeat(2,1fr);gap:9px}}
 
   .note{display:flex;gap:12px;align-items:flex-start;background:var(--panel);
     border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;
@@ -292,10 +303,17 @@
 <section class="hero" id="top">
   <div class="wrap">
     <svg class="flame" viewBox="0 0 64 96" aria-hidden="true"><use href="#flame"/></svg>
+    <div class="tourribbon"><svg class="anemone" style="width:16px;height:16px"><use href="#anemone"/></svg> <span><b>Amler's Private Tour</b> · for the Sacharowitz Family</span></div>
     <p class="date">Re'im · Western Negev · Israel</p>
     <h1>NOVA</h1>
     <p class="sub">Where the music stopped — 07 October 2023</p>
-    <p class="place">A dawn gathering of thousands who came to dance for peace became the deadliest single site of the October 7 attacks. This is a place of remembrance — and a guide for those who come to bear witness.</p>
+    <div class="tourstrip">
+      <figure><img data-lb data-cap="On the Mediterranean shore, Israel — Amler's private tour for the Sacharowitz family, 6 July 2026." src="./img/tour-beach.jpg" alt="Two of the group on the Gaza-envelope coast" loading="eager"></figure>
+      <figure><img data-lb data-cap="Walking the Ashkelon seafront Avenue of Remembrance." src="./img/tour-promenade.jpg" alt="The family walking the memorial promenade by the sea" loading="lazy"></figure>
+      <figure><img data-lb data-cap="On the road together through the Gaza envelope." src="./img/tour-group.jpg" alt="The tour group travelling together" loading="lazy"></figure>
+      <figure><img data-lb data-cap="On the way — the Sacharowitz family in Israel." src="./img/tour-tram.jpg" alt="Family members on the light rail" loading="lazy"></figure>
+    </div>
+    <p class="place">A dawn gathering of thousands who came to dance for peace became the deadliest single site of the October 7 attacks. This private tour retraces that day with care — a journey of remembrance for those who came to bear witness.</p>
     <div class="note">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d8a94f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
       <div><strong>A note on the date.</strong> The attack took place on the morning of <strong>Saturday, 7 October 2023</strong> (the Jewish holiday of Simchat Torah / Shemini Atzeret). Every fact on this page is drawn from reputable, published sources — listed in full at the end.</div>
@@ -579,7 +597,8 @@
         </div>
       </div>
     </div>
-    <p class="maptip">Tap any photograph to view it full-screen. Hebrew inscriptions read and translated on site. Images © the site team, taken on location at the Ashkelon seafront memorial.</p>
+    <p style="margin-top:18px"><a href="https://www.google.com/maps/search/?api=1&query=Ashkelon+seafront+October+7+memorial+Sderat+HaZikaron" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-weight:600;border:1px solid rgba(230,181,102,.3);padding:9px 15px;border-radius:999px;background:rgba(230,181,102,.06)">📍 Open this location in Google Maps <span aria-hidden="true">↗</span></a></p>
+    <p class="maptip">Tap any photograph to view it full-screen. Hebrew inscriptions read and translated on site; location identified from the signage and landmarks (these frames carried no GPS tag). Images © the site team, taken on the Ashkelon seafront, 6 July 2026.</p>
   </div>
 </section>
 
