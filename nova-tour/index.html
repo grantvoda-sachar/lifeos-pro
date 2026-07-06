@@ -88,6 +88,13 @@
   .tourstrip figure:hover{transform:translateY(-4px)}
   .tourstrip img{width:100%;height:clamp(130px,20vw,170px);object-fit:cover;display:block;background:var(--panel2);cursor:zoom-in}
   @media(max-width:560px){.tourstrip{grid-template-columns:repeat(3,1fr);gap:7px}}
+  .herocta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:30px auto 4px}
+  .herocta a{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:clamp(14px,1.4vw,15.5px);
+    padding:13px 24px;border-radius:999px;font-family:var(--sans);transition:transform .2s ease}
+  .herocta a.primary{background:linear-gradient(135deg,var(--amber2),var(--gold));color:#1a1206;border:1px solid var(--amber)}
+  .herocta a.ghost{color:var(--ink);border:1px solid var(--line2);background:rgba(255,255,255,.04)}
+  .herocta a:hover{text-decoration:none;transform:translateY(-2px)}
+  .herocta svg{flex:none}
 
   .note{display:flex;gap:12px;align-items:flex-start;background:var(--panel);
     border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;
@@ -324,6 +331,10 @@
       <figure><img data-lb data-cap="On the way — the Sacharowitz family in Israel." src="./img/tour-tram.jpg" alt="Family members on the light rail" loading="lazy"></figure>
     </div>
     <p class="place">A dawn gathering of thousands who came to dance for peace became the deadliest single site of the October 7 attacks. This private tour retraces that day with care — a journey of remembrance for those who came to bear witness.</p>
+    <div class="herocta">
+      <a class="primary" href="#novasite"><svg class="anemone" style="width:17px;height:17px"><use href="#anemone"/></svg> At the Nova Memorial — Re'im</a>
+      <a class="ghost" href="#battles"><svg width="15" height="15" viewBox="0 0 68 48" aria-hidden="true"><path d="M66.5 7.7a8.6 8.6 0 00-6-6C55.3.5 34 .5 34 .5S12.7.5 7.5 1.7a8.6 8.6 0 00-6 6C.3 12.9.3 24 .3 24s0 11.1 1.2 16.3a8.6 8.6 0 006 6C12.7 47.5 34 47.5 34 47.5s21.3 0 26.5-1.2a8.6 8.6 0 006-6C67.7 35.1 67.7 24 67.7 24s0-11.1-1.2-16.3z" fill="#d0555c"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg> The Battles &amp; Key Sites</a>
+    </div>
     <div class="note">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d8a94f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
       <div><strong>A note on the date.</strong> The attack took place on the morning of <strong>Saturday, 7 October 2023</strong> (the Jewish holiday of Simchat Torah / Shemini Atzeret). Every fact on this page is drawn from reputable, published sources — listed in full at the end.</div>
