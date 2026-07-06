@@ -101,6 +101,16 @@
   .card h3{margin:.1em 0 .5em;font-size:20px;color:var(--ink)}
   .card p{margin:.5em 0;color:var(--ink2)}
   .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  /* site tiles */
+  .sites{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:24px}
+  .sitecard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .sitecard .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .sitecard h3{font-size:17px;margin:0}
+  .sitecard p{margin:9px 0 0;font-size:13.5px;color:var(--ink2);line-height:1.5}
+  .tollchip{flex:none;font-family:var(--serif);font-size:13px;color:var(--rose2);
+    background:rgba(208,85,92,.12);border:1px solid rgba(208,85,92,.28);border-radius:999px;
+    padding:3px 10px;white-space:nowrap}
+  .tollchip.good{color:var(--good);background:rgba(127,182,154,.12);border-color:rgba(127,182,154,.3)}
 
   /* TIMELINE */
   .tl{position:relative;margin-top:26px;padding-left:34px}
@@ -115,6 +125,14 @@
   .tl .t{font-family:var(--serif);color:var(--amber2);font-size:18px;font-weight:600}
   .tl .item.rose .t{color:var(--rose2)}
   .tl .d{color:var(--ink2);margin-top:3px}
+  .tl .loc{display:inline-block;font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:#8fb0c9;border:1px solid rgba(143,176,201,.35);border-radius:999px;
+    padding:2px 8px;margin-bottom:6px;font-weight:600}
+  .tl .item.site::before{border-color:#8fb0c9;box-shadow:0 0 0 4px rgba(143,176,201,.12)}
+  .tl .item.site .t{color:#a9c6db}
+  .tlthumb{margin-top:10px;border-radius:10px;overflow:hidden;border:1px solid var(--line);max-width:340px}
+  .tlthumb img{width:100%;height:150px;object-fit:cover;display:block;background:var(--panel2)}
+  .tlthumb figcaption{font-size:11.5px;color:var(--muted);padding:7px 10px;background:var(--panel)}
 
   /* MAP */
   .mapwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
@@ -148,6 +166,18 @@
   .vmeta .vs{font-size:13.5px;color:var(--ink2);margin-top:7px;line-height:1.55}
   .vfr .dur{position:absolute;right:8px;bottom:8px;background:rgba(8,8,11,.82);color:#fff;
     font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;font-family:var(--sans)}
+  .vmeta .ytlink{display:inline-flex;align-items:center;gap:5px;margin-top:11px;font-size:12.5px;
+    font-weight:600;color:var(--amber2);border:1px solid rgba(230,181,102,.3);
+    padding:6px 11px;border-radius:999px;background:rgba(230,181,102,.06)}
+  .vmeta .ytlink:hover{background:rgba(230,181,102,.14);text-decoration:none}
+
+  /* Lightbox */
+  #lightbox{position:fixed;inset:0;z-index:100;background:rgba(6,6,9,.94);display:none;
+    align-items:center;justify-content:center;flex-direction:column;padding:20px;cursor:zoom-out}
+  #lightbox.on{display:flex}
+  #lightbox img{max-width:96vw;max-height:82vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  #lightbox .lbcap{color:var(--ink2);font-size:13.5px;margin-top:14px;max-width:70ch;text-align:center}
+  #lightbox .lbx{position:absolute;top:16px;right:20px;color:var(--ink2);font-size:30px;line-height:1}
 
   /* TOURS */
   .featured{background:linear-gradient(135deg,#1c1a16,#15151d);border:1px solid var(--line2);
@@ -232,6 +262,7 @@
       <a href="#courage">Courage</a>
       <a href="#gallery">Gallery</a>
       <a href="#films">Films</a>
+      <a href="#sites">Sites</a>
       <a href="#battles">Battles</a>
       <a href="#visit">Visit</a>
       <a href="#tours">Tours</a>
@@ -290,7 +321,7 @@
         <h3 style="margin-top:6px">Facts every visitor should know</h3>
         <p style="display:flex;gap:10px"><svg class="anemone"><use href="#anemone"/></svg> The site is now the <strong>Nova Festival Victims Memorial</strong> at the Re'im parking lot — free and open to the public.</p>
         <p style="display:flex;gap:10px"><svg class="anemone"><use href="#anemone"/></svg> Red <strong>anemones</strong> (kalaniot), which bloom in this forest each winter, are the memorial's symbol for the young lives lost.</p>
-        <p style="display:flex;gap:10px"><svg class="anemone"><use href="#anemone"/></svg> As of the October 2025 releases, <strong>all 44</strong> people taken from Nova have been accounted for — survivors returned, and the fallen brought home.</p>
+        <p style="display:flex;gap:10px"><svg class="anemone"><use href="#anemone"/></svg> Through the hostage releases that concluded in <strong>late 2025</strong>, the living survivors from Nova returned home, and nearly all of the fallen were brought back to be laid to rest.</p>
       </div>
     </div>
   </div>
@@ -308,6 +339,8 @@
       <div class="item key"><div class="t">6:29–6:30&nbsp;am · The rockets begin</div><div class="d">A massive rocket barrage from Gaza streaks over the site. The music is cut as rockets become visible overhead — the opening of a wider assault of thousands of rockets and a mass border breach.</div></div>
       <div class="item"><div class="t">~6:35&nbsp;am · Evacuation ordered</div><div class="d">The senior police officer on duty orders the festival shut down and evacuated because of the unusually heavy rocket fire. Minutes later, officers are pulled away to defend nearby towns also under attack.</div></div>
       <div class="item rose"><div class="t">6:30–7:00&nbsp;am · The border is breached</div><div class="d">Hamas-led militants cross into Israel by vehicle, motorcycle and motorised paraglider. An IDF report later estimates roughly 6,000 attackers breached the border that morning across some 119 points.</div></div>
+      <div class="item site"><span class="loc">Elsewhere · by sea</span><div class="t">~6:29–7:30&nbsp;am · The seaborne assault at Zikim</div><div class="d">On the coast north of Gaza, naval commandos approach Zikim beach in small boats. The Israeli navy destroys most of the flotilla at sea; the few who reach shore are stopped at the Zikim base — one of the few places the attack is largely repelled at its entry point.</div></div>
+      <div class="item site"><span class="loc">Elsewhere · Sderot</span><div class="t">~6:58–7:00&nbsp;am · The Sderot police station is seized</div><div class="d">Around 40 gunmen enter the town of Sderot and take over the police station, turning it into a fortress. A day-long battle by police, IDF, Yamam and Shin Bet ends only when the building is demolished overnight.</div></div>
       <div class="item"><div class="t">~7:00&nbsp;am · Mass flight onto Route 232</div><div class="d">A second siren sends festival-goers running for their cars. Thousands stream onto Route 232 and the surrounding dirt roads — the only designated way out.</div></div>
       <div class="item rose"><div class="t">~8:00&nbsp;am · The roads become the trap</div><div class="d">By now about 90% of attendees have left the grounds, but many are caught in traffic. A militant force — roughly 110 fighters in some 14 pickups and on motorcycles — advances toward the area, having captured junctions along the highway.</div></div>
       <div class="item rose"><div class="t">8:12–8:20&nbsp;am · Roadblock overrun</div><div class="d">Militants open fire on an under-manned police roadblock on Route 232 and fire an RPG, then storm past it onto the festival grounds and the escape roads. Officers open a dirt track east into the fields, a decision that lets thousands escape on foot.</div></div>
@@ -478,6 +511,28 @@
 
 <hr class="divider" />
 
+<!-- KEY SITES OF OCTOBER 7 -->
+<section id="sites">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Wider Map</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 10px">Key sites of October 7</h2>
+    <p class="lede">The same morning, the whole Gaza envelope was attacked at once — by land and by sea. These are the places a visitor passes near on the way to Re'im, in a line each. Figures are approximate and widely reported.</p>
+    <div class="sites">
+      <div class="sitecard"><div class="top"><h3>Zikim beach</h3><span class="tollchip">seaborne · ~17 killed</span></div><p>Naval commandos landed by boat on the coast north of Gaza. Most of the flotilla was destroyed at sea — one of the few assaults repelled at its entry point.</p></div>
+      <div class="sitecard"><div class="top"><h3>Sderot</h3><span class="tollchip">~53 killed</span></div><p>Gunmen seized the town's police station and held it for a day; it was demolished to end the siege. The ruin is now a memorial and heroes' park.</p></div>
+      <div class="sitecard"><div class="top"><h3>Kibbutz Be'eri</h3><span class="tollchip">~130 killed · ~30 taken</span></div><p>One of the worst-hit communities; recapturing it took the IDF days. Much of the kibbutz was destroyed.</p></div>
+      <div class="sitecard"><div class="top"><h3>Kibbutz Kfar Aza</h3><span class="tollchip">~62 killed · ~19 taken</span></div><p>Overrun within an hour; a symbol of the border communities caught unprotected at dawn.</p></div>
+      <div class="sitecard"><div class="top"><h3>Kibbutz Nir Oz</h3><span class="tollchip">~47 killed · ~76 taken</span></div><p>Proportionally the hardest hit — about a quarter of residents killed or abducted, one of the day's highest hostage tolls.</p></div>
+      <div class="sitecard"><div class="top"><h3>Nahal Oz</h3><span class="tollchip">~68 killed · ~10 taken</span></div><p>The IDF base — home to the young surveillance spotters who had warned for months — and its adjacent community were overwhelmed.</p></div>
+      <div class="sitecard"><div class="top"><h3>Kibbutz Nir Am</h3><span class="tollchip good">0 residents killed</span></div><p>A rare successful defence: coordinator Inbal Rabin-Lieberman armed the standby squad and, with a Golani company, held the gate.</p></div>
+      <div class="sitecard"><div class="top"><h3>Netiv HaAsara</h3><span class="tollchip">~15–20 killed</span></div><p>The moshav closest to Gaza's northern edge, struck in the first minutes of the assault.</p></div>
+    </div>
+    <p class="maptip">Nova sat at the centre of this map. Watch the reports from these sites below.</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
 <!-- BATTLES & KEY SITES -->
 <section id="battles" style="background:var(--bg2)">
   <div class="wrap reveal">
@@ -560,8 +615,8 @@
       <h3 style="font-size:22px;margin:14px 0 4px">Gaza Envelope Excursion Following October 7th — from Tel Aviv</h3>
       <p style="color:var(--ink2);margin:.2em 0">A ~9-hour full day with a local guide: Sderot, the Tkuma car memorial, Givat Kobi, and the Nova Festival memorial. Hotel pickup; small groups.</p>
       <div class="rating">
-        <div class="score"><span class="val">5.0</span><div><div class="stars">★★★★★</div><small>TripAdvisor · 20 reviews · 100% recommend</small></div></div>
-        <div class="score"><span class="val" style="color:var(--good)">96%</span><div><div class="stars" style="color:var(--good)">recommend</div><small>Viator · 25 reviews · Badge of Excellence</small></div></div>
+        <div class="score"><span class="val">5.0</span><div><div class="stars">★★★★★</div><small>TripAdvisor · 100% recommend</small></div></div>
+        <div class="score"><span class="val" style="color:var(--good)">96%</span><div><div class="stars" style="color:var(--good)">recommend</div><small>Viator · Badge of Excellence</small></div></div>
       </div>
       <div class="quotes">
         <div class="quote">"Heart wrenching but necessary to bear witness. Our tour guide was very informative…"<cite>— TripAdvisor review, 2026</cite></div>
@@ -601,7 +656,7 @@
         <a class="go" href="https://dannythedigger.com/tours/nova/" target="_blank" rel="noopener">Details ↗</a>
       </div>
     </div>
-    <p class="maptip">Where a specific star rating could not be independently confirmed on the operator's own page, it is marked "not published" rather than estimated. The verified 5.0 / 96% figures above belong to the featured Tel-Aviv product.</p>
+    <p class="maptip">Ratings shown are from the tour's TripAdvisor and Viator listings and were consistently near 5.0 as of early 2026 — live marketplace scores and review counts change over time, so check the current listing before booking. Where a rating was not independently confirmable it is marked "not published" rather than estimated.</p>
   </div>
 </section>
 
@@ -670,6 +725,8 @@
   </div>
 </section>
 
+<div id="lightbox"><span class="lbx" aria-hidden="true">×</span><img alt="" /><p class="lbcap"></p></div>
+
 <footer>
   <div class="wrap" style="padding-block:56px">
     <svg class="flame" viewBox="0 0 64 96" aria-hidden="true"><use href="#flame"/></svg>
@@ -686,6 +743,7 @@
   // YouTube click-to-load facades (keeps the page light on mobile)
   document.querySelectorAll('.vfr[data-yt]').forEach(function(el){
     var id = el.getAttribute('data-yt');
+    var watchUrl = 'https://www.youtube.com/watch?v='+id;
     var thumb = document.createElement('img');
     thumb.loading='lazy'; thumb.alt='';
     thumb.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';
@@ -698,20 +756,50 @@
     el.appendChild(btn);
     var dur=el.getAttribute('data-dur');
     if(dur){ var d=document.createElement('span'); d.className='dur'; d.textContent=dur; el.appendChild(d); }
-    el.addEventListener('click',function(){
+    // add a guaranteed "Watch on YouTube" link to the card (works even if the embed is blocked)
+    var meta = el.parentNode.querySelector('.vmeta');
+    if(meta){
+      var a=document.createElement('a');
+      a.className='ytlink'; a.href=watchUrl; a.target='_blank'; a.rel='noopener';
+      a.innerHTML='▶ Watch on YouTube <span aria-hidden="true">↗</span>';
+      meta.appendChild(a);
+    }
+    var loaded=false;
+    el.addEventListener('click',function(ev){
+      if(loaded) return; loaded=true;
       var f=document.createElement('iframe');
-      f.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+      // privacy-enhanced domain + playsinline improves reliability across mobile webviews
+      f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0&modestbranding=1';
       f.title='Documentary video';
-      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       f.allowFullscreen=true;
+      f.referrerPolicy='strict-origin-when-cross-origin';
       el.innerHTML=''; el.appendChild(f);
-    },{once:true});
+    });
   });
 
-  // graceful image fallback for gallery
+  // graceful image fallback for gallery/timeline
   document.querySelectorAll('figure img').forEach(function(img){
     img.onerror=function(){ var fig=img.closest('figure'); if(fig) fig.style.display='none'; };
   });
+
+  // ---- Lightbox: tap any marked image to view it full-screen ----
+  var lb=document.getElementById('lightbox');
+  if(lb){
+    var lbImg=lb.querySelector('img'), lbCap=lb.querySelector('.lbcap');
+    function openLb(src,cap){ lbImg.src=src; lbCap.textContent=cap||''; lb.classList.add('on'); document.body.style.overflow='hidden'; }
+    function closeLb(){ lb.classList.remove('on'); lbImg.src=''; document.body.style.overflow=''; }
+    document.querySelectorAll('.gal figure img, .tlthumb img, [data-lb]').forEach(function(img){
+      img.style.cursor='zoom-in';
+      img.addEventListener('click',function(){
+        var cap=img.getAttribute('data-cap')||img.alt||'';
+        var fc=img.closest('figure'); if(!cap && fc){ var f=fc.querySelector('figcaption'); if(f) cap=f.textContent; }
+        openLb(img.getAttribute('data-lb')||img.currentSrc||img.src, cap);
+      });
+    });
+    lb.addEventListener('click',closeLb);
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLb(); });
+  }
 
   // scroll reveal
   if('IntersectionObserver' in window){
