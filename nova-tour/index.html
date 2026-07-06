@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0d" />
+<title>Nova · 07 October 2023 — Remembrance & Visitor Guide</title>
+<meta name="description" content="A respectful documentary tribute and visitor guide to the Nova (Re'im) Music Festival memorial site — the timeline, the region, the people, and how to visit today." />
+<style>
+  :root{
+    --bg:#0a0a0d; --bg2:#101016; --panel:#15151d; --panel2:#1b1b25;
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.15);
+    --ink:#ece9e3; --ink2:#b9b4ab; --muted:#8b877e;
+    --amber:#e6b566; --amber2:#f2cf94; --gold:#d8a94f;
+    --rose:#d0555c; --rose2:#e0777c;
+    --good:#7fb69a;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --wrap:1120px;
+    --r:16px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.65;font-size:clamp(15px,1.1vw + 12px,17px);
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:var(--amber2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:.2px}
+  .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+  section{padding-block:clamp(44px,7vw,86px)}
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;
+    font-size:12px;color:var(--amber);font-weight:600;margin:0 0 14px}
+  .lede{color:var(--ink2);font-size:clamp(16px,1vw + 13px,20px);max-width:64ch}
+  .center{text-align:center;margin-inline:auto}
+  .divider{height:1px;background:var(--line);border:0;margin:0}
+
+  /* anemone bullet */
+  .anemone{width:1em;height:1em;display:inline-block;vertical-align:-.12em;flex:none}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(10,10,13,.82);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:14px;min-height:56px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);
+    font-weight:600;font-size:17px;letter-spacing:.5px;white-space:nowrap}
+  .brand b{color:var(--amber2);letter-spacing:3px}
+  .navlinks{margin-left:auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{color:var(--ink2);font-size:13px;padding:7px 11px;border-radius:999px;
+    white-space:nowrap;font-family:var(--sans)}
+  .navlinks a:hover{color:var(--ink);background:var(--panel);text-decoration:none}
+
+  /* HERO */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;
+    background:
+      radial-gradient(120% 90% at 50% -10%,rgba(230,181,102,.16),transparent 55%),
+      radial-gradient(80% 60% at 80% 110%,rgba(208,85,92,.10),transparent 60%),
+      linear-gradient(180deg,#0c0c11,#0a0a0d 60%,#08080b);
+    text-align:center;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .flame{width:min(120px,26vw);margin:0 auto 26px;filter:drop-shadow(0 0 26px rgba(230,181,102,.5))}
+  .hero .date{font-family:var(--sans);letter-spacing:.42em;text-transform:uppercase;
+    font-size:clamp(11px,2.4vw,14px);color:var(--amber);margin:0 0 18px}
+  .hero h1{font-size:clamp(52px,17vw,150px);margin:0;letter-spacing:.18em;
+    text-indent:.18em;color:var(--ink);font-weight:600;
+    text-shadow:0 0 42px rgba(230,181,102,.28)}
+  .hero .sub{font-family:var(--serif);font-style:italic;color:var(--ink2);
+    font-size:clamp(18px,4.6vw,30px);margin:16px 0 0}
+  .hero .place{margin:26px auto 0;max-width:60ch;color:var(--ink2)}
+  .hero .scroll{margin-top:40px;color:var(--muted);font-size:12px;letter-spacing:.25em;text-transform:uppercase}
+
+  .note{display:flex;gap:12px;align-items:flex-start;background:var(--panel);
+    border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;
+    padding:14px 16px;color:var(--ink2);font-size:14px;text-align:left}
+  .note svg{flex:none;margin-top:2px}
+  .hero .note{max-width:640px;margin:34px auto 0}
+
+  /* STAT BAND */
+  .stats{background:linear-gradient(180deg,#0d0d13,#0a0a0d)}
+  .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));
+    gap:14px;margin-top:8px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    padding:22px 18px;text-align:center;position:relative;overflow:hidden}
+  .stat::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:.6}
+  .stat .num{font-family:var(--serif);font-size:clamp(30px,7vw,44px);color:var(--amber2);
+    line-height:1;font-weight:600}
+  .stat .lab{margin-top:9px;font-size:13px;color:var(--ink2);letter-spacing:.02em}
+  .stat.rose .num{color:var(--rose2)}
+
+  /* generic panels */
+  .grid{display:grid;gap:18px}
+  .cols-2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+  .cols-3{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    padding:22px;position:relative}
+  .card h3{margin:.1em 0 .5em;font-size:20px;color:var(--ink)}
+  .card p{margin:.5em 0;color:var(--ink2)}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:600}
+
+  /* TIMELINE */
+  .tl{position:relative;margin-top:26px;padding-left:34px}
+  .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--amber),rgba(230,181,102,.15))}
+  .tl .item{position:relative;padding:0 0 26px 6px}
+  .tl .item::before{content:"";position:absolute;left:-31px;top:5px;width:14px;height:14px;
+    border-radius:50%;background:var(--bg);border:2px solid var(--amber);
+    box-shadow:0 0 0 4px rgba(230,181,102,.12)}
+  .tl .item.key::before{background:var(--amber);box-shadow:0 0 14px rgba(230,181,102,.7)}
+  .tl .item.rose::before{border-color:var(--rose2);box-shadow:0 0 0 4px rgba(208,85,92,.14)}
+  .tl .t{font-family:var(--serif);color:var(--amber2);font-size:18px;font-weight:600}
+  .tl .item.rose .t{color:var(--rose2)}
+  .tl .d{color:var(--ink2);margin-top:3px}
+
+  /* MAP */
+  .mapwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    padding:14px;margin-top:24px}
+  .mapwrap svg{width:100%;height:auto;display:block;border-radius:10px}
+  .legend{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px;font-size:13px;color:var(--ink2)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .dotp{width:11px;height:11px;border-radius:50%;flex:none}
+  .maptip{font-size:12.5px;color:var(--muted);margin-top:10px}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px;margin-top:24px}
+  figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  figure img{width:100%;height:210px;object-fit:cover;background:var(--panel2)}
+  figure figcaption{padding:12px 14px;font-size:13px;color:var(--ink2)}
+  figure figcaption .cr{display:block;margin-top:6px;font-size:11px;color:var(--muted)}
+
+  /* VIDEO facades */
+  .vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:24px}
+  .vid{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .vfr{position:relative;aspect-ratio:16/9;background:#000 center/cover no-repeat;cursor:pointer}
+  .vfr iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vfr .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(180deg,rgba(8,8,11,.15),rgba(8,8,11,.65))}
+  .vfr .play svg{width:60px;height:60px;filter:drop-shadow(0 4px 14px rgba(0,0,0,.6));transition:transform .2s}
+  .vfr:hover .play svg{transform:scale(1.08)}
+  .vmeta{padding:13px 15px}
+  .vmeta .ch{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .vmeta .ti{font-size:14.5px;color:var(--ink);margin-top:5px;line-height:1.4}
+
+  /* TOURS */
+  .featured{background:linear-gradient(135deg,#1c1a16,#15151d);border:1px solid var(--line2);
+    border-radius:20px;padding:clamp(20px,3vw,32px);margin-top:26px;position:relative;overflow:hidden}
+  .featured::after{content:"";position:absolute;right:-40px;top:-40px;width:200px;height:200px;
+    background:radial-gradient(circle,rgba(230,181,102,.16),transparent 70%)}
+  .ribbon{display:inline-flex;align-items:center;gap:8px;background:rgba(230,181,102,.14);
+    border:1px solid rgba(230,181,102,.35);color:var(--amber2);font-size:12px;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+  .rating{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:16px 0}
+  .score{display:flex;align-items:center;gap:10px}
+  .score .val{font-family:var(--serif);font-size:34px;color:var(--amber2);line-height:1}
+  .stars{color:var(--gold);font-size:17px;letter-spacing:2px}
+  .score small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+  .quotes{display:grid;gap:12px;margin-top:18px}
+  .quote{border-left:2px solid var(--gold);padding:4px 0 4px 14px;color:var(--ink2);font-style:italic;font-size:14.5px}
+  .quote cite{display:block;font-style:normal;color:var(--muted);font-size:12px;margin-top:5px}
+  .tourgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px;margin-top:20px}
+  .tour{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column}
+  .tour h3{font-size:18px;margin:.1em 0 .3em}
+  .tour .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+  .tour p{color:var(--ink2);font-size:14px;flex:1}
+  .badge{align-self:flex-start;font-size:12px;padding:4px 10px;border-radius:999px;margin-top:12px;
+    background:rgba(127,182,154,.13);border:1px solid rgba(127,182,154,.3);color:var(--good)}
+  .badge.n{background:var(--panel2);border-color:var(--line);color:var(--muted)}
+  .tour a.go{margin-top:12px;font-size:13px;font-weight:600}
+
+  /* VISIT box */
+  .visit{background:linear-gradient(135deg,#141a17,#12151a);border:1px solid rgba(127,182,154,.22);
+    border-radius:20px;padding:clamp(20px,3vw,32px)}
+  .visit .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px;margin-top:18px}
+  .vitem{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .vitem .h{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--good);font-weight:600;margin-bottom:6px}
+  .vitem p{margin:0;font-size:14px;color:var(--ink2)}
+  .vitem a{font-size:14px}
+  .checklist{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+  .checklist li{display:flex;gap:11px;align-items:flex-start;color:var(--ink2);font-size:14.5px}
+  .checklist svg{flex:none;margin-top:3px}
+
+  /* SOURCES */
+  .srcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:22px;margin-top:22px}
+  .srccol h4{font-family:var(--sans);font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--amber);margin:0 0 10px}
+  .srccol ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+  .srccol a{font-size:13.5px;color:var(--ink2)}
+  .srccol a:hover{color:var(--amber2)}
+
+  footer{border-top:1px solid var(--line);background:#08080b;text-align:center}
+  footer .flame{width:44px;margin:0 auto 16px;opacity:.9}
+  footer p{color:var(--muted);font-size:13.5px;max-width:60ch;margin:8px auto}
+  footer .big{font-family:var(--serif);font-style:italic;color:var(--ink2);font-size:20px}
+
+  /* progressive enhancement: content is visible by default; only hidden once JS confirms it can reveal it */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- reusable flame + anemone svg symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flame" viewBox="0 0 64 96">
+    <path d="M32 4c3 14-9 19-9 33 0 0-6-4-6-13C10 33 6 47 6 60a26 26 0 0052 0c0-16-11-24-15-34-3-8-2-16-11-22z" fill="url(#fg)"/>
+    <path d="M32 40c2 7-5 10-5 18a11 11 0 0022 0c0-9-9-11-11-20-2 6-6 6-6 2z" fill="#fff3d6"/>
+    <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2cf94"/><stop offset="1" stop-color="#d0555c"/></linearGradient>
+  </symbol>
+  <symbol id="anemone" viewBox="0 0 24 24">
+    <g fill="#d0555c"><ellipse cx="12" cy="5" rx="3" ry="5"/><ellipse cx="12" cy="19" rx="3" ry="5"/><ellipse cx="5" cy="12" rx="5" ry="3"/><ellipse cx="19" cy="12" rx="5" ry="3"/><ellipse cx="7" cy="7" rx="3.4" ry="4.6" transform="rotate(-45 7 7)"/><ellipse cx="17" cy="7" rx="3.4" ry="4.6" transform="rotate(45 17 7)"/><ellipse cx="7" cy="17" rx="3.4" ry="4.6" transform="rotate(45 7 17)"/><ellipse cx="17" cy="17" rx="3.4" ry="4.6" transform="rotate(-45 17 17)"/></g>
+    <circle cx="12" cy="12" r="3.2" fill="#1a1a10"/>
+  </symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><svg class="anemone" style="width:18px;height:18px"><use href="#anemone"/></svg> <span><b>NOVA</b> · Remembrance</span></div>
+    <nav class="navlinks">
+      <a href="#story">The Story</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#map">The Region</a>
+      <a href="#places">Locations</a>
+      <a href="#courage">Courage</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#films">Films</a>
+      <a href="#visit">Visit</a>
+      <a href="#tours">Tours</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <svg class="flame" viewBox="0 0 64 96" aria-hidden="true"><use href="#flame"/></svg>
+    <p class="date">Re'im · Western Negev · Israel</p>
+    <h1>NOVA</h1>
+    <p class="sub">Where the music stopped — 07 October 2023</p>
+    <p class="place">A dawn gathering of thousands who came to dance for peace became the deadliest single site of the October 7 attacks. This is a place of remembrance — and a guide for those who come to bear witness.</p>
+    <div class="note">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d8a94f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <div><strong>A note on the date.</strong> The attack took place on the morning of <strong>Saturday, 7 October 2023</strong> (the Jewish holiday of Simchat Torah / Shemini Atzeret). Every fact on this page is drawn from reputable, published sources — listed in full at the end.</div>
+    </div>
+    <p class="scroll">Scroll to remember ↓</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="facts">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Festival, in Numbers</p>
+    <h2 style="margin:0 0 6px;font-size:clamp(26px,4.4vw,38px)">The Supernova Sukkot Gathering</h2>
+    <p class="lede">An all-night open-air trance festival — the Israeli edition of Brazil's Universo Paralello — held in a eucalyptus grove near Kibbutz Re'im, about 5&nbsp;km from the Gaza border.</p>
+    <div class="statgrid">
+      <div class="stat"><div class="num">~3,500</div><div class="lab">people present at dawn<br><span style="color:var(--muted);font-size:12px">(estimates 3,000–4,000)</span></div></div>
+      <div class="stat"><div class="num">6:29<span style="font-size:.5em">am</span></div><div class="lab">the rockets began; the music stopped</div></div>
+      <div class="stat rose"><div class="num">378</div><div class="lab">killed at the site<br><span style="color:var(--muted);font-size:12px">344 civilians · 34 security personnel</span></div></div>
+      <div class="stat rose"><div class="num">44</div><div class="lab">taken hostage into Gaza</div></div>
+      <div class="stat"><div class="num">~5<span style="font-size:.5em">km</span></div><div class="lab">from the Gaza border fence</div></div>
+    </div>
+    <p class="maptip">The Nova toll represents roughly half of all civilians killed across the entire October 7 assault (~1,200 people killed, 251 taken hostage that day). It was the single deadliest location. <em>Figures per the Israeli investigation released April 2025; the count rose over time as victims were identified.</em></p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- STORY -->
+<section id="story">
+  <div class="wrap reveal">
+    <p class="eyebrow">What Nova Was</p>
+    <div class="grid cols-2">
+      <div>
+        <h2 style="font-size:clamp(24px,4vw,34px);margin:0 0 14px">A festival of peace, love and dance</h2>
+        <p class="lede" style="max-width:none">Nova was built on the psytrance ideals of unity and connection. Young people travelled from across Israel and the world to greet the sunrise together over the Sukkot holiday weekend — a field of music, art installations, and open-air dance floors under the desert sky.</p>
+        <p style="color:var(--ink2)">By sunrise on 7 October, the border only a few kilometres to the west had been breached in scores of places. What began as sirens and distant rockets became, within an hour, the deadliest terror attack in Israel's history. The people here were unarmed civilians — dancers, medics, bartenders, photographers, friends.</p>
+        <p style="color:var(--ink2)">This page tells their story with care: the sequence of that morning, the geography that shaped it, the acts of courage within it, and how the site is honoured — and visited — today.</p>
+      </div>
+      <div class="card" style="align-self:start">
+        <p class="kicker">At a glance</p>
+        <h3 style="margin-top:6px">Facts every visitor should know</h3>
+        <p style="display:flex;gap:10px"><svg class="anemone"><use href="#anemone"/></svg> The site is now the <strong>Nova Festival Victims Memorial</strong> at the Re'im parking lot — free and open to the public.</p>
+        <p style="display:flex;gap:10px"><svg class="anemone"><use href="#anemone"/></svg> Red <strong>anemones</strong> (kalaniot), which bloom in this forest each winter, are the memorial's symbol for the young lives lost.</p>
+        <p style="display:flex;gap:10px"><svg class="anemone"><use href="#anemone"/></svg> As of the October 2025 releases, <strong>all 44</strong> people taken from Nova have been accounted for — survivors returned, and the fallen brought home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TIMELINE -->
+<section id="timeline" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Morning of 7 October 2023</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 10px">A reconstructed timeline</h2>
+    <p class="lede">Times are local and approximate, drawn largely from the official Israeli investigation as reported by The Times of Israel, Ynet, CNN and others. They reflect successive waves rather than a single assault.</p>
+    <div class="tl">
+      <div class="item key"><div class="t">6:29–6:30&nbsp;am · The rockets begin</div><div class="d">A massive rocket barrage from Gaza streaks over the site. The music is cut as rockets become visible overhead — the opening of a wider assault of thousands of rockets and a mass border breach.</div></div>
+      <div class="item"><div class="t">~6:35&nbsp;am · Evacuation ordered</div><div class="d">The senior police officer on duty orders the festival shut down and evacuated because of the unusually heavy rocket fire. Minutes later, officers are pulled away to defend nearby towns also under attack.</div></div>
+      <div class="item rose"><div class="t">6:30–7:00&nbsp;am · The border is breached</div><div class="d">Hamas-led militants cross into Israel by vehicle, motorcycle and motorised paraglider. An IDF report later estimates roughly 6,000 attackers breached the border that morning across some 119 points.</div></div>
+      <div class="item"><div class="t">~7:00&nbsp;am · Mass flight onto Route 232</div><div class="d">A second siren sends festival-goers running for their cars. Thousands stream onto Route 232 and the surrounding dirt roads — the only designated way out.</div></div>
+      <div class="item rose"><div class="t">~8:00&nbsp;am · The roads become the trap</div><div class="d">By now about 90% of attendees have left the grounds, but many are caught in traffic. A militant force — roughly 110 fighters in some 14 pickups and on motorcycles — advances toward the area, having captured junctions along the highway.</div></div>
+      <div class="item rose"><div class="t">8:12–8:20&nbsp;am · Roadblock overrun</div><div class="d">Militants open fire on an under-manned police roadblock on Route 232 and fire an RPG, then storm past it onto the festival grounds and the escape roads. Officers open a dirt track east into the fields, a decision that lets thousands escape on foot.</div></div>
+      <div class="item rose"><div class="t">Morning · The roadside shelters</div><div class="d">Fleeing attendees shelter in small concrete roadside bomb shelters along Route 232. Several become sites of massacre — later known as the "shelters of death." It is here that Aner Shapira and Hersh Goldberg-Polin make their stand (below).</div></div>
+      <div class="item"><div class="t">~10:00&nbsp;am · The scale becomes clear</div><div class="d">The IDF General Staff does not grasp that a mass-casualty event is unfolding at Nova until around this hour — roughly three hours in — a central failure identified by the later investigation.</div></div>
+      <div class="item key"><div class="t">~11:20&nbsp;am · First troops arrive</div><div class="d">After a soldier on leave phones his commander, a Givati Brigade battalion commander rushes in with about 11 soldiers and begins clearing the area.</div></div>
+      <div class="item key"><div class="t">~1:30&nbsp;pm · The grounds are secured</div><div class="d">It takes until roughly early afternoon for the IDF to regain full control of the festival site. Clearing operations across the Gaza-envelope region continue for days. 44 people have been taken hostage into Gaza.</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- MAP -->
+<section id="map">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Region</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 10px">Geography of the morning</h2>
+    <p class="lede">The festival sat in the Gaza Envelope (Otef Aza), about 500&nbsp;m east of Route 232 and ~5&nbsp;km from the border. Escape routes ran north and south along a single road — and, for many, east across open fields to safety.</p>
+    <div class="mapwrap">
+      <svg viewBox="0 0 820 500" role="img" aria-label="Schematic map of the Nova festival area near Re'im">
+        <defs>
+          <pattern id="hatch" width="10" height="10" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+            <rect width="10" height="10" fill="#161018"/><line x1="0" y1="0" x2="0" y2="10" stroke="#3a2530" stroke-width="4"/>
+          </pattern>
+          <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12140f"/><stop offset="1" stop-color="#0e0f0b"/></linearGradient>
+          <marker id="arw" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0l6 3-6 3z" fill="#7fb69a"/></marker>
+        </defs>
+        <rect x="0" y="0" width="820" height="500" fill="url(#land)"/>
+        <!-- Gaza -->
+        <rect x="0" y="0" width="150" height="500" fill="url(#hatch)"/>
+        <text x="20" y="255" fill="#8b6b74" font-family="Georgia" font-size="20" transform="rotate(-90 20 255)">GAZA STRIP</text>
+        <!-- border fence -->
+        <line x1="152" y1="0" x2="152" y2="500" stroke="#c05563" stroke-width="2.5" stroke-dasharray="2 6"/>
+        <text x="160" y="474" fill="#c98a92" font-family="system-ui" font-size="12">◄ Border fence</text>
+        <!-- distance bracket -->
+        <line x1="152" y1="120" x2="470" y2="120" stroke="#5a564d" stroke-width="1" stroke-dasharray="4 4"/>
+        <text x="300" y="112" fill="#9a968e" font-family="system-ui" font-size="12" text-anchor="middle">≈ 5 km</text>
+        <!-- Route 232 -->
+        <path d="M395 -10 C 380 120, 420 250, 400 380 C 390 440, 405 480, 400 510" fill="none" stroke="#e6b566" stroke-width="6" opacity=".9"/>
+        <text x="345" y="40" fill="#e6b566" font-family="system-ui" font-size="13" font-weight="600">Route 232</text>
+        <!-- east fields escape -->
+        <g stroke="#7fb69a" stroke-width="2.5" marker-end="url(#arw)" opacity=".9">
+          <line x1="560" y1="290" x2="690" y2="255"/><line x1="560" y1="330" x2="705" y2="345"/><line x1="560" y1="370" x2="680" y2="425"/>
+        </g>
+        <text x="640" y="398" fill="#9fc7b4" font-family="system-ui" font-size="13">East — to the fields,</text>
+        <text x="640" y="416" fill="#9fc7b4" font-family="system-ui" font-size="13">Patish &amp; Beersheba</text>
+        <!-- Festival site -->
+        <circle cx="452" cy="315" r="10" fill="#e6b566" stroke="#0a0a0d" stroke-width="2"/>
+        <circle cx="452" cy="315" r="18" fill="none" stroke="#e6b566" stroke-width="1" opacity=".5"/>
+        <text x="468" y="312" fill="#f2cf94" font-family="Georgia" font-size="16" font-weight="600">Nova festival site</text>
+        <text x="468" y="330" fill="#b9b4ab" font-family="system-ui" font-size="12">now the memorial</text>
+        <!-- Re'im -->
+        <rect x="486" y="238" width="13" height="13" fill="#b9b4ab"/><text x="505" y="249" fill="#d8d4cc" font-family="system-ui" font-size="13">Kibbutz Re'im</text>
+        <!-- Be'eri -->
+        <rect x="430" y="150" width="12" height="12" fill="#b9b4ab"/><text x="448" y="160" fill="#d8d4cc" font-family="system-ui" font-size="13">Kibbutz Be'eri</text>
+        <!-- Alumim -->
+        <rect x="405" y="95" width="11" height="11" fill="#9a968e"/><text x="422" y="104" fill="#b9b4ab" font-family="system-ui" font-size="12">Alumim</text>
+        <!-- shelters -->
+        <g fill="#d0555c">
+          <path d="M414 190h16v11h-16z"/><path d="M420 240h16v11h-16z"/><path d="M398 130h15v10h-15z"/>
+        </g>
+        <text x="300" y="205" fill="#e0777c" font-family="system-ui" font-size="12" text-anchor="end">Roadside</text>
+        <text x="300" y="221" fill="#e0777c" font-family="system-ui" font-size="12" text-anchor="end">"shelters of death"</text>
+        <line x1="305" y1="200" x2="396" y2="190" stroke="#d0555c" stroke-width="1" opacity=".6"/>
+      </svg>
+      <div class="legend">
+        <span><i class="dotp" style="background:#e6b566"></i> Festival site / memorial</span>
+        <span><i class="dotp" style="background:#b9b4ab;border-radius:2px"></i> Kibbutzim</span>
+        <span><i class="dotp" style="background:#d0555c;border-radius:2px"></i> Roadside shelters</span>
+        <span><i class="dotp" style="background:#e6b566"></i> Route 232</span>
+        <span><i class="dotp" style="background:#7fb69a"></i> Eastward escape</span>
+      </div>
+      <p class="maptip">Schematic — not to scale. Memorial coordinates: <strong>31.39778°N, 34.47167°E</strong> (Plus Code 9FXC+92, Re'im), reached via Route 232.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PLACES -->
+<section id="places" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <p class="eyebrow">Key Locations</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 22px">Places that hold the story</h2>
+    <div class="grid cols-3">
+      <div class="card"><p class="kicker">The Grounds</p><h3>The festival field</h3><p>An open field and eucalyptus grove by the Re'im parking lot. Dance floors, tents and art installations stood where the memorial's photographs and anemone sculptures are now planted.</p></div>
+      <div class="card"><p class="kicker">The Only Road</p><h3>Route 232</h3><p>The single north–south highway hugging the Gaza border. Directed onto it around 7&nbsp;am, fleeing attendees met militants who had already seized its junctions near Sa'ad, Alumim, Be'eri and Re'im.</p></div>
+      <div class="card"><p class="kicker">The Shelters</p><h3>The "shelters of death"</h3><p>Small concrete roadside rocket shelters (~4×2&nbsp;m) built against Gaza rocket fire. On 7 October, groups crowded inside as grenades were thrown in. CNN identified at least four along this stretch.</p></div>
+      <div class="card"><p class="kicker">Toward Safety</p><h3>The eastern fields</h3><p>The route that saved the most lives: a dirt track opened east into agricultural fields, away from Gaza — thousands crossed on foot toward Moshav Patish and on to Beersheba.</p></div>
+      <div class="card"><p class="kicker">Neighbours</p><h3>The kibbutzim</h3><p>Re'im, Alumim, Be'eri, Sa'ad and Kissufim ring the site. Several were attacked the same morning; some communities' civilian defence teams held off the assault.</p></div>
+      <div class="card"><p class="kicker">Refuge</p><h3>Moshav Patish</h3><p>The farming community to the east that took in and treated many survivors, reconnecting them with their families in the hours after they fled.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- COURAGE -->
+<section id="courage">
+  <div class="wrap reveal">
+    <p class="eyebrow">Acts of Courage</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 10px">Light within the darkness</h2>
+    <p class="lede">Amid the horror, ordinary people did extraordinary things — soldiers on leave, volunteers, and strangers who turned back toward danger to save others.</p>
+    <div class="grid cols-2" style="margin-top:24px">
+      <div class="card">
+        <h3>Aner Shapira, 22</h3>
+        <p>An off-duty soldier who took position at the mouth of a roadside shelter near Re'im where roughly two dozen young people had hidden. As militants threw grenades inside, he caught and hurled them back out — about <strong>seven times</strong> — before the eighth took his life. He is credited with saving many of those beside him.</p>
+      </div>
+      <div class="card">
+        <h3>Hersh Goldberg-Polin, 23</h3>
+        <p>American-Israeli, in that same shelter, he helped throw grenades back out and lost part of his left arm before being taken hostage. Held for nearly eleven months, his parents became global voices for the hostages. He was killed in captivity; his body was recovered in August 2024. His story became one of the most recognised of the entire crisis.</p>
+      </div>
+      <div class="card">
+        <h3>The ZAKA volunteers</h3>
+        <p>Israel's volunteer emergency and body-recovery organisation mounted its largest-ever mobilisation, tending to and recovering the dead from the grounds and the roads — civilians, not soldiers. Many now live with the weight of what they carried; a large share have struggled with PTSD.</p>
+      </div>
+      <div class="card">
+        <h3>The rescuers who turned back</h3>
+        <p>Off-duty police and soldiers, and civilians who had already escaped, drove back into the danger zone again and again to ferry the trapped to safety — some at the cost of their own freedom or lives. Farmer Rami Davidian is widely credited with rescuing hundreds using back roads he knew by heart.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- GALLERY -->
+<section id="gallery" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Memorial in Pictures</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 6px">A field of faces and flags</h2>
+    <p class="lede">Photographs from the Re'im memorial and related commemorations. All images are freely licensed via Wikimedia Commons; credits appear beneath each.</p>
+    <div class="gal">
+      <figure><img loading="lazy" alt="Portraits of the fallen displayed at the Re'im memorial" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/101894_reeim_-_memorial_PikiWiki_Israel.jpg"><figcaption>Portraits of the fallen on the festival grounds at Re'im.<span class="cr">Zeev Stein / PikiWiki Israel · CC BY 2.5</span></figcaption></figure>
+      <figure><img loading="lazy" alt="Memorial installation near Kibbutz Re'im" src="https://upload.wikimedia.org/wikipedia/commons/7/73/107956_memorial_site_-_the_%22nova%22_-_7_o_PikiWiki_Israel.jpg"><figcaption>The Nova memorial installation near Kibbutz Re'im.<span class="cr">Shlomo Roded / PikiWiki Israel · CC BY 2.5</span></figcaption></figure>
+      <figure><img loading="lazy" alt="Flowers, greenery and flag at the Nova memorial" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/105803_flowers_and_greenery_in_nova_PikiWiki_Israel.jpg"><figcaption>Flowers and greenery where families planted trees for the murdered.<span class="cr">Baruch Niv &amp; Sara Polak / PikiWiki Israel · CC BY 2.5</span></figcaption></figure>
+      <figure><img loading="lazy" alt="The Re'im parking-lot memorial complex" src="https://upload.wikimedia.org/wikipedia/commons/5/54/110711_reim_parking_lot_-_memory_PikiWiki_Israel.jpg"><figcaption>The Re'im parking-lot memorial complex.<span class="cr">Israel Preker / PikiWiki Israel · CC BY 2.5</span></figcaption></figure>
+      <figure><img loading="lazy" alt="Eucalyptus grove at the Nova site" src="https://upload.wikimedia.org/wikipedia/commons/5/50/112853_the_site_of_the_%22nova%22_massacre_PikiWiki_Israel.jpg"><figcaption>Family-built commemoration corners in the eucalyptus grove.<span class="cr">Shlomo Roded / PikiWiki Israel · CC BY 2.5</span></figcaption></figure>
+      <figure><img loading="lazy" alt="Nova installation at Hostages Square, Tel Aviv" src="https://upload.wikimedia.org/wikipedia/commons/6/69/Nova_Re%27im_festival_-_an_installation_and_booth_in_Hostages_Square_-_Israel%2C_January_2024_01.jpg"><figcaption>A Nova installation at Hostages Square, Tel Aviv, January 2024.<span class="cr">Chenspec / Wikimedia Commons · CC BY-SA 4.0</span></figcaption></figure>
+      <figure><img loading="lazy" alt="Reconstructed camping tents at the 06:29 exhibition" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Camping_tents_at_the_06-29_exhibition_of_the_Nova_Festival_01.jpg"><figcaption>Reconstructed tents at the "06:29" exhibition, Expo Tel Aviv.<span class="cr">Chenspec / Wikimedia Commons · CC BY-SA 4.0</span></figcaption></figure>
+      <figure><img loading="lazy" alt="State memorial visit to the Gaza envelope" src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Isaac_Herzog_President_of_the_State_of_Israel_on_a_memorial_trip_in_the_Gaza_Strip_Envelope_on_the_anniversary_of_the_massacre_on_October_7%2C_2023_%281%29.jpg"><figcaption>A memorial visit to the Gaza-envelope region on the first anniversary.<span class="cr">Kobi Gideon / GPO · CC BY-SA 3.0</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FILMS / VIDEOS -->
+<section id="films">
+  <div class="wrap reveal">
+    <p class="eyebrow">Watch &amp; Understand</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 6px">Documentaries &amp; survivor testimony</h2>
+    <p class="lede">Reputable broadcaster reports and official documentary trailers. Tap any thumbnail to play. Some feature emotional survivor testimony — please watch with care.</p>
+    <div class="vids" id="vids">
+      <!-- populated below via markup -->
+      <div class="vid"><div class="vfr" data-yt="aVLmgB4iS4k"></div><div class="vmeta"><div class="ch">CBS News · Official Trailer</div><div class="ti">"We Will Dance Again" — the Emmy-winning documentary</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="2McaAfPSed4"></div><div class="vmeta"><div class="ch">BBC News</div><div class="ti">"We danced with joy then hid among the dead" — survivors recall the attack</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="94GpyR5iYTY"></div><div class="vmeta"><div class="ch">yes Studios · Official Trailer</div><div class="ti">"#NOVA" — a documentary built from real-time footage</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="ImHtts0VfRI"></div><div class="vmeta"><div class="ch">VICE News</div><div class="ti">Surviving Nova — a long-form field report</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="1NP90zghvB0"></div><div class="vmeta"><div class="ch">BBC Newsnight</div><div class="ti">"We realised no one was coming to save us"</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="VHn17pxawr8"></div><div class="vmeta"><div class="ch">CBS Mornings</div><div class="ti">Survival stories from the Nova festival</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="snVmrM-LoB0"></div><div class="vmeta"><div class="ch">CBC News: The National</div><div class="ti">Surviving trauma, two years on</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="a8B6oV20xv4"></div><div class="vmeta"><div class="ch">CBS News</div><div class="ti">A survivor on instincts during the rampage</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="JFp-82K-xwE"></div><div class="vmeta"><div class="ch">10 News (Australia)</div><div class="ti">Survivors speak on the anniversary of the attack</div></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- AFTERMATH -->
+<section id="aftermath" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <p class="eyebrow">Aftermath &amp; Remembrance</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 22px">How the world remembers</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>The Memorial at Re'im</h3><p>Established by the victims' families with the Jewish National Fund (KKL) on the site itself — photographs of each person, Israeli flags, a planted memorial forest, and red anemone sculptures. It has become one of the most-visited sites in the country.</p></div>
+      <div class="card"><h3>The "car memorial" at Tkuma</h3><p>Near Tkuma junction, the burned and bullet-scarred vehicles collected from the festival and surrounding sites are gathered into a stark field of remembrance — many never reclaimed by families.</p></div>
+      <div class="card"><h3>The Nova Exhibition</h3><p>"The Moment Music Stood Still" recreates the festival — tents, dance floor, recovered belongings. First shown at Expo Tel Aviv, it has toured New York, Los Angeles, Miami, Washington, Buenos Aires, Berlin and more, drawing over 600,000 visitors. Proceeds support the Tribe of Nova Foundation.</p></div>
+      <div class="card"><h3>The films</h3><p><em>We Will Dance Again</em> (2024) won an Emmy for Outstanding Current Affairs Documentary; <em>Supernova: The Music Festival Massacre</em> and <em>#NOVA</em> assemble survivor testimony and attendees' own footage into an enduring record.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- VISIT -->
+<section id="visit">
+  <div class="wrap reveal">
+    <p class="eyebrow">Visiting Today</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 10px">Coming to bear witness</h2>
+    <p class="lede">The Nova Festival Victims Memorial welcomes visitors who come to pay their respects. If you are travelling to the region now, here is what to know.</p>
+    <div class="visit" style="margin-top:22px">
+      <div class="row">
+        <div class="vitem"><div class="h">Cost</div><p>Free. The memorial is an open-air site maintained by the families and JNF/KKL.</p></div>
+        <div class="vitem"><div class="h">Hours</div><p>Open-air and effectively accessible around the clock; daylight visits (~08:00–17:00) are recommended.</p></div>
+        <div class="vitem"><div class="h">Getting there</div><p>By car via <strong>Route 232</strong>, at the Re'im parking lot. There is no direct public transport — drive or join a guided tour.</p></div>
+        <div class="vitem"><div class="h">Coordinates</div><p><strong>31.39778°N, 34.47167°E</strong><br>Plus Code 9FXC+92, Re'im.</p></div>
+      </div>
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7fb69a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> This is an active place of mourning — families are often present. Move gently and quietly, and photograph respectfully.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7fb69a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Dress modestly and bring a passport — the wider border area has checkpoints.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7fb69a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Nearby kibbutzim (Be'eri, Kfar Aza, Nir Oz) are generally restricted — access usually requires an authorised or guided visit.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7fb69a" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> This is a border region. Check current conditions and Home Front Command guidance before and during your visit.</li>
+      </ul>
+      <div class="note" style="margin-top:20px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d8a94f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Two things are often confused: the <strong>Memorial at Re'im</strong> is the free outdoor site described here; the <strong>Nova Exhibition</strong> is the paid, travelling museum installation shown in cities abroad. This guide is about visiting the site itself.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TOURS -->
+<section id="tours" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <p class="eyebrow">Guided Tours</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 10px">Visiting with a guide</h2>
+    <p class="lede">A guide adds context, navigates checkpoints, and often includes survivors' own testimony. October&nbsp;7 memorial tours are consistently among the highest-rated experiences in the region. Ratings below are shown exactly as published, with the platform named.</p>
+
+    <div class="featured">
+      <span class="ribbon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e6b566"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg> Highest verified rating</span>
+      <h3 style="font-size:22px;margin:14px 0 4px">Gaza Envelope Excursion Following October 7th — from Tel Aviv</h3>
+      <p style="color:var(--ink2);margin:.2em 0">A ~9-hour full day with a local guide: Sderot, the Tkuma car memorial, Givat Kobi, and the Nova Festival memorial. Hotel pickup; small groups.</p>
+      <div class="rating">
+        <div class="score"><span class="val">5.0</span><div><div class="stars">★★★★★</div><small>TripAdvisor · 20 reviews · 100% recommend</small></div></div>
+        <div class="score"><span class="val" style="color:var(--good)">96%</span><div><div class="stars" style="color:var(--good)">recommend</div><small>Viator · 25 reviews · Badge of Excellence</small></div></div>
+      </div>
+      <div class="quotes">
+        <div class="quote">"Heart wrenching but necessary to bear witness. Our tour guide was very informative…"<cite>— TripAdvisor review, 2026</cite></div>
+        <div class="quote">"A deeply emotional experience but one well worth it. Our guide was truly fantastic…"<cite>— TripAdvisor review, 2026</cite></div>
+        <div class="quote">"…felt safe, and the explanations brought each site to life — an important experience I will never forget."<cite>— TripAdvisor review, 2025</cite></div>
+      </div>
+      <p style="margin-top:16px"><a href="https://www.viator.com/tours/Tel-Aviv/Gaza-Envelope-Excursion-Following-October-7th-from-Tel-Aviv/d920-5209P184" target="_blank" rel="noopener">View on Viator ↗</a> &nbsp;·&nbsp; <a href="https://www.tripadvisor.com/AttractionProductReview-g293984-d33054991-Gaza_Envelope_Excursion_Following_October_7th_from_Tel_Aviv-Tel_Aviv_Tel_Aviv_Dist.html" target="_blank" rel="noopener">View on TripAdvisor ↗</a></p>
+    </div>
+
+    <div class="tourgrid">
+      <div class="tour">
+        <h3>Abraham Tours — with a Nova survivor</h3>
+        <div class="meta">Full day · from Tel Aviv, Jerusalem &amp; Nazareth · ages 16+</div>
+        <p>Led by Amit Musaei, a Nova survivor who guides visitors through his own story — Sderot, the Nova site and the Tkuma car memorial, with themes of resilience and rebirth.</p>
+        <span class="badge">Reputable established operator</span>
+        <a class="go" href="https://www.abrahamtours.com/tours/gaza-envelope-tour-october-7-survivor/" target="_blank" rel="noopener">Details ↗</a>
+      </div>
+      <div class="tour">
+        <h3>Tourist Israel — small group</h3>
+        <div class="meta">Full day · from Tel Aviv &amp; Jerusalem</div>
+        <p>A small-group October 7 memorial tour taking in Sderot, roadside shelters, the Re'im area and the Nova memorial, on guaranteed departures.</p>
+        <span class="badge n">Rating not published</span>
+        <a class="go" href="https://www.touristisrael.com/tours/gaza-border-nova-festival-small-oct-7-memorial/" target="_blank" rel="noopener">Details ↗</a>
+      </div>
+      <div class="tour">
+        <h3>Private Nova memorial visit</h3>
+        <div class="meta">Half–full day · private driver-guide · from Tel Aviv</div>
+        <p>A focused private trip to the Nova memorial with a driver who guides you through the security checkpoints, with the option to also see Kibbutz Re'im nearby.</p>
+        <span class="badge n">Private · listed on GetYourGuide</span>
+        <a class="go" href="https://www.getyourguide.com/tel-aviv-l487/from-tel-aviv-nova-music-festival-memorial-site-visit-t704772/" target="_blank" rel="noopener">Details ↗</a>
+      </div>
+      <div class="tour">
+        <h3>Danny the Digger — private</h3>
+        <div class="meta">Flexible · private licensed guide</div>
+        <p>A customisable private day for families or small groups: the Nova memorial, Sderot and Gaza-envelope overlooks with a long-established licensed guide.</p>
+        <span class="badge n">Private · by arrangement</span>
+        <a class="go" href="https://dannythedigger.com/tours/nova/" target="_blank" rel="noopener">Details ↗</a>
+      </div>
+    </div>
+    <p class="maptip">Where a specific star rating could not be independently confirmed on the operator's own page, it is marked "not published" rather than estimated. The verified 5.0 / 96% figures above belong to the featured Tel-Aviv product.</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SUPPORT -->
+<section id="support">
+  <div class="wrap reveal center">
+    <svg class="anemone" style="width:34px;height:34px;margin:0 auto 12px"><use href="#anemone"/></svg>
+    <h2 style="font-size:clamp(24px,4vw,32px);margin:0 0 10px">The Tribe of Nova Foundation</h2>
+    <p class="lede center">The survivors' and families' nonprofit supports thousands of affected families with medical and mental-health care, memorial events, and remembrance. The travelling exhibition's proceeds go to its work.</p>
+    <p style="margin-top:18px"><a href="https://novaexhibition.com/the-tribe-of-nova-foundation" target="_blank" rel="noopener">novaexhibition.com — the Tribe of Nova Foundation ↗</a></p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SOURCES -->
+<section id="sources" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <p class="eyebrow">For the Record</p>
+    <h2 style="font-size:clamp(24px,4vw,32px);margin:0 0 6px">Sources</h2>
+    <p class="lede">Every figure and event on this page is drawn from the reputable published sources below.</p>
+    <div class="srcgrid">
+      <div class="srccol">
+        <h4>Timeline &amp; investigation</h4>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Nova_music_festival_massacre" target="_blank" rel="noopener">Wikipedia — Nova music festival massacre</a></li>
+          <li><a href="https://www.timesofisrael.com/idf-okayed-nova-music-festival-but-didnt-inform-troops-deployed-at-border-probe-finds/" target="_blank" rel="noopener">Times of Israel — IDF probe of the Nova attack</a></li>
+          <li><a href="https://www.ynetnews.com/article/by00khoqpkg" target="_blank" rel="noopener">Ynetnews — Nova massacre probe</a></li>
+          <li><a href="https://www.cnn.com/interactive/2023/10/middleeast/hamas-music-festival-attack-investigation-cmd-intl/" target="_blank" rel="noopener">CNN — visual investigation</a></li>
+          <li><a href="https://english.alarabiya.net/News/middle-east/2025/04/04/israel-revises-death-toll-from-2023-attack-on-music-festival" target="_blank" rel="noopener">Al Arabiya — revised death toll (2025)</a></li>
+        </ul>
+      </div>
+      <div class="srccol">
+        <h4>Geography &amp; the shelters</h4>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Death_Shelters" target="_blank" rel="noopener">Wikipedia — Bomb shelter massacres, Oct 7</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Killing_of_Aner_Shapira" target="_blank" rel="noopener">Wikipedia — Killing of Aner Shapira</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Kidnapping_and_killing_of_Hersh_Goldberg-Polin" target="_blank" rel="noopener">Wikipedia — Hersh Goldberg-Polin</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Re%27im" target="_blank" rel="noopener">Wikipedia — Re'im</a></li>
+          <li><a href="https://www.timesofisrael.com/staff-sgt-aner-elyakim-shapiro-22-unarmed-he-fended-off-7-grenades/" target="_blank" rel="noopener">Times of Israel — Aner Shapira</a></li>
+        </ul>
+      </div>
+      <div class="srccol">
+        <h4>Remembrance &amp; films</h4>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Nova_Festival_Victims_Memorial" target="_blank" rel="noopener">Wikipedia — Nova Festival Victims Memorial</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/We_Will_Dance_Again" target="_blank" rel="noopener">Wikipedia — We Will Dance Again</a></li>
+          <li><a href="https://novaexhibition.com/about-the-exhibit" target="_blank" rel="noopener">Nova Exhibition — official</a></li>
+          <li><a href="https://www.timesofisrael.com/telling-victims-stories-artist-turns-novas-killing-fields-into-a-healing-memorial/" target="_blank" rel="noopener">Times of Israel — the memorial</a></li>
+          <li><a href="https://give.zakaworld.org/pathway/october-7th/" target="_blank" rel="noopener">ZAKA — October 7th response</a></li>
+        </ul>
+      </div>
+      <div class="srccol">
+        <h4>Visiting &amp; tours</h4>
+        <ul>
+          <li><a href="https://www.viator.com/tours/Tel-Aviv/Gaza-Envelope-Excursion-Following-October-7th-from-Tel-Aviv/d920-5209P184" target="_blank" rel="noopener">Viator — Gaza Envelope Excursion</a></li>
+          <li><a href="https://www.tripadvisor.com/AttractionProductReview-g293984-d33054991-Gaza_Envelope_Excursion_Following_October_7th_from_Tel_Aviv-Tel_Aviv_Tel_Aviv_Dist.html" target="_blank" rel="noopener">TripAdvisor — the same tour (5.0)</a></li>
+          <li><a href="https://www.abrahamtours.com/tours/gaza-envelope-tour-october-7-survivor/" target="_blank" rel="noopener">Abraham Tours — survivor-led</a></li>
+          <li><a href="https://www.touristisrael.com/how-to-visit-october-seventh-kibbutzim/80163/" target="_blank" rel="noopener">Tourist Israel — how to visit</a></li>
+          <li><a href="https://www.levyisraeltours.com/post/nova-festival-memorial-site-a-journey-of-remembrance-and-resilience-at-re-im" target="_blank" rel="noopener">Levy Israel Tours — visiting Re'im</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding-block:56px">
+    <svg class="flame" viewBox="0 0 64 96" aria-hidden="true"><use href="#flame"/></svg>
+    <p class="big">"We will dance again."</p>
+    <p>In memory of the 378 lives taken at the Supernova Sukkot Gathering on 7 October 2023, of those held hostage, and of all who came to dance and did not come home.</p>
+    <p style="margin-top:18px;font-size:12.5px">A remembrance &amp; visitor guide compiled from public reporting. Images via Wikimedia Commons under their respective CC licenses. Please verify current security conditions before travelling to the region.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // mark JS-capable so reveal animations engage (content stays visible if this never runs)
+  document.documentElement.className += ' js';
+  // YouTube click-to-load facades (keeps the page light on mobile)
+  document.querySelectorAll('.vfr[data-yt]').forEach(function(el){
+    var id = el.getAttribute('data-yt');
+    var thumb = document.createElement('img');
+    thumb.loading='lazy'; thumb.alt='';
+    thumb.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';
+    thumb.src='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg';
+    thumb.onerror=function(){ el.style.background='linear-gradient(135deg,#1b1b25,#101016)'; thumb.remove(); };
+    el.appendChild(thumb);
+    var btn=document.createElement('div');
+    btn.className='play';
+    btn.innerHTML='<svg viewBox="0 0 68 48"><path d="M66.5 7.7c-.8-3-3-5.2-6-6C55.3.5 34 .5 34 .5S12.7.5 7.5 1.7c-3 .8-5.2 3-6 6C.3 12.9.3 24 .3 24s0 11.1 1.2 16.3c.8 3 3 5.2 6 6C12.7 47.5 34 47.5 34 47.5s21.3 0 26.5-1.2c3-.8 5.2-3 6-6C67.7 35.1 67.7 24 67.7 24s0-11.1-1.2-16.3z" fill="#d0555c"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg>';
+    el.appendChild(btn);
+    el.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+      f.title='Documentary video';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      el.innerHTML=''; el.appendChild(f);
+    },{once:true});
+  });
+
+  // graceful image fallback for gallery
+  document.querySelectorAll('figure img').forEach(function(img){
+    img.onerror=function(){ var fig=img.closest('figure'); if(fig) fig.style.display='none'; };
+  });
+
+  // scroll reveal
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(n){ io.observe(n); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(n){ n.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
