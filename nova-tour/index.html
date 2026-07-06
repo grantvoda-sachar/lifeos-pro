@@ -141,9 +141,13 @@
     background:linear-gradient(180deg,rgba(8,8,11,.15),rgba(8,8,11,.65))}
   .vfr .play svg{width:60px;height:60px;filter:drop-shadow(0 4px 14px rgba(0,0,0,.6));transition:transform .2s}
   .vfr:hover .play svg{transform:scale(1.08)}
-  .vmeta{padding:13px 15px}
-  .vmeta .ch{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600}
-  .vmeta .ti{font-size:14.5px;color:var(--ink);margin-top:5px;line-height:1.4}
+  .vmeta{padding:14px 16px 16px}
+  .vmeta .ch{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600;display:flex;align-items:center;gap:7px}
+  .vmeta .ch::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);flex:none}
+  .vmeta .ti{font-family:var(--serif);font-size:16px;color:var(--ink);margin-top:7px;line-height:1.3;font-weight:600}
+  .vmeta .vs{font-size:13.5px;color:var(--ink2);margin-top:7px;line-height:1.55}
+  .vfr .dur{position:absolute;right:8px;bottom:8px;background:rgba(8,8,11,.82);color:#fff;
+    font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;font-family:var(--sans)}
 
   /* TOURS */
   .featured{background:linear-gradient(135deg,#1c1a16,#15151d);border:1px solid var(--line2);
@@ -228,6 +232,7 @@
       <a href="#courage">Courage</a>
       <a href="#gallery">Gallery</a>
       <a href="#films">Films</a>
+      <a href="#battles">Battles</a>
       <a href="#visit">Visit</a>
       <a href="#tours">Tours</a>
     </nav>
@@ -458,17 +463,41 @@
     <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 6px">Documentaries &amp; survivor testimony</h2>
     <p class="lede">Reputable broadcaster reports and official documentary trailers. Tap any thumbnail to play. Some feature emotional survivor testimony — please watch with care.</p>
     <div class="vids" id="vids">
-      <!-- populated below via markup -->
-      <div class="vid"><div class="vfr" data-yt="aVLmgB4iS4k"></div><div class="vmeta"><div class="ch">CBS News · Official Trailer</div><div class="ti">"We Will Dance Again" — the Emmy-winning documentary</div></div></div>
-      <div class="vid"><div class="vfr" data-yt="2McaAfPSed4"></div><div class="vmeta"><div class="ch">BBC News</div><div class="ti">"We danced with joy then hid among the dead" — survivors recall the attack</div></div></div>
-      <div class="vid"><div class="vfr" data-yt="94GpyR5iYTY"></div><div class="vmeta"><div class="ch">yes Studios · Official Trailer</div><div class="ti">"#NOVA" — a documentary built from real-time footage</div></div></div>
-      <div class="vid"><div class="vfr" data-yt="ImHtts0VfRI"></div><div class="vmeta"><div class="ch">VICE News</div><div class="ti">Surviving Nova — a long-form field report</div></div></div>
-      <div class="vid"><div class="vfr" data-yt="1NP90zghvB0"></div><div class="vmeta"><div class="ch">BBC Newsnight</div><div class="ti">"We realised no one was coming to save us"</div></div></div>
-      <div class="vid"><div class="vfr" data-yt="VHn17pxawr8"></div><div class="vmeta"><div class="ch">CBS Mornings</div><div class="ti">Survival stories from the Nova festival</div></div></div>
-      <div class="vid"><div class="vfr" data-yt="snVmrM-LoB0"></div><div class="vmeta"><div class="ch">CBC News: The National</div><div class="ti">Surviving trauma, two years on</div></div></div>
-      <div class="vid"><div class="vfr" data-yt="a8B6oV20xv4"></div><div class="vmeta"><div class="ch">CBS News</div><div class="ti">A survivor on instincts during the rampage</div></div></div>
-      <div class="vid"><div class="vfr" data-yt="JFp-82K-xwE"></div><div class="vmeta"><div class="ch">10 News (Australia)</div><div class="ti">Survivors speak on the anniversary of the attack</div></div></div>
+      <div class="vid"><div class="vfr" data-yt="aVLmgB4iS4k" data-dur="Trailer"></div><div class="vmeta"><div class="ch">CBS News · Official Trailer</div><div class="ti">"We Will Dance Again"</div><p class="vs">Trailer for the Emmy-winning feature documentary (BBC / MGM / Paramount+) reconstructing the morning almost entirely from attendees' own phone footage — the definitive filmed account.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="2McaAfPSed4" data-dur="~8 min"></div><div class="vmeta"><div class="ch">BBC News</div><div class="ti">"We danced with joy, then hid among the dead"</div><p class="vs">A dignified BBC mini-documentary in which survivors retrace their steps hour by hour — the sirens, the flight to the cars, and the hours spent hiding in the fields.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="94GpyR5iYTY" data-dur="Trailer"></div><div class="vmeta"><div class="ch">yes Studios · Official Trailer</div><div class="ti">"#NOVA"</div><p class="vs">Trailer for the documentary assembled entirely from real-time footage — phone videos, dashcams and security cameras — that captured the event as it unfolded.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="ImHtts0VfRI" data-dur="~20 min"></div><div class="vmeta"><div class="ch">VICE News</div><div class="ti">Surviving Nova</div><p class="vs">A longer-form field report that returns to the site and gives extended voice to survivors and witnesses, tracing how a peaceful rave became a mass-casualty event.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="1NP90zghvB0" data-dur="~10 min"></div><div class="vmeta"><div class="ch">BBC Newsnight</div><div class="ti">"We realised no one was coming to save us"</div><p class="vs">A Newsnight studio segment with survivors on the long wait for rescue — the central failure that the later Israeli investigation would confirm.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="VHn17pxawr8" data-dur="~6 min"></div><div class="vmeta"><div class="ch">CBS Mornings</div><div class="ti">Survival stories from Nova</div><p class="vs">A broadcast feature built around the "We Will Dance Again" documentary, interviewing survivors about the moments that saved their lives.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="snVmrM-LoB0" data-dur="~10 min"></div><div class="vmeta"><div class="ch">CBC News: The National</div><div class="ti">Surviving trauma, two years on</div><p class="vs">An anniversary mini-documentary following survivors through recovery — the lasting mental-health toll, and how the community keeps memory alive.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="a8B6oV20xv4" data-dur="~5 min"></div><div class="vmeta"><div class="ch">CBS News</div><div class="ti">A survivor on instinct and escape</div><p class="vs">One attendee's measured account of the split-second decisions — which way to run, when to hide — that carried him out of the killing zone alive.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="JFp-82K-xwE" data-dur="~8 min"></div><div class="vmeta"><div class="ch">10 News · Australia</div><div class="ti">Survivors speak on the anniversary</div><p class="vs">Survivors reflect one year later on loss, guilt and resilience — and on the promise that gives the memorial its name: that they will dance again.</p></div></div>
     </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- BATTLES & KEY SITES -->
+<section id="battles" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Wider Battle</p>
+    <h2 style="font-size:clamp(26px,4.4vw,38px);margin:0 0 10px">Iconic battles &amp; key sites of October 7</h2>
+    <p class="lede">Nova did not happen in isolation. The same morning, the communities and bases ringing the festival fought for their lives — some overrun, some defended against staggering odds. These reputable reports map the wider battlefield a visitor crosses on the way to Re'im.</p>
+    <div class="vids">
+      <div class="vid"><div class="vfr" data-yt="yZYaOFfTqM4" data-dur="Investigation"></div><div class="vmeta"><div class="ch">The Wall Street Journal</div><div class="ti">How the attack was planned in plain sight</div><p class="vs">A WSJ visual investigation showing how Hamas openly rehearsed the multi-front assault for years — essential context for everything that followed at dawn.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="WqVcaoYgeAM" data-dur="News report"></div><div class="vmeta"><div class="ch">Keshet News 12 · via All Israel News</div><div class="ti">The Battle of Sderot Police Station</div><p class="vs">The siege of the Sderot police station — one of the day's most iconic urban battles — and the fight to retake the building the militants had seized.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="QeCR-Xnwqbk" data-dur="News report"></div><div class="vmeta"><div class="ch">KAN 11 · via All Israel News</div><div class="ti">Six against a hundred: the defence of Kibbutz Re'im</div><p class="vs">How a six-member civilian emergency squad held off roughly a hundred attackers at Kibbutz Re'im, the community closest to the festival grounds.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="v3-iRM4PsIs" data-dur="Profile"></div><div class="vmeta"><div class="ch">Ruderman Family Foundation</div><div class="ti">The woman who saved Kibbutz Nir Am</div><p class="vs">At 25, security coordinator Inbal Rabin-Lieberman armed and led her community's defence team — Nir Am repelled the assault without losing a single resident.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="69yfqkg8DKk" data-dur="Survivor accounts"></div><div class="vmeta"><div class="ch">i24NEWS English</div><div class="ti">The battle at the Nahal Oz base</div><p class="vs">Survivors recount the fight at the Nahal Oz outpost — home to the young lookouts who had warned for months that something was coming.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="n-WdabiPED8" data-dur="IDF footage"></div><div class="vmeta"><div class="ch">The Times</div><div class="ti">Unseen footage of the southern base battles</div><p class="vs">Israeli military footage of the close-quarters fighting around the Re'im area and the Gaza Division sector as forces moved to retake the ground.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="VKvwPrVI06A" data-dur="~9 min"></div><div class="vmeta"><div class="ch">PBS NewsHour</div><div class="ti">Kibbutz Be'eri, a year on</div><p class="vs">PBS returns to Be'eri — one of the worst-hit communities, where more than a tenth of residents were killed — and the long road back.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="EYn2SHDcP00" data-dur="Report"></div><div class="vmeta"><div class="ch">i24NEWS English</div><div class="ti">Kfar Aza rebuilds</div><p class="vs">Militants took Kfar Aza in an hour; recapturing it took the IDF days. This report follows the shattered kibbutz as it begins to rebuild.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="nnAtrrR-dHs" data-dur="~8 min"></div><div class="vmeta"><div class="ch">PBS NewsHour</div><div class="ti">Nir Oz begins again</div><p class="vs">Proportionally the hardest-hit community — around a quarter of residents killed or taken hostage — Nir Oz confronts the slow work of return.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="puiSTi87oYw" data-dur="IDF footage"></div><div class="vmeta"><div class="ch">The National News</div><div class="ti">The seaborne assault repelled at Zikim</div><p class="vs">Military footage of the attempted amphibious landing at Zikim beach, turned back by Israeli naval and base defenders on the coast north of Gaza.</p></div></div>
+      <div class="vid"><div class="vfr" data-yt="nrE4JEdJYmQ" data-dur="~4 min"></div><div class="vmeta"><div class="ch">ABC News</div><div class="ti">Rescue: Noa Argamani and three others</div><p class="vs">A rare note of hope — the June 2024 operation that freed Nova attendee Noa Argamani and three fellow hostages from captivity in Gaza.</p></div></div>
+    </div>
+    <p class="maptip">Every clip is from a published, reputable source; graphic and shock-titled uploads were deliberately excluded. Two items (Kibbutz Re'im, Nir Am) reach the page via foundation channels re-airing broadcast segments — the original broadcaster is credited where applicable.</p>
   </div>
 </section>
 
@@ -667,6 +696,8 @@
     btn.className='play';
     btn.innerHTML='<svg viewBox="0 0 68 48"><path d="M66.5 7.7c-.8-3-3-5.2-6-6C55.3.5 34 .5 34 .5S12.7.5 7.5 1.7c-3 .8-5.2 3-6 6C.3 12.9.3 24 .3 24s0 11.1 1.2 16.3c.8 3 3 5.2 6 6C12.7 47.5 34 47.5 34 47.5s21.3 0 26.5-1.2c3-.8 5.2-3 6-6C67.7 35.1 67.7 24 67.7 24s0-11.1-1.2-16.3z" fill="#d0555c"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg>';
     el.appendChild(btn);
+    var dur=el.getAttribute('data-dur');
+    if(dur){ var d=document.createElement('span'); d.className='dur'; d.textContent=dur; el.appendChild(d); }
     el.addEventListener('click',function(){
       var f=document.createElement('iframe');
       f.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
