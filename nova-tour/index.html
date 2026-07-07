@@ -95,6 +95,13 @@
   .herocta a.ghost{color:var(--ink);border:1px solid var(--line2);background:rgba(255,255,255,.04)}
   .herocta a:hover{text-decoration:none;transform:translateY(-2px)}
   .herocta svg{flex:none}
+  .candletop{max-width:min(90%,400px);margin:6px auto 34px;border-radius:18px;overflow:hidden;
+    border:1px solid rgba(230,181,102,.5);box-shadow:0 20px 54px rgba(0,0,0,.62);background:var(--panel)}
+  .candletop img{width:100%;display:block;cursor:zoom-in}
+  .candletop figcaption{padding:16px 20px 18px;font-family:var(--serif);font-style:italic;
+    font-size:clamp(15px,2.3vw,18.5px);color:var(--amber2);line-height:1.5}
+  .candletop figcaption span{display:block;font-style:normal;font-family:var(--sans);
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:9px}
 
   .note{display:flex;gap:12px;align-items:flex-start;background:var(--panel);
     border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;
@@ -316,6 +323,10 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="wrap">
+    <figure class="candletop">
+      <img data-lb data-cap="At the Nova memorial, Re'im — a hand to the painted candle for those who came to dance. 6 July 2026." src="./img/nova-candle.jpg" alt="A visitor with his hand raised to a mural of a memorial candle and the Israeli flag at the Nova festival site">
+      <figcaption>“We light a candle for them — that their memory may never be laid to rest.”<span>At the Nova memorial · Re'im</span></figcaption>
+    </figure>
     <svg class="flame" viewBox="0 0 64 96" aria-hidden="true"><use href="#flame"/></svg>
     <div class="tourribbon"><svg class="anemone" style="width:16px;height:16px"><use href="#anemone"/></svg> <span><b>Amler's Private Tour</b> · for the Sacharowitz Family</span></div>
     <p class="date">Re'im · Western Negev · Israel</p>
@@ -370,6 +381,12 @@
       </div>
     </div>
 
+    <div class="field" style="margin-top:16px">
+      <div class="two">
+        <div class="ph"><img data-lb data-cap="The Jewish National Fund (KKL-JNF) dedication sign at the Nova memorial, Re'im, in Hebrew and English." src="./img/nova-kkl-sign.jpg" alt="The bilingual KKL-JNF memorial sign at the Nova festival site" loading="lazy" style="object-position:50% 40%"><div class="d"><b>The site's dedication.</b> The Jewish National Fund (KKL-JNF) developed the memorial together with the bereaved families, planting the "Re'im Grove" on Tu B'Shvat 2024. The sign opens with the verse <i>“Earth, do not cover my blood; may my cry never be laid to rest”</i> (Job 16:18), and asks visitors to respect a place that remembers the music and nature lovers murdered here.</div></div>
+        <div class="ph"><img data-lb data-cap="Warren and family at the Nova memorial grove, beside the stele of Amit Yitzhak David." src="./img/nova-warren-david.jpg" alt="Two visitors at the Nova memorial grove beside an individual victim's stele" loading="lazy" style="object-position:50% 25%"><div class="d"><b>Warren &amp; family, in the grove.</b> Beside the stele of Amit Yitzhak David — one of the hundreds who came to celebrate and never returned — among the eucalyptus where a photograph now stands for every life.</div></div>
+      </div>
+    </div>
     <h3 style="font-family:var(--serif);font-size:clamp(20px,3vw,26px);margin:40px 0 6px;text-align:center">Remembered, one by one</h3>
     <p class="lede center" style="margin-bottom:6px">Families have placed hundreds of individual memorials across the field. A few we stopped before:</p>
     <div class="gal" style="margin-top:22px">
