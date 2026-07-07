@@ -200,7 +200,24 @@
   #lightbox.on{display:flex}
   #lightbox img{max-width:96vw;max-height:82vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
   #lightbox .lbcap{color:var(--ink2);font-size:13.5px;margin-top:14px;max-width:72ch;text-align:center}
-  #lightbox .lbx{position:absolute;top:16px;right:20px;color:var(--ink2);font-size:30px;line-height:1}
+  #lightbox .lbx{position:absolute;top:16px;right:20px;color:var(--ink2);font-size:34px;line-height:1;cursor:pointer;background:none;border:0}
+  #lightbox .lbcount{color:var(--muted);font-size:12px;letter-spacing:.16em;margin-top:6px}
+  .lbnav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:rgba(255,255,255,.06);
+    border:1px solid var(--line2);color:var(--ink);width:52px;height:52px;border-radius:50%;font-size:30px;line-height:1;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s}
+  .lbnav:hover{background:rgba(224,178,95,.22);transform:translateY(-50%) scale(1.08)}
+  .lbprev{left:clamp(8px,3vw,32px)} .lbnext{right:clamp(8px,3vw,32px)}
+  @media(max-width:560px){.lbnav{width:44px;height:44px;font-size:24px}}
+
+  /* note-in-the-wall chips */
+  .kvit{background:linear-gradient(135deg,#f3ecd8,#e5d8b8);color:#3a2f18;font-family:var(--serif);font-size:13px;
+    padding:8px 12px;border-radius:3px 8px 4px 9px;max-width:220px;box-shadow:0 4px 12px rgba(0,0,0,.4);
+    transform:rotate(-1.4deg) translateY(8px);opacity:0;transition:opacity .45s ease,transform .45s ease;
+    border-left:2px solid rgba(202,160,73,.5);word-break:break-word;line-height:1.35}
+  .kvit:nth-child(even){transform:rotate(1.6deg) translateY(8px)}
+  .kvit.in{opacity:1;transform:rotate(-1.4deg) translateY(0)}
+  .kvit.in:nth-child(even){transform:rotate(1.6deg) translateY(0)}
+  .kvit.seed{opacity:.72}
 
   .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
   .js .reveal.in{opacity:1;transform:none}
@@ -242,6 +259,7 @@
       <a href="#history">3,000 Years</a>
       <a href="#kotel">The Kotel</a>
       <a href="#oldcity">The Old City</a>
+      <a href="#walk">The Last Mile</a>
       <a href="#atwall">At the Wall</a>
       <a href="#gallery">Gallery</a>
       <a href="#visit">To the Wall</a>
@@ -283,17 +301,18 @@
 <!-- STAT BAND -->
 <section class="stats" id="journey">
   <div class="wrap reveal">
-    <p class="eyebrow">The Journey at a Glance</p>
-    <h2 style="margin:0 0 6px;font-size:clamp(24px,4vw,36px)">From sea level to the City of Gold</h2>
-    <p class="lede">Two cities, ~54 kilometres apart, joined by one of the most dramatic short train rides on earth — a climb from the Mediterranean shore up into the Judean Hills.</p>
+    <p class="eyebrow">The Trip · by the numbers</p>
+    <h2 style="margin:0 0 6px;font-size:clamp(24px,4vw,36px)">From flip-flops on the beach to the City of Gold</h2>
+    <p class="lede">Two cities, ~54 km apart, joined by one of the most dramatic short train rides on earth — a climb from the Mediterranean shore straight up into the Judean Hills. (Assuming you catch the train. More on that later. 🙈)</p>
     <div class="statgrid">
       <div class="stat"><div class="num">~54<span style="font-size:.5em"> km</span></div><div class="lab">Tel Aviv → Jerusalem</div></div>
       <div class="stat sky"><div class="num">43<span style="font-size:.5em"> min</span></div><div class="lab">Direct high-speed ride</div></div>
       <div class="stat"><div class="num">~754<span style="font-size:.5em"> m</span></div><div class="lab">Jerusalem's elevation</div></div>
       <div class="stat sky"><div class="num">~80<span style="font-size:.5em"> m</span></div><div class="lab">Navon station — underground</div></div>
       <div class="stat"><div class="num">3,000<span style="font-size:.5em"> yrs</span></div><div class="lab">Of Jerusalem history</div></div>
+      <div class="stat" style="border-color:rgba(207,111,116,.35)"><div class="num" style="color:var(--rose)">4+<span style="font-size:.5em"> 🙈</span></div><div class="lab">Trains missed this week<br><span style="color:var(--muted);font-size:11px">(we stopped counting)</span></div></div>
     </div>
-    <p class="maptip">Numbers are approximate — the deep-dive is in <a href="#map">The Ascent</a> and <a href="#history">3,000 Years</a> below.</p>
+    <p class="maptip">Numbers are approximate and the vibe is affectionate — the real deep-dive is in <a href="#map">The Ascent</a> and <a href="#history">3,000 Years</a> below.</p>
   </div>
 </section>
 
@@ -558,12 +577,42 @@
 
 <hr class="divider" />
 
+<!-- THE LAST MILE -->
+<section id="walk">
+  <div class="wrap">
+    <span class="stamp reveal">On foot · the home stretch</span>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,40px);margin:.1em 0">The last mile — on foot to the Wall</h2>
+    <p class="lede reveal">Trains don't reach the Kotel — the final stretch is yours to walk, and honestly it's the best part. Up out of the deep station, along the golden Ottoman walls, in through the gate, and down through the tangle of the shuk until the plaza opens up in front of you.</p>
+    <div class="field reveal" style="margin-top:24px">
+      <div class="lead">
+        <img data-lb data-cap="Walking the last stretch along Suleiman's golden Old City walls toward Jaffa Gate at dusk." src="./img/oldcity-walk-jaffa.jpg" alt="Walking toward Jaffa Gate along the Old City walls at dusk">
+        <div class="cap"><span class="loc">Along the walls · to Jaffa Gate</span><h3>Following 500-year-old stone</h3>
+          <p>The honey-coloured ramparts on your left were raised by Suleiman the Magnificent in the 1530s. Follow them and they funnel you straight to <b>Jaffa Gate</b> — the traveller's door into the Old City, facing the road home to the coast.</p></div>
+      </div>
+      <div class="two">
+        <div class="ph"><img data-lb data-cap="Down the deep travelator at Navon station, into the blue-lit tunnel — up and out toward the streets of Jerusalem." src="./img/navon-escalator-descent.jpg" alt="Riding the deep travelator at Navon station">
+          <div class="d"><span class="loc">Out of the mountain</span><b>First, escape the deepest station on earth.</b> A long blue-lit ride through the tunnel just to reach street level — ~80 m of Jerusalem bedrock between the platform and the sky. Then: daylight, and the Old City.</div></div>
+        <div class="ph"><img data-lb data-cap="A quiet overlook of the Jerusalem Archaeological Park — the Temple Mount's southern wall, cypress trees, and the Mount of Olives beyond at dusk." src="./img/oldcity-overlook.jpg" alt="Overlook of the archaeological park and Temple Mount at dusk">
+          <div class="d"><span class="loc">First glimpse · Har HaBayit</span><b>And there it is.</b> The southern wall of the <b>Temple Mount</b>, the ancient stones of the Archaeological Park, cypress trees, and — rising behind — the <b>Mount of Olives</b>, its slopes silver in the last light. 3,000 years, all in one glance.</div></div>
+      </div>
+      <div class="two">
+        <div class="ph"><img data-lb data-cap="The family in the Old City shuk — stalls of tallitot and souvenirs, the 'Western Wall' sign pointing the way." src="./img/oldcity-shuk-family.jpg" alt="Family selfie in the Old City market">
+          <div class="d"><span class="loc">Through the shuk</span><b>The fun, chaotic bit.</b> Prayer shawls, spice, jewellery and “this way to the Kotel” signs in three alphabets. You wind downhill through the market, dodging carts, following the crowd — everyone's heading to the same place.</div></div>
+        <div class="ph"><img data-lb data-cap="A vaulted, lantern-lit stone alley deep in the Old City, yeshiva students gathered down the lane." src="./img/oldcity-alley.jpg" alt="A vaulted stone alley in the Old City">
+          <div class="d"><span class="loc">The old, old lanes</span><b>Then it goes quiet.</b> Off the main drag, the shuk gives way to hushed vaulted passages worn smooth by a thousand years of footsteps — a single lantern, cool stone, and the hum of the plaza somewhere just ahead.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
 <!-- AT THE WALL -->
 <section id="atwall">
   <div class="wrap">
     <span class="stamp reveal">Journey's end · at the Kotel</span>
-    <h2 class="reveal" style="font-size:clamp(28px,5vw,46px);margin:.1em 0">We made it to the Wall</h2>
-    <p class="lede reveal">From the shore of Tel Aviv to the stones of the Kotel — the ascent complete. As dusk fell over the Old City and the Israeli flag caught the last light, the family stood together at the holiest place in the Jewish world.</p>
+    <h2 class="reveal" style="font-size:clamp(28px,5vw,46px);margin:.1em 0">We made it to the Wall 🕊️</h2>
+    <p class="lede reveal">Beach sandals to sacred stones in one afternoon. As dusk turned the Old City gold and the flag snapped in the evening wind, the whole family stood together at the holiest place in the Jewish world — and every missed train suddenly felt completely worth it.</p>
     <div class="field reveal" style="margin-top:24px">
       <div class="lead">
         <img data-lb data-cap="The Sacharowitz family at the Western Wall at dusk, the Israeli flag flying over the golden Herodian stones — 7 July 2026." src="./img/kotel-family.jpg" alt="The Sacharowitz family together at the Western Wall at dusk">
@@ -571,12 +620,36 @@
           <p>Behind them rise the great Herodian ashlars — 2,000 years old — glowing gold under the plaza lights, the flag of Israel above the Wall. The end of the climb, and the reason for every missed train along the way.</p></div>
       </div>
       <div class="two">
+        <div class="ph"><img data-lb data-cap="Daughter and dad at the Western Wall plaza at dusk, the flag flying above the golden stones." src="./img/kotel-daughter-dad.jpg" alt="Daughter and dad at the Western Wall at dusk">
+          <div class="d"><span class="loc">Father &amp; daughter</span><b>One for the ages.</b> Golden stone, blue-and-white flag, that end-of-day light doing all the work. Some selfies you keep forever — this is one of them.</div></div>
+        <div class="ph"><img data-lb data-cap="Dad's selfie beneath the flag at the Western Wall plaza at dusk." src="./img/kotel-dad-solo.jpg" alt="Selfie at the Western Wall beneath the Israeli flag">
+          <div class="d"><span class="loc">Under the flag</span><b>A quiet moment.</b> Standing in the plaza as the lamps flicker on, the Wall glowing behind, the flag overhead — the kind of pause that makes a whole trip land.</div></div>
+      </div>
+      <div class="lead" style="margin-top:16px">
+        <img data-lb data-cap="Looking up the towering length of the Western Wall — caper bushes rooted in the cracks, worshippers with prayer books at its base." src="./img/kotel-wall-length.jpg" alt="The towering length of the Western Wall with worshippers at its base">
+        <div class="cap"><span class="loc">The scale of it</span><h3>Bigger than any photo</h3>
+          <p>Stand at the base and look up: courses of Herodian stone soaring overhead, wild caper bushes rooted in the seams, and beside you people swaying quietly over worn prayer books. Two thousand years, still holding up the mountain.</p></div>
+      </div>
+      <div class="two">
         <div class="ph"><img data-lb data-cap="Laying tefillin at the Western Wall — the head-box and arm-strap bound, a hand on the ancient stones." src="./img/kotel-tefillin.jpg" alt="Laying tefillin at the Western Wall">
-          <div class="d"><span class="loc">A Prayer at the Wall</span><b>Bound to the stones.</b> The words carried up from the train, now laid at the Wall itself — tefillin on the head and arm, a hand pressed to the very stones that have held the mountain up for two millennia.</div></div>
-        <div class="ph"><img data-lb data-cap="A hand wound in tefillin straps against the Western Wall, with kvitlach — folded prayer notes — pressed into every crack." src="./img/kotel-hand-notes.jpg" alt="Hand with tefillin against the Wall, prayer notes in the cracks">
-          <div class="d"><span class="loc">Kvitlach · the notes</span><b>Into the cracks.</b> Look closely: every seam is packed with folded prayers — <em>kvitlach</em> — left by pilgrims from across the world. Over a million a year, gathered twice yearly and buried with honour on the Mount of Olives.</div></div>
+          <div class="d"><span class="loc">A prayer at the Wall</span><b>Bound to the stones.</b> The words carried up from the train, now laid at the Wall itself — tefillin on the head and arm, a hand pressed to the very stones that have stood since the Second Temple.</div></div>
+        <div class="ph"><img data-lb data-cap="A hand wound in tefillin against the Western Wall, kvitlach — folded prayer notes — packed into a long crack, a bright yellow one among them." src="./img/kotel-notes-crack.jpg" alt="Hand and tefillin at the Wall, prayer notes packed in a crack">
+          <div class="d"><span class="loc">Kvitlach · the notes</span><b>Into the cracks.</b> Look closely — every seam is stuffed with folded prayers, left by pilgrims from across the world. Over a <b>million a year</b>; twice a year they're gathered with honour and buried on the Mount of Olives.</div></div>
       </div>
     </div>
+
+    <!-- interactive: leave your own note -->
+    <div class="kotel reveal" id="notewidget" style="margin-top:28px">
+      <h3><svg class="star" style="width:20px;height:20px"><use href="#wall"/></svg> Leave your own note in the Wall</h3>
+      <p style="color:var(--ink2);max-width:64ch">Can't be there in person? Write a wish, a name, a blessing — and tuck it into the stones. (It stays right here in your browser; nothing is sent anywhere.)</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
+        <input id="noteInput" type="text" maxlength="120" placeholder="Type your prayer or wish…" aria-label="Your note for the Wall"
+          style="flex:1;min-width:220px;background:rgba(255,255,255,.05);border:1px solid var(--line2);border-radius:999px;padding:12px 18px;color:var(--ink);font-family:var(--sans);font-size:15px;outline:none">
+        <button id="noteBtn" style="background:linear-gradient(135deg,var(--gold2),var(--deepgold));color:#2a1e08;border:1px solid var(--gold);border-radius:999px;padding:12px 22px;font-weight:600;font-family:var(--sans);font-size:15px;cursor:pointer">Place it in the Wall →</button>
+      </div>
+      <div id="noteWall" style="display:flex;flex-wrap:wrap;gap:9px;margin-top:18px" aria-live="polite"></div>
+    </div>
+
     <blockquote class="quote reveal" style="max-width:70ch;margin-top:26px">“Our feet are standing within thy gates, O Jerusalem.”<cite>— Psalm 122 · the pilgrim's arrival</cite></blockquote>
   </div>
 </section>
@@ -607,6 +680,15 @@
       <figure class="g"><img data-lb data-cap="The Sacharowitz family at the Western Wall at dusk, the flag flying." src="./img/kotel-family.jpg" alt="Family at the Western Wall" loading="lazy"><figcaption>Together at the Kotel</figcaption></figure>
       <figure class="g"><img data-lb data-cap="Laying tefillin at the Western Wall, a hand on the ancient stones." src="./img/kotel-tefillin.jpg" alt="Tefillin at the Wall" loading="lazy"><figcaption>A prayer at the Wall</figcaption></figure>
       <figure class="g"><img data-lb data-cap="Hand in tefillin against the Wall, prayer notes in every crack." src="./img/kotel-hand-notes.jpg" alt="Hand and notes at the Wall" loading="lazy"><figcaption>Kvitlach in the cracks</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Riding the deep travelator up and out of Navon station." src="./img/navon-escalator-descent.jpg" alt="Travelator at Navon" loading="lazy"><figcaption>Out of the mountain</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Walking the last stretch to Jaffa Gate along the Old City walls." src="./img/oldcity-walk-jaffa.jpg" alt="Walking to Jaffa Gate" loading="lazy"><figcaption>The last mile · to Jaffa Gate</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Overlook of the Temple Mount's southern wall and the Mount of Olives at dusk." src="./img/oldcity-overlook.jpg" alt="Overlook of the Old City" loading="lazy"><figcaption>First glimpse of the Mount</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="The family in the Old City shuk on the way to the Kotel." src="./img/oldcity-shuk-family.jpg" alt="Family in the shuk" loading="lazy"><figcaption>Through the shuk</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="A vaulted, lantern-lit alley in the Old City." src="./img/oldcity-alley.jpg" alt="Old City alley" loading="lazy"><figcaption>The old, old lanes</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Daughter and dad at the Western Wall at dusk." src="./img/kotel-daughter-dad.jpg" alt="Daughter and dad at the Wall" loading="lazy"><figcaption>Father &amp; daughter · at the Wall</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Selfie beneath the flag at the Western Wall plaza." src="./img/kotel-dad-solo.jpg" alt="Selfie at the Wall" loading="lazy"><figcaption>Under the flag</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Looking up the towering length of the Western Wall." src="./img/kotel-wall-length.jpg" alt="The length of the Western Wall" loading="lazy"><figcaption>The scale of the Wall</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="A hand and tefillin at the Wall, kvitlach packed into a long crack." src="./img/kotel-notes-crack.jpg" alt="Notes in a crack of the Wall" loading="lazy"><figcaption>A crack full of prayers</figcaption></figure>
     </div>
   </div>
 </section>
@@ -649,22 +731,67 @@
 <!-- Lightbox -->
 <div id="lightbox" aria-hidden="true">
   <span class="lbx" aria-hidden="true">×</span>
+  <button class="lbnav lbprev" aria-label="Previous photo">‹</button>
   <img alt="" />
+  <button class="lbnav lbnext" aria-label="Next photo">›</button>
   <div class="lbcap"></div>
+  <div class="lbcount"></div>
 </div>
 
 <script>
   document.documentElement.classList.add('js');
-  // Lightbox
+  // Lightbox with next/prev across all data-lb images
   (function(){
-    var lb=document.getElementById('lightbox'), lbimg=lb.querySelector('img'), lbcap=lb.querySelector('.lbcap');
-    function open(src,cap){lbimg.src=src;lbcap.textContent=cap||'';lb.classList.add('on');lb.setAttribute('aria-hidden','false');}
+    var lb=document.getElementById('lightbox'), lbimg=lb.querySelector('img'), lbcap=lb.querySelector('.lbcap'),
+        lbcount=lb.querySelector('.lbcount');
+    var imgs=[].slice.call(document.querySelectorAll('img[data-lb]')), i=0;
+    function show(n){
+      i=(n+imgs.length)%imgs.length;
+      var el=imgs[i];
+      lbimg.src=el.currentSrc||el.src;
+      lbcap.textContent=el.getAttribute('data-cap')||'';
+      lbcount.textContent=(i+1)+' / '+imgs.length;
+    }
+    function open(n){show(n);lb.classList.add('on');lb.setAttribute('aria-hidden','false');}
     function close(){lb.classList.remove('on');lb.setAttribute('aria-hidden','true');lbimg.src='';}
-    document.querySelectorAll('img[data-lb]').forEach(function(img){
-      img.addEventListener('click',function(){open(img.currentSrc||img.src,img.getAttribute('data-cap'));});
+    imgs.forEach(function(img,n){img.addEventListener('click',function(){open(n);});});
+    lb.querySelector('.lbprev').addEventListener('click',function(e){e.stopPropagation();show(i-1);});
+    lb.querySelector('.lbnext').addEventListener('click',function(e){e.stopPropagation();show(i+1);});
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target===lbimg||e.target.classList.contains('lbx'))close();});
+    document.addEventListener('keydown',function(e){
+      if(!lb.classList.contains('on'))return;
+      if(e.key==='Escape')close();
+      else if(e.key==='ArrowRight')show(i+1);
+      else if(e.key==='ArrowLeft')show(i-1);
     });
-    lb.addEventListener('click',close);
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+    // swipe on touch
+    var x0=null;
+    lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    lb.addEventListener('touchend',function(e){
+      if(x0===null)return; var dx=e.changedTouches[0].clientX-x0;
+      if(Math.abs(dx)>44)show(i+(dx<0?1:-1)); x0=null;
+    });
+  })();
+  // Interactive: leave a note in the Wall (client-side only)
+  (function(){
+    var input=document.getElementById('noteInput'), btn=document.getElementById('noteBtn'), wall=document.getElementById('noteWall');
+    if(!input||!btn||!wall)return;
+    var seeds=['Health &amp; happiness for the family','Safe travels home','Peace — shalom · salaam','Gratitude for this day'];
+    function add(text,seed){
+      var n=document.createElement('div');
+      n.className='kvit'+(seed?' seed':'');
+      n.textContent=text;
+      n.title=text;
+      wall.appendChild(n);
+      requestAnimationFrame(function(){n.classList.add('in');});
+    }
+    seeds.forEach(function(s){add(s.replace('&amp;','&'),true);});
+    function place(){
+      var v=(input.value||'').trim(); if(!v)return;
+      add(v,false); input.value=''; input.focus();
+    }
+    btn.addEventListener('click',place);
+    input.addEventListener('keydown',function(e){if(e.key==='Enter')place();});
   })();
   // Reveal on scroll
   (function(){
