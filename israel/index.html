@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0f" />
+<title>A Family in Israel · July 2026 — the whole journey</title>
+<meta name="description" content="The Sacharowitz family's July 2026 trip to Israel — the coast, the climb up to Jerusalem, and the journey of remembrance in the south. One front door to the whole story." />
+<style>
+  :root{
+    --bg:#0a0a0f; --bg2:#101018; --panel:#15151f; --panel2:#1c1c28;
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+    --ink:#eee9e1; --ink2:#bcb6ab; --muted:#8b877e;
+    --gold:#e0b25f; --gold2:#f4d79a; --amber:#e6b566;
+    --sky:#8fb0c9; --sky2:#a9c6db; --rose:#d0555c; --rose2:#e0777c; --good:#7fb69a;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --wrap:1160px; --r:16px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;
+    font-size:clamp(15px,1.1vw + 12px,17px);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--gold2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.14;letter-spacing:.2px}
+  .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+  section{padding-block:clamp(42px,6.5vw,84px)}
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;font-size:12px;color:var(--gold);font-weight:600;margin:0 0 14px}
+  .lede{color:var(--ink2);font-size:clamp(16px,1vw + 13px,20px);max-width:66ch}
+  .center{text-align:center;margin-inline:auto}
+  .divider{height:1px;background:var(--line);border:0;margin:0}
+  .star{width:1em;height:1em;display:inline-block;vertical-align:-.12em;flex:none}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(10,10,15,.82);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:14px;min-height:56px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.4px;white-space:nowrap}
+  .brand b{color:var(--gold2);letter-spacing:2px}
+  .navlinks{margin-left:auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{color:var(--ink2);font-size:13px;padding:7px 11px;border-radius:999px;white-space:nowrap}
+  .navlinks a:hover{color:var(--ink);background:var(--panel);text-decoration:none}
+
+  /* HERO */
+  .hero{position:relative;min-height:94vh;display:flex;align-items:center;text-align:center;overflow:hidden;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 90% at 50% -8%,rgba(224,178,95,.18),transparent 55%),
+      radial-gradient(70% 55% at 15% 108%,rgba(143,176,201,.12),transparent 60%),
+      radial-gradient(70% 55% at 88% 112%,rgba(208,85,92,.10),transparent 60%),
+      linear-gradient(180deg,#0c0c13,#0a0a0f 60%,#08080c)}
+  .hero .kick{font-family:var(--sans);letter-spacing:.42em;text-transform:uppercase;font-size:clamp(11px,2.4vw,14px);color:var(--gold);margin:0 0 18px}
+  .hero h1{font-size:clamp(44px,12vw,128px);margin:0;letter-spacing:.04em;color:var(--ink);text-shadow:0 0 46px rgba(224,178,95,.30);line-height:.98}
+  .hero .heb{font-family:var(--serif);color:var(--gold2);font-size:clamp(20px,5vw,34px);margin:18px 0 0;direction:rtl}
+  .hero .sub{font-family:var(--serif);font-style:italic;color:var(--ink2);font-size:clamp(18px,4.2vw,29px);margin:12px 0 0}
+  .hero .place{margin:24px auto 0;max-width:64ch;color:var(--ink2)}
+  .heroshow{margin:34px auto 0;max-width:560px;border-radius:20px;overflow:hidden;border:1px solid rgba(224,178,95,.4);box-shadow:0 22px 60px rgba(0,0,0,.6);background:var(--panel)}
+  .heroshow img{width:100%;max-height:460px;object-fit:cover;object-position:50% 38%;display:block;cursor:zoom-in}
+  .heroshow figcaption{padding:14px 18px;font-family:var(--serif);font-size:clamp(14px,2vw,16px);color:var(--gold2);text-align:center;display:flex;gap:9px;align-items:center;justify-content:center}
+  .herostrip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px auto 0;max-width:560px}
+  .herostrip figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 12px 34px rgba(0,0,0,.45)}
+  .herostrip img{width:100%;height:clamp(110px,17vw,150px);object-fit:cover;cursor:zoom-in;background:var(--panel2)}
+  .herocta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:32px auto 4px}
+  .herocta a{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:clamp(14px,1.4vw,15.5px);padding:13px 24px;border-radius:999px;transition:transform .2s ease}
+  .herocta a.primary{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#231704;border:1px solid var(--gold)}
+  .herocta a.ghost{color:var(--ink);border:1px solid var(--line2);background:rgba(255,255,255,.04)}
+  .herocta a:hover{text-decoration:none;transform:translateY(-2px)}
+  .hero .scroll{margin-top:38px;color:var(--muted);font-size:12px;letter-spacing:.25em;text-transform:uppercase}
+
+  /* STATS */
+  .stats{background:linear-gradient(180deg,#0d0d15,#0a0a0f)}
+  .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:14px;margin-top:10px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px;text-align:center;position:relative;overflow:hidden}
+  .stat::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+  .stat .num{font-family:var(--serif);font-size:clamp(28px,6.5vw,42px);color:var(--gold2);line-height:1;font-weight:600}
+  .stat .lab{margin-top:9px;font-size:13px;color:var(--ink2)}
+  .stat.sky .num{color:var(--sky2)} .stat.rose .num{color:var(--rose2)}
+
+  /* CHAPTERS */
+  .chapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;margin-top:28px}
+  .chap{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line2);background:var(--panel);display:flex;flex-direction:column;
+    box-shadow:0 16px 40px rgba(0,0,0,.4);transition:transform .3s ease,border-color .3s ease}
+  .chap:hover{transform:translateY(-6px);border-color:var(--gold);text-decoration:none}
+  .chapimg{position:relative;aspect-ratio:4/3;overflow:hidden}
+  .chapimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .chap:hover .chapimg img{transform:scale(1.05)}
+  .chapimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,10,15,.86))}
+  .chapnum{position:absolute;top:14px;left:16px;z-index:2;font-family:var(--serif);font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold2);background:rgba(10,10,15,.55);border:1px solid rgba(224,178,95,.4);border-radius:999px;padding:5px 12px}
+  .chapbody{padding:20px 22px 24px}
+  .chapbody h3{font-size:clamp(21px,2.6vw,26px);margin:0 0 4px;color:var(--ink)}
+  .chapbody .when{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .chapbody p{color:var(--ink2);font-size:14.5px;margin:10px 0 0}
+  .chapbody .go{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-weight:600;font-size:14px;color:var(--gold2)}
+
+  /* MAP */
+  .mapwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-top:24px}
+  .mapwrap svg{width:100%;height:auto;display:block;border-radius:10px}
+  .legend{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px;font-size:13px;color:var(--ink2)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .dotp{width:11px;height:11px;border-radius:50%;flex:none}
+  .maptip{font-size:12.5px;color:var(--muted);margin-top:12px}
+
+  /* TIMELINE */
+  .tl{position:relative;margin-top:26px;padding-left:34px}
+  .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--gold),rgba(224,178,95,.15))}
+  .tl .item{position:relative;padding:0 0 26px 6px}
+  .tl .item::before{content:"";position:absolute;left:-31px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);box-shadow:0 0 0 4px rgba(224,178,95,.12)}
+  .tl .item.sky::before{border-color:var(--sky2);box-shadow:0 0 0 4px rgba(143,176,201,.14)}
+  .tl .item.rose::before{border-color:var(--rose2);box-shadow:0 0 0 4px rgba(208,85,92,.14)}
+  .tl .item.key::before{background:var(--gold);box-shadow:0 0 14px rgba(224,178,95,.7)}
+  .tl .t{font-family:var(--serif);color:var(--gold2);font-size:18px;font-weight:600}
+  .tl .item.sky .t{color:var(--sky2)} .tl .item.rose .t{color:var(--rose2)}
+  .tl .d{color:var(--ink2);margin-top:3px}
+  .tl .loc{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fb0c9;border:1px solid rgba(143,176,201,.35);border-radius:999px;padding:2px 8px;margin-bottom:6px;font-weight:600}
+
+  /* SUPERLATIVES */
+  .super{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin-top:24px}
+  .scard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .scard .ico{font-size:26px;line-height:1}
+  .scard h3{font-size:17px;margin:12px 0 4px;color:var(--ink)}
+  .scard p{margin:0;font-size:14px;color:var(--ink2)}
+
+  footer{border-top:1px solid var(--line);background:#08080c;text-align:center}
+  footer .big{font-family:var(--serif);font-style:italic;color:var(--ink2);font-size:clamp(19px,3vw,26px);margin:0 0 12px}
+  footer p{color:var(--muted);font-size:13.5px;max-width:64ch;margin:8px auto}
+
+  #lightbox{position:fixed;inset:0;z-index:100;background:rgba(6,6,9,.95);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px;cursor:zoom-out}
+  #lightbox.on{display:flex}
+  #lightbox img{max-width:96vw;max-height:82vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  #lightbox .lbcap{color:var(--ink2);font-size:13.5px;margin-top:14px;max-width:72ch;text-align:center}
+  #lightbox .lbx{position:absolute;top:16px;right:20px;color:var(--ink2);font-size:30px;line-height:1}
+
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="magen" viewBox="0 0 100 100"><path d="M50 6 L61 27 84 27 72 46 84 65 61 65 50 86 39 65 16 65 28 46 16 27 39 27 Z" fill="none" stroke="#e0b25f" stroke-width="4" stroke-linejoin="round"/></symbol>
+  <symbol id="anemone" viewBox="0 0 24 24"><g fill="#d0555c"><ellipse cx="12" cy="5" rx="3" ry="5"/><ellipse cx="12" cy="19" rx="3" ry="5"/><ellipse cx="5" cy="12" rx="5" ry="3"/><ellipse cx="19" cy="12" rx="5" ry="3"/><ellipse cx="7" cy="7" rx="3.4" ry="4.6" transform="rotate(-45 7 7)"/><ellipse cx="17" cy="7" rx="3.4" ry="4.6" transform="rotate(45 17 7)"/><ellipse cx="7" cy="17" rx="3.4" ry="4.6" transform="rotate(45 7 17)"/><ellipse cx="17" cy="17" rx="3.4" ry="4.6" transform="rotate(-45 17 17)"/></g><circle cx="12" cy="12" r="3.2" fill="#1a1a10"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><svg class="star" style="width:20px;height:20px"><use href="#magen"/></svg> <span>Israel <b>2026</b></span></div>
+    <nav class="navlinks">
+      <a href="#stats">By the Numbers</a>
+      <a href="#chapters">The Chapters</a>
+      <a href="#map">The Route</a>
+      <a href="#timeline">The Days</a>
+      <a href="#people">The People</a>
+      <a href="#super">Superlatives</a>
+      <a href="../jerusalem-tour/">Jerusalem</a>
+      <a href="../nova-tour/">The South</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <svg class="star" style="width:60px;height:60px;margin:0 auto 22px;display:block"><use href="#magen"/></svg>
+    <p class="kick">The Sacharowitz Family · July 2026</p>
+    <h1>ISRAEL</h1>
+    <p class="heb">אֶרֶץ יִשְׂרָאֵל</p>
+    <p class="sub">One family · one week · the coast, the climb, and the south.</p>
+    <figure class="heroshow">
+      <img data-lb data-cap="The Sacharowitz family at the Western Wall at dusk, the Israeli flag flying above the golden stones — 7 July 2026." src="../jerusalem-tour/img/kotel-family.jpg" alt="The family together at the Western Wall at dusk">
+      <figcaption><svg class="star" style="width:15px;height:15px"><use href="#magen"/></svg> Journey's end — the whole family at the Kotel</figcaption>
+    </figure>
+    <div class="herostrip">
+      <figure><img data-lb data-cap="Mother and daughter on the Tel Aviv light rail — where the week began." src="../jerusalem-tour/img/tram-mother-daughter.jpg" alt="On the Tel Aviv light rail"></figure>
+      <figure><img data-lb data-cap="Arrival — the watercolor 'Jerusalem' mural at Yitzhak Navon station." src="../jerusalem-tour/img/navon-jerusalem-mural.jpg" alt="Jerusalem mural at Navon station"></figure>
+      <figure><img data-lb data-cap="A hand to the memorial candle at the Nova site, Re'im — the most solemn day of the trip." src="../nova-tour/img/nova-candle.jpg" alt="A hand to the memorial candle at Re'im"></figure>
+    </div>
+    <p class="place">This is the whole story in one place — a family's July 2026 journey through Israel. It runs from flip-flops on the Tel Aviv shore, up the dramatic climb into the Judean Hills to the last standing wall of the Temple, and down to the Gaza-envelope south to stand, quietly, where the world changed. Three chapters. Tap in wherever you like.</p>
+    <div class="herocta">
+      <a class="primary" href="#chapters"><svg class="star" style="width:16px;height:16px"><use href="#magen"/></svg> Explore the chapters</a>
+      <a class="ghost" href="#people">Meet the family →</a>
+    </div>
+    <p class="scroll">The whole journey ↓</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Trip · by the numbers</p>
+    <h2 style="margin:0 0 6px;font-size:clamp(24px,4.4vw,38px)">One week, three worlds</h2>
+    <p class="lede">From the Mediterranean coast to 754 metres up in the hills to five kilometres from the Gaza border — this small country holds an astonishing amount of distance in a very short drive.</p>
+    <div class="statgrid">
+      <div class="stat"><div class="num">3</div><div class="lab">chapters — coast, hills &amp; south</div></div>
+      <div class="stat sky"><div class="num">~54<span style="font-size:.5em"> km</span></div><div class="lab">Tel Aviv → Jerusalem</div></div>
+      <div class="stat"><div class="num">~754<span style="font-size:.5em"> m</span></div><div class="lab">Jerusalem's elevation — you go <em>up</em></div></div>
+      <div class="stat sky"><div class="num">43<span style="font-size:.5em"> min</span></div><div class="lab">the high-speed climb to the hills</div></div>
+      <div class="stat rose"><div class="num">~5<span style="font-size:.5em"> km</span></div><div class="lab">from the Gaza border, in the south</div></div>
+      <div class="stat"><div class="num">4+<span style="font-size:.5em"> 🙈</span></div><div class="lab">trains missed (we stopped counting)</div></div>
+    </div>
+    <p class="maptip">Affectionate numbers, real journey. The deep dives live in each chapter below.</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CHAPTERS -->
+<section id="chapters">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Journey</p>
+    <h2 style="font-size:clamp(26px,4.6vw,40px);margin:0 0 10px">Three chapters, one week</h2>
+    <p class="lede">The trip tells itself in three movements — the solemn south, the joyful climb, and the people who tied it all together. Step into any one.</p>
+    <div class="chapters">
+      <a class="chap" href="../nova-tour/">
+        <div class="chapimg"><span class="chapnum">Chapter I · 6 July</span><img src="../nova-tour/img/nova-candle.jpg" alt="The memorial candle at the Nova site"></div>
+        <div class="chapbody">
+          <div class="when">The South · Remembrance</div>
+          <h3>Bearing witness in the Negev</h3>
+          <p>A private day through the Gaza envelope with guide Amler — the Nova festival memorial at Re'im, the Tkuma car wall, and the Ashkelon coast where the sea attack came ashore. The trip's most serious day, told with care and full sources.</p>
+          <span class="go">Enter the remembrance guide →</span>
+        </div>
+      </a>
+      <a class="chap" href="../jerusalem-tour/">
+        <div class="chapimg"><span class="chapnum">Chapter II · 7 July</span><img src="../jerusalem-tour/img/kotel-family.jpg" alt="The family at the Western Wall"></div>
+        <div class="chapbody">
+          <div class="when">The Climb · Tel Aviv → Jerusalem</div>
+          <h3>Up to Jerusalem</h3>
+          <p>The ascent — from the Tel Aviv light rail through HaShalom station, onto the high-speed train that climbs into the Judean Hills, one accidental detour to Modi'in, and up through the Old City to the Kotel. A joyful, playful travel diary. And they made it.</p>
+          <span class="go">Follow the ascent →</span>
+        </div>
+      </a>
+      <a class="chap" href="../people/">
+        <div class="chapimg"><span class="chapnum">Chapter III · everyone</span><img src="../jerusalem-tour/img/oldcity-shuk-family.jpg" alt="The family in the Old City market"></div>
+        <div class="chapbody">
+          <div class="when">The People · the whole crew</div>
+          <h3>The family, one by one</h3>
+          <p>A trip is really just the people you took it with. Everyone gathered up person by person — Warren, Mom and the daughter, and Amler the guide — with a little love and a lot of photos for each.</p>
+          <span class="go">Meet everyone →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- MAP -->
+<section id="map" style="background:var(--bg2)">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Route</p>
+    <h2 style="font-size:clamp(26px,4.6vw,40px);margin:0 0 10px">Where the week went</h2>
+    <p class="lede">A whole country in one glance. The base at the Tel Aviv coast, the climb east into the hills of Jerusalem, and the day down south to the Gaza envelope and the Ashkelon shore.</p>
+    <div class="mapwrap">
+      <svg viewBox="0 0 720 560" role="img" aria-label="Schematic map of the trip across Israel">
+        <defs>
+          <linearGradient id="sea" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0e1b24"/><stop offset="1" stop-color="#0c1116"/></linearGradient>
+          <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14140f"/><stop offset="1" stop-color="#0f0f0b"/></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="720" height="560" fill="url(#land)"/>
+        <!-- Mediterranean -->
+        <path d="M0 0 L150 0 C120 160 90 300 60 560 L0 560 Z" fill="url(#sea)"/>
+        <text x="34" y="300" fill="#4a6f84" font-family="Georgia" font-size="19" transform="rotate(-90 34 300)">Mediterranean Sea</text>
+        <!-- Gaza -->
+        <path d="M60 470 C90 430 110 440 120 500 L96 560 L52 560 Z" fill="#1a1017"/>
+        <text x="70" y="530" fill="#8b6b74" font-family="system-ui" font-size="12" transform="rotate(-58 70 530)">Gaza</text>
+        <!-- route line: TLV -> Jerusalem -->
+        <path d="M175 205 C 300 195, 380 205, 470 220" fill="none" stroke="#8fb0c9" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
+        <!-- route line: TLV -> south -->
+        <path d="M175 215 C 150 300, 140 400, 150 470" fill="none" stroke="#d0555c" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
+        <!-- Tel Aviv -->
+        <circle cx="175" cy="210" r="9" fill="#e0b25f" stroke="#0a0a0f" stroke-width="2"/>
+        <circle cx="175" cy="210" r="17" fill="none" stroke="#e0b25f" stroke-width="1" opacity=".5"/>
+        <text x="192" y="206" fill="#f4d79a" font-family="Georgia" font-size="17" font-weight="600">Tel Aviv</text>
+        <text x="192" y="224" fill="#bcb6ab" font-family="system-ui" font-size="12">the coast — where the week began</text>
+        <!-- Jerusalem -->
+        <path d="M470 220 l6 12 h-12 z" fill="#f4d79a"/>
+        <circle cx="470" cy="220" r="9" fill="#8fb0c9" stroke="#0a0a0f" stroke-width="2"/>
+        <text x="486" y="216" fill="#a9c6db" font-family="Georgia" font-size="17" font-weight="600">Jerusalem</text>
+        <text x="486" y="234" fill="#bcb6ab" font-family="system-ui" font-size="12">754 m up · the Old City &amp; the Kotel</text>
+        <text x="300" y="188" fill="#8fb0c9" font-family="system-ui" font-size="12">↑ the climb — 43 min by rail</text>
+        <!-- Modiin detour -->
+        <circle cx="360" cy="205" r="4" fill="#8b877e"/>
+        <text x="330" y="256" fill="#8b877e" font-family="system-ui" font-size="11">Modi'in (the accidental stop 🙈)</text>
+        <!-- Ashkelon -->
+        <circle cx="120" cy="405" r="7" fill="#e0777c" stroke="#0a0a0f" stroke-width="2"/>
+        <text x="136" y="401" fill="#e0777c" font-family="Georgia" font-size="15" font-weight="600">Ashkelon coast</text>
+        <text x="136" y="418" fill="#bcb6ab" font-family="system-ui" font-size="11">Avenue of Remembrance</text>
+        <!-- Reim / Nova -->
+        <circle cx="165" cy="470" r="9" fill="#d0555c" stroke="#0a0a0f" stroke-width="2"/>
+        <circle cx="165" cy="470" r="17" fill="none" stroke="#d0555c" stroke-width="1" opacity=".5"/>
+        <text x="182" y="466" fill="#e0777c" font-family="Georgia" font-size="16" font-weight="600">Re'im · Nova</text>
+        <text x="182" y="484" fill="#bcb6ab" font-family="system-ui" font-size="12">the memorial · ~5 km from Gaza</text>
+        <text x="150" y="360" fill="#d0555c" font-family="system-ui" font-size="12" transform="rotate(74 150 360)">↓ south to the Negev</text>
+        <!-- Negev label -->
+        <text x="420" y="440" fill="#5a564d" font-family="Georgia" font-size="22">The Negev</text>
+      </svg>
+      <div class="legend">
+        <span><i class="dotp" style="background:#e0b25f"></i> Tel Aviv — base camp</span>
+        <span><i class="dotp" style="background:#8fb0c9"></i> Jerusalem — the climb</span>
+        <span><i class="dotp" style="background:#d0555c"></i> The south — remembrance</span>
+      </div>
+      <p class="maptip">Schematic — not to scale. Real coordinates: Tel Aviv 32.07°N, 34.79°E · Jerusalem (Western Wall) 31.7767°N, 35.2345°E · Nova memorial, Re'im 31.39778°N, 34.47167°E.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Days</p>
+    <h2 style="font-size:clamp(26px,4.6vw,40px);margin:0 0 10px">How the week unfolded</h2>
+    <p class="lede">Two headline days anchor the trip — the solemn journey south, then the joyful climb up to Jerusalem — bookended by the easy rhythm of Tel Aviv.</p>
+    <div class="tl">
+      <div class="item sky"><span class="loc">Tel Aviv · the coast</span><div class="t">Base camp by the sea</div><div class="d">Flip-flops, the Red Line light rail, apartment mornings and the Mediterranean out the window. The easy heartbeat the rest of the week set out from — and kept coming back to.</div></div>
+      <div class="item rose key"><span class="loc">6 July · the south</span><div class="t">A day of remembrance in the Negev</div><div class="d">A private tour with guide Amler through the Gaza-envelope region: the Ashkelon seafront Avenue of Remembrance, the Tkuma car wall, and the Nova festival memorial at Re'im — standing where the music stopped on 7 October 2023. <a href="../nova-tour/">Read the full guide →</a></div></div>
+      <div class="item key"><span class="loc">7 July · the climb</span><div class="t">Up to Jerusalem — and the Kotel</div><div class="d">The ascent: Tel Aviv light rail → HaShalom → the high-speed train climbing into the Judean Hills (with one accidental Modi'in detour), up through the Old City's alleys and shuk, to the Western Wall at dusk. They made it. <a href="../jerusalem-tour/">Follow the ascent →</a></div></div>
+      <div class="item"><span class="loc">All week · everyone</span><div class="t">The people who made it a trip</div><div class="d">Warren at the Wall, Mom and the daughter on every tram and train, Amler carrying the hardest day. The places were the setting; the family was the story. <a href="../people/">Meet the crew →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PEOPLE teaser -->
+<section id="people" style="background:var(--bg2)">
+  <div class="wrap reveal center">
+    <svg class="star" style="width:38px;height:38px;margin:0 auto 14px;display:block"><use href="#magen"/></svg>
+    <p class="eyebrow" style="justify-content:center">The Cast</p>
+    <h2 style="font-size:clamp(26px,4.6vw,40px);margin:0 0 10px">A trip is the people you took it with</h2>
+    <p class="lede center">Warren, keeper of the tefillin. Mom and the daughter, the unstoppable travel duo. And Amler, the guide who carried the hardest day. There's a whole page for them — every person, gathered one by one.</p>
+    <p style="margin-top:22px"><a class="primary" style="display:inline-flex;align-items:center;gap:9px;font-weight:600;padding:13px 26px;border-radius:999px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#231704;border:1px solid var(--gold)" href="../people/"><svg class="star" style="width:16px;height:16px"><use href="#magen"/></svg> Meet the whole family →</a></p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SUPERLATIVES -->
+<section id="super">
+  <div class="wrap reveal">
+    <p class="eyebrow">Trip Superlatives</p>
+    <h2 style="font-size:clamp(26px,4.6vw,40px);margin:0 0 10px">The unofficial awards</h2>
+    <p class="lede">Every family trip hands out a few honors. Here are this one's — decided by absolutely no one, entirely deserved.</p>
+    <div class="super">
+      <div class="scard"><div class="ico">🚆</div><h3>Most dramatic 43 minutes</h3><p>The high-speed climb from the coastal plain up 750 metres into the Judean Hills. Window seats non-negotiable.</p></div>
+      <div class="scard"><div class="ico">🙈</div><h3>Most trains missed</h3><p>Officially 4+. Unofficially, we stopped counting. Includes one legendary accidental detour to Modi'in.</p></div>
+      <div class="scard"><div class="ico">🕯️</div><h3>Most important stop</h3><p>The Nova memorial at Re'im. Not fun — never that — but the reason a trip becomes something you carry.</p></div>
+      <div class="scard"><div class="ico">🧱</div><h3>Best journey's-end</h3><p>The whole family at the Kotel at dusk, flag overhead. Every wrong turn was worth this one right one.</p></div>
+      <div class="scard"><div class="ico">🥪</div><h3>MVP snack</h3><p>The ILAN'S baguette + Coke Zero, consumed at altitude on the train table. Fuel for the ascent.</p></div>
+      <div class="scard"><div class="ico">🧭</div><h3>Guide of the week</h3><p>Amler — for the roads, the stories, and knowing exactly when to let the silence do the talking.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding-block:56px">
+    <svg class="star" style="width:46px;height:46px;margin:0 auto 16px;display:block"><use href="#magen"/></svg>
+    <p class="big">“Next year in Jerusalem.” — this year, they made it.</p>
+    <p>The Sacharowitz family in Israel · July 2026. All photographs are the family's own. Built with love as a keepsake of one very good week.</p>
+    <p style="margin-top:14px;font-size:12.5px"><a href="../jerusalem-tour/">Up to Jerusalem</a> &nbsp;·&nbsp; <a href="../nova-tour/">The South: Remembrance</a> &nbsp;·&nbsp; <a href="../people/">The People</a></p>
+  </div>
+</footer>
+
+<div id="lightbox"><span class="lbx" aria-hidden="true">×</span><img alt="" /><p class="lbcap"></p></div>
+
+<script>
+(function(){
+  document.documentElement.className += ' js';
+  document.querySelectorAll('img').forEach(function(img){
+    img.onerror=function(){ img.style.visibility='hidden'; };
+  });
+  var lb=document.getElementById('lightbox');
+  if(lb){
+    var lbImg=lb.querySelector('img'), lbCap=lb.querySelector('.lbcap');
+    function openLb(src,cap){ lbImg.src=src; lbCap.textContent=cap||''; lb.classList.add('on'); document.body.style.overflow='hidden'; }
+    function closeLb(){ lb.classList.remove('on'); lbImg.src=''; document.body.style.overflow=''; }
+    document.querySelectorAll('[data-lb]').forEach(function(img){
+      img.style.cursor='zoom-in';
+      img.addEventListener('click',function(){ openLb(img.getAttribute('data-lb')||img.currentSrc||img.src, img.getAttribute('data-cap')||img.alt||''); });
+    });
+    lb.addEventListener('click',closeLb);
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLb(); });
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(n){ io.observe(n); });
+  } else { document.querySelectorAll('.reveal').forEach(function(n){ n.classList.add('in'); }); }
+})();
+</script>
+</body>
+</html>

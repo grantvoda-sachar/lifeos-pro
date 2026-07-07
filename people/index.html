@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0f" />
+<title>The Family · Israel, July 2026 — Everyone, one by one</title>
+<meta name="description" content="A page for the people who made the trip — the Sacharowitz family in Israel, July 2026. Photos gathered person by person, with a little love for each." />
+<style>
+  :root{
+    --bg:#0a0a0f; --bg2:#101018; --panel:#15151f; --panel2:#1c1c28;
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+    --ink:#eee9e1; --ink2:#bcb6ab; --muted:#8b877e;
+    --gold:#e0b25f; --gold2:#f4d79a; --amber:#e6b566;
+    --sky:#8fb0c9; --sky2:#a9c6db; --rose:#d0555c; --rose2:#e0777c; --good:#7fb69a;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --wrap:1160px; --r:16px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.65;font-size:clamp(15px,1.1vw + 12px,17px);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--gold2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.14;letter-spacing:.2px}
+  .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+  section{padding-block:clamp(40px,6.5vw,80px)}
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;font-size:12px;color:var(--gold);font-weight:600;margin:0 0 14px}
+  .lede{color:var(--ink2);font-size:clamp(16px,1vw + 13px,20px);max-width:66ch}
+  .center{text-align:center;margin-inline:auto}
+  .divider{height:1px;background:var(--line);border:0;margin:0}
+  .star{width:1em;height:1em;display:inline-block;vertical-align:-.12em;flex:none}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(10,10,15,.82);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:14px;min-height:56px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.4px;white-space:nowrap}
+  .brand b{color:var(--gold2);letter-spacing:2px}
+  .navlinks{margin-left:auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{color:var(--ink2);font-size:13px;padding:7px 11px;border-radius:999px;white-space:nowrap;font-family:var(--sans)}
+  .navlinks a:hover{color:var(--ink);background:var(--panel);text-decoration:none}
+  .navlinks a.home{color:var(--gold2);border:1px solid rgba(224,178,95,.4)}
+
+  /* HERO */
+  .hero{position:relative;min-height:74vh;display:flex;align-items:center;text-align:center;overflow:hidden;border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 90% at 50% -10%,rgba(224,178,95,.16),transparent 55%),
+      radial-gradient(80% 60% at 82% 112%,rgba(143,176,201,.12),transparent 60%),
+      linear-gradient(180deg,#0c0c13,#0a0a0f 62%,#08080c)}
+  .hero .kick{font-family:var(--sans);letter-spacing:.4em;text-transform:uppercase;font-size:clamp(11px,2.3vw,13px);color:var(--gold);margin:0 0 16px}
+  .hero h1{font-size:clamp(40px,10vw,92px);margin:0;letter-spacing:.06em;color:var(--ink);text-shadow:0 0 42px rgba(224,178,95,.26)}
+  .hero .sub{font-family:var(--serif);font-style:italic;color:var(--ink2);font-size:clamp(17px,4vw,27px);margin:16px 0 0}
+  .hero .place{margin:22px auto 0;max-width:60ch;color:var(--ink2)}
+  .hero .scroll{margin-top:34px;color:var(--muted);font-size:12px;letter-spacing:.25em;text-transform:uppercase}
+  .castrow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:28px auto 6px;max-width:720px}
+  .castrow a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line2);color:var(--ink)}
+  .castrow a:hover{text-decoration:none;transform:translateY(-2px);border-color:var(--gold);color:var(--gold2)}
+  .castrow a{transition:transform .2s ease,border-color .2s ease,color .2s ease}
+
+  .note{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);
+    border-radius:12px;padding:14px 16px;color:var(--ink2);font-size:14px;text-align:left;max-width:660px;margin:30px auto 0}
+  .note svg{flex:none;margin-top:2px}
+
+  /* PERSON SECTION */
+  .person{border-bottom:1px solid var(--line)}
+  .phead{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:6px}
+  .pnum{font-family:var(--serif);font-size:clamp(40px,9vw,74px);line-height:.8;color:rgba(255,255,255,.10);font-weight:600;flex:none}
+  .ptitle h2{font-size:clamp(28px,5vw,46px);margin:0}
+  .ptag{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    color:var(--gold);border:1px solid rgba(224,178,95,.32);border-radius:999px;padding:4px 12px}
+  .person.sky .ptag{color:var(--sky2);border-color:rgba(143,176,201,.34)}
+  .person.rose .ptag{color:var(--rose2);border-color:rgba(208,85,92,.32)}
+  .pintro{color:var(--ink2);font-size:clamp(15px,1vw+12px,18px);max-width:70ch;margin:16px 0 0}
+  .pintro em{color:var(--ink);font-style:italic}
+
+  /* photo grid */
+  .grid{display:grid;gap:16px;margin-top:26px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+  figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,border-color .3s ease}
+  figure:hover{transform:translateY(-4px);border-color:var(--line2)}
+  figure img{width:100%;height:clamp(230px,32vw,320px);object-fit:cover;background:var(--panel2);cursor:zoom-in}
+  figure.tall img{height:clamp(320px,46vw,460px)}
+  figcaption{padding:14px 16px;font-size:13.5px;color:var(--ink2);line-height:1.55}
+  figcaption b{color:var(--ink);font-weight:600}
+  .pin{display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-size:11.5px;font-weight:600;letter-spacing:.02em;
+    color:var(--sky2);border:1px solid rgba(143,176,201,.3);border-radius:999px;padding:3px 9px;background:rgba(143,176,201,.06)}
+  .pin:hover{text-decoration:none;background:rgba(143,176,201,.14)}
+  .feature{grid-column:1/-1}
+  .feature img{height:clamp(280px,52vw,560px);object-position:50% 38%}
+
+  /* quote strip */
+  .qz{margin:26px 0 0;border-left:2px solid var(--gold);padding:6px 0 6px 16px;font-family:var(--serif);font-style:italic;color:var(--ink2);font-size:clamp(16px,2.4vw,20px)}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);background:#08080c;text-align:center}
+  footer .big{font-family:var(--serif);font-style:italic;color:var(--ink2);font-size:clamp(18px,3vw,24px);margin:0 0 10px}
+  footer p{color:var(--muted);font-size:13.5px;max-width:64ch;margin:8px auto}
+  .backhome{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-weight:600;font-size:14px;border:1px solid rgba(224,178,95,.35);
+    padding:11px 20px;border-radius:999px;background:rgba(224,178,95,.06)}
+  .backhome:hover{background:rgba(224,178,95,.14);text-decoration:none}
+
+  /* Lightbox */
+  #lightbox{position:fixed;inset:0;z-index:100;background:rgba(6,6,9,.95);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px;cursor:zoom-out}
+  #lightbox.on{display:flex}
+  #lightbox img{max-width:96vw;max-height:82vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  #lightbox .lbcap{color:var(--ink2);font-size:13.5px;margin-top:14px;max-width:72ch;text-align:center}
+  #lightbox .lbx{position:absolute;top:16px;right:20px;color:var(--ink2);font-size:30px;line-height:1}
+
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="magen" viewBox="0 0 100 100">
+    <path d="M50 6 L61 27 84 27 72 46 84 65 61 65 50 86 39 65 16 65 28 46 16 27 39 27 Z" fill="none" stroke="#e0b25f" stroke-width="4" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="anemone" viewBox="0 0 24 24">
+    <g fill="#d0555c"><ellipse cx="12" cy="5" rx="3" ry="5"/><ellipse cx="12" cy="19" rx="3" ry="5"/><ellipse cx="5" cy="12" rx="5" ry="3"/><ellipse cx="19" cy="12" rx="5" ry="3"/><ellipse cx="7" cy="7" rx="3.4" ry="4.6" transform="rotate(-45 7 7)"/><ellipse cx="17" cy="7" rx="3.4" ry="4.6" transform="rotate(45 17 7)"/><ellipse cx="7" cy="17" rx="3.4" ry="4.6" transform="rotate(45 7 17)"/><ellipse cx="17" cy="17" rx="3.4" ry="4.6" transform="rotate(-45 17 17)"/></g>
+    <circle cx="12" cy="12" r="3.2" fill="#1a1a10"/>
+  </symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><svg class="star" style="width:20px;height:20px"><use href="#magen"/></svg> <span>The <b>Family</b></span></div>
+    <nav class="navlinks">
+      <a class="home" href="../israel/">← Trip home</a>
+      <a href="#everyone">Everyone</a>
+      <a href="#warren">Warren</a>
+      <a href="#momdaughter">Mom &amp; Daughter</a>
+      <a href="#daughter">The Daughter</a>
+      <a href="#amler">Amler</a>
+      <a href="../jerusalem-tour/">Jerusalem</a>
+      <a href="../nova-tour/">The South</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <svg class="star" style="width:56px;height:56px;margin:0 auto 22px;display:block"><use href="#magen"/></svg>
+    <p class="kick">Israel · July 2026 · the people who were there</p>
+    <h1>The Family</h1>
+    <p class="sub">A trip is really just the people you took it with.</p>
+    <p class="place">Two cities, one coast, and a whole lot of trains. Here is everyone who made the journey — gathered up person by person, with a little love for each. Tap any photo to see it full-screen.</p>
+    <div class="castrow">
+      <a href="#everyone"><svg class="star" style="width:15px;height:15px"><use href="#magen"/></svg> Everyone, together</a>
+      <a href="#warren">Warren — Dad</a>
+      <a href="#momdaughter">Mom &amp; the co-pilot</a>
+      <a href="#daughter">The daughter</a>
+      <a href="#amler">Amler, the guide</a>
+    </div>
+    <div class="note">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e0b25f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <div>Every photo here is the family's own, taken on the trip. Names are the ones already used across the site — happy to swap in the real ones any time. 📍 pins open the exact spot in Google Maps.</div>
+    </div>
+    <p class="scroll">Meet the crew ↓</p>
+  </div>
+</section>
+
+<!-- EVERYONE -->
+<section class="person" id="everyone">
+  <div class="wrap reveal">
+    <div class="phead">
+      <div class="pnum">01</div>
+      <div class="ptitle"><h2>Everyone, together</h2><div class="ptag"><svg class="star" style="width:13px;height:13px"><use href="#magen"/></svg> The whole crew</div></div>
+    </div>
+    <p class="pintro">The shots where the whole family is in one frame — the ones that end up framed on a wall. From the Mediterranean south to the golden stones of the Old City, this is the crew that did it all: <em>together, the whole way up.</em></p>
+    <div class="grid g3">
+      <figure class="feature tall">
+        <img data-lb data-cap="The Sacharowitz family at the Western Wall (the Kotel) at dusk, the Israeli flag flying over the golden Herodian stones — 7 July 2026. Journey's end." src="../jerusalem-tour/img/kotel-family.jpg" alt="The whole family together at the Western Wall at dusk">
+        <figcaption><b>We made it.</b> The whole family at the Kotel at dusk — the flag flying over 2,000-year-old stone, the last wall of the Temple at their backs. Every train, every wrong turn, every climb into the hills led right here.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Western+Wall+Jerusalem" target="_blank" rel="noopener">📍 Western Wall, Jerusalem</a></figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="The family selfie in the Old City shuk — stalls of tallitot and souvenirs, the 'Western Wall' sign pointing the way." src="../jerusalem-tour/img/oldcity-shuk-family.jpg" alt="Family selfie in the Old City market">
+        <figcaption><b>Lost (happily) in the shuk.</b> Somewhere between the tallitot and the souvenir stalls, with the "Western Wall →" sign insisting they were almost there. Spoiler: there were more alleys.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Old+City+market+Jerusalem" target="_blank" rel="noopener">📍 Old City, Jerusalem</a></figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="The Sacharowitz family with their guide Amler on the private tour of the Gaza envelope — 6 July 2026." src="../nova-tour/img/tour-group.jpg" alt="The family with their guide Amler in the south" style="object-position:50% 30%">
+        <figcaption><b>The team in the south.</b> The whole family with their guide, Amler, on the day they went down to bear witness in the Gaza-envelope region — the most serious day of the trip, taken on together.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Re%27im+Nova+memorial" target="_blank" rel="noopener">📍 Re'im, the Negev</a></figcaption>
+      </figure>
+    </div>
+    <blockquote class="qz">“You don't remember the miles. You remember who was sitting next to you.”</blockquote>
+  </div>
+</section>
+
+<!-- WARREN -->
+<section class="person" id="warren">
+  <div class="wrap reveal">
+    <div class="phead">
+      <div class="pnum">02</div>
+      <div class="ptitle"><h2>Warren</h2><div class="ptag">Dad · keeper of the tefillin</div></div>
+    </div>
+    <p class="pintro">The one who wraps tefillin on a moving train because the prayer can't wait for the platform. Warren is the quiet centre of gravity on this trip — first to the Wall, hand always on the stone, and the one who stood longest at every memorial in the south. <em>Reverence, with a boarding pass.</em></p>
+    <div class="grid g3">
+      <figure class="tall">
+        <img data-lb data-cap="Laying tefillin at the Western Wall — the head-box and arm-strap bound, a hand on the ancient stones." src="../jerusalem-tour/img/kotel-tefillin.jpg" alt="Laying tefillin at the Western Wall" style="object-position:50% 30%">
+        <figcaption><b>At the Wall, wrapped.</b> Tefillin bound, palm flat against Herodian limestone worn smooth by a hundred generations of hands doing exactly this. Some people travel to see a place; Warren travels to <i>touch</i> it.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Western+Wall+Jerusalem" target="_blank" rel="noopener">📍 Western Wall</a></figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="Dad's selfie beneath the flag at the Western Wall plaza at dusk." src="../jerusalem-tour/img/kotel-dad-solo.jpg" alt="Selfie at the Western Wall beneath the Israeli flag" style="object-position:50% 25%">
+        <figcaption><b>The dusk selfie.</b> Flag overhead, golden hour on the plaza, and the grin of a man who got his family all the way up to Jerusalem — and lived to take the photo.</figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="A traveller lays tefillin on the train — carrying a prayer up to Jerusalem." src="../jerusalem-tour/img/tefillin-train.jpg" alt="Tefillin on the train to Jerusalem" style="object-position:50% 30%">
+        <figcaption><b>Prayer at 160 km/h.</b> Why wait for the Wall? Tefillin laid on the high-speed train as the coastal plain gave way to the Judean Hills — the ascent made literal <i>and</i> spiritual.</figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="A hand wound in tefillin against the Western Wall, prayer notes packed into a long crack." src="../jerusalem-tour/img/kotel-hand-notes.jpg" alt="Hand and tefillin against the Western Wall with prayer notes">
+        <figcaption><b>Hand, strap, stone, notes.</b> A close read of the moment — kvitlach (folded prayers) jammed into every crack, one bright yellow among them. Thousands of hopes, packed into rock.</figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="At the Nova memorial, Re'im — a hand raised to the painted memorial candle and the Israeli flag." src="../nova-tour/img/nova-candle.jpg" alt="A hand raised to the memorial candle mural at the Nova site" style="object-position:50% 35%">
+        <figcaption><b>A candle for the ones who came to dance.</b> At Re'im, a hand to the painted flame. The most solemn frame of the whole trip — and the reason the family went south at all.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Nova+Festival+Victims+Memorial+Re%27im" target="_blank" rel="noopener">📍 Nova memorial, Re'im</a></figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="Warren and family at the Nova memorial grove, beside an individual victim's stele." src="../nova-tour/img/nova-warren-david.jpg" alt="At the Nova memorial grove beside a victim's stele" style="object-position:50% 25%">
+        <figcaption><b>In the grove.</b> Among the eucalyptus where a photograph now stands for every life, beside the stele of Amit Yitzhak David. You don't pass through a place like this — you stop.</figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="Bearing witness at the Zikim coastal memorial — a visitor in cap and sunglasses." src="../nova-tour/img/on-site.jpg" alt="At the Zikim coastal memorial" style="object-position:50% 22%">
+        <figcaption><b>On the coast at Zikim.</b> Cap, shades, and the Mediterranean the attackers crossed at dawn just over his shoulder. To stand here is to understand what a map never could.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Ashkelon+seafront+October+7+memorial" target="_blank" rel="noopener">📍 Ashkelon seafront</a></figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="At the Nova festival memorial main stage, Re'im." src="../nova-tour/img/nova-mainstage.jpg" alt="At the Nova main stage memorial" style="object-position:50% 18%">
+        <figcaption><b>At the Main Stage.</b> Where thousands once danced till sunrise, now a field of faces. Standing quietly among the photographs — bearing witness, which is its own kind of prayer.</figcaption>
+      </figure>
+    </div>
+    <blockquote class="qz">“He'd tell you the trip was about the places. It was always about the people — the living and the remembered.”</blockquote>
+  </div>
+</section>
+
+<!-- MOM & DAUGHTER -->
+<section class="person sky" id="momdaughter">
+  <div class="wrap reveal">
+    <div class="phead">
+      <div class="pnum">03</div>
+      <div class="ptitle"><h2>Mom &amp; the co-pilot</h2><div class="ptag">The unstoppable travel duo</div></div>
+    </div>
+    <p class="pintro">Every great trip has a pair who make the getting-there half the fun. Mom and her daughter rode every tram, every train, and every escalator-into-the-mountain shoulder to shoulder — window seats claimed, snacks acquired, morale management handled. <em>The heart of the operation.</em></p>
+    <div class="grid g2">
+      <figure class="tall">
+        <img data-lb data-cap="Mother and daughter on the Tel Aviv light rail Red Line, gliding through the city." src="../jerusalem-tour/img/tram-mother-daughter.jpg" alt="Mother and daughter on the Tel Aviv light rail">
+        <figcaption><b>Red Line, Tel Aviv.</b> Gliding through the city where it all began — flip-flops, sea air, and the day's first "are we going the right way?" (They were. Mostly.)
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Tel+Aviv+Light+Rail+Red+Line" target="_blank" rel="noopener">📍 Tel Aviv Light Rail</a></figcaption>
+      </figure>
+      <figure class="tall">
+        <img data-lb data-cap="Mother and daughter aboard the high-speed train, climbing up to Jerusalem." src="../jerusalem-tour/img/train-mother-daughter.jpg" alt="Mother and daughter on the fast train to Jerusalem">
+        <figcaption><b>Climbing to Jerusalem.</b> On board the high-speed train as it climbed some 750 metres into the Judean Hills. Two window-watchers on the most dramatic 43 minutes of track in the country.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Jerusalem+Yitzhak+Navon+station" target="_blank" rel="noopener">📍 → Yitzhak Navon</a></figcaption>
+      </figure>
+    </div>
+    <blockquote class="qz">“Give them a tram, a snack and a window, and they'd ride to the ends of the earth.”</blockquote>
+  </div>
+</section>
+
+<!-- DAUGHTER -->
+<section class="person" id="daughter">
+  <div class="wrap reveal">
+    <div class="phead">
+      <div class="pnum">04</div>
+      <div class="ptitle"><h2>The daughter</h2><div class="ptag">Co-pilot · flag-bearer · dad's shadow</div></div>
+    </div>
+    <p class="pintro">One half of the travel duo, and the other half of a dad-and-daughter double act that turned up at the Wall right on cue. She's in more frames than anyone — because she was <em>into</em> all of it, from the front of every tram to the foot of the last wall of the Temple.</p>
+    <div class="grid g3">
+      <figure class="feature">
+        <img data-lb data-cap="Daughter and dad at the Western Wall plaza at dusk, the flag flying above the golden stones." src="../jerusalem-tour/img/kotel-daughter-dad.jpg" alt="Daughter and dad at the Western Wall at dusk" style="object-position:50% 40%">
+        <figcaption><b>Father &amp; daughter at the Wall.</b> The pair of them at the Kotel at dusk, flag snapping overhead. Some trips you take <i>with</i> your kids; some you take <i>because</i> of them. This one was both.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Western+Wall+plaza+Jerusalem" target="_blank" rel="noopener">📍 Western Wall plaza</a></figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="Mother and daughter on the Tel Aviv light rail." src="../jerusalem-tour/img/tram-mother-daughter.jpg" alt="On the Tel Aviv light rail with mom">
+        <figcaption><b>Front-of-the-tram energy.</b> With Mom on the Red Line — the official start of every day and the unofficial start of every debate about which stop was theirs.</figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="Mother and daughter aboard the high-speed train to Jerusalem." src="../jerusalem-tour/img/train-mother-daughter.jpg" alt="On the train up to Jerusalem with mom">
+        <figcaption><b>Window seat, secured.</b> The climb into the hills, watching the coastal plain drop away. A whole country scrolling past the glass at speed.</figcaption>
+      </figure>
+    </div>
+    <blockquote class="qz">“The best souvenir she brought home wasn't a thing. It was the whole week.”</blockquote>
+  </div>
+</section>
+
+<!-- AMLER -->
+<section class="person rose" id="amler">
+  <div class="wrap reveal">
+    <div class="phead">
+      <div class="pnum">05</div>
+      <div class="ptitle"><h2>Amler</h2><div class="ptag"><svg class="star" style="width:12px;height:12px"><use href="#anemone"/></svg> The guide who carried the hardest day</div></div>
+    </div>
+    <p class="pintro">Not family by blood, but family for a day. Amler led the Sacharowitzes through the Gaza-envelope region — Sderot, the Tkuma car wall, the Ashkelon coast, and the Nova memorial at Re'im — navigating the checkpoints and, more importantly, the weight of it. <em>Some guides show you a place. Amler helped a family hold one.</em></p>
+    <div class="grid g3">
+      <figure class="feature">
+        <img data-lb data-cap="The Sacharowitz family with their guide Amler on the private tour of the Gaza envelope — 6 July 2026." src="../nova-tour/img/tour-group.jpg" alt="The family with their guide Amler" style="object-position:50% 32%">
+        <figcaption><b>Amler &amp; the family.</b> The private tour that made the south possible. He knew which roads, which stories, and when to simply let the silence sit.</figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="On the Mediterranean shore near Zikim — Amler's private tour for the family." src="../nova-tour/img/tour-beach.jpg" alt="On the Gaza-envelope coast" style="object-position:50% 40%">
+        <figcaption><b>Down to the shore.</b> The Mediterranean coast near the Zikim landing point, where the sea attack came ashore at first light. Amler set the scene the map couldn't.
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=Zikim+beach+Israel" target="_blank" rel="noopener">📍 Zikim coast</a></figcaption>
+      </figure>
+      <figure>
+        <img data-lb data-cap="Walking the Ashkelon seafront Avenue of Remembrance." src="../nova-tour/img/tour-promenade.jpg" alt="Walking the memorial promenade by the sea" style="object-position:50% 35%">
+        <figcaption><b>The Avenue of Remembrance.</b> Walking the Ashkelon seafront, a wave-topped stele for each life lost. A hard, necessary mile — walked with a guide who'd walked it many times before.</figcaption>
+      </figure>
+    </div>
+    <blockquote class="qz">“The right guide doesn't just get you there. He gets you through it.”</blockquote>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section style="background:var(--bg2)">
+  <div class="wrap reveal center">
+    <svg class="star" style="width:40px;height:40px;margin:0 auto 14px;display:block"><use href="#magen"/></svg>
+    <h2 style="font-size:clamp(24px,4vw,34px);margin:0 0 10px">That's the whole crew</h2>
+    <p class="lede center">Four of them and a guide, one week, and a country's worth of trains, trams, stones and sea. The places were extraordinary. The company was the point.</p>
+    <p style="margin-top:22px"><a class="backhome" href="../israel/"><svg class="star" style="width:15px;height:15px"><use href="#magen"/></svg> Back to the trip home</a></p>
+    <p style="margin-top:16px;color:var(--muted);font-size:13px">Explore the rest &nbsp;·&nbsp; <a href="../jerusalem-tour/">Up to Jerusalem →</a> &nbsp;·&nbsp; <a href="../nova-tour/">The South: Remembrance →</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding-block:52px">
+    <p class="big">“For everything there is a season.”</p>
+    <p>The Sacharowitz family in Israel · July 2026. All photographs are the family's own. A page made with love for the people in the frames.</p>
+  </div>
+</footer>
+
+<div id="lightbox"><span class="lbx" aria-hidden="true">×</span><img alt="" /><p class="lbcap"></p></div>
+
+<script>
+(function(){
+  document.documentElement.className += ' js';
+  // graceful image fallback
+  document.querySelectorAll('figure img').forEach(function(img){
+    img.onerror=function(){ var fig=img.closest('figure'); if(fig) fig.style.display='none'; };
+  });
+  // lightbox
+  var lb=document.getElementById('lightbox');
+  if(lb){
+    var lbImg=lb.querySelector('img'), lbCap=lb.querySelector('.lbcap');
+    function openLb(src,cap){ lbImg.src=src; lbCap.textContent=cap||''; lb.classList.add('on'); document.body.style.overflow='hidden'; }
+    function closeLb(){ lb.classList.remove('on'); lbImg.src=''; document.body.style.overflow=''; }
+    document.querySelectorAll('[data-lb]').forEach(function(img){
+      img.addEventListener('click',function(){
+        var cap=img.getAttribute('data-cap')||img.alt||'';
+        openLb(img.getAttribute('data-lb')||img.currentSrc||img.src, cap);
+      });
+    });
+    lb.addEventListener('click',closeLb);
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLb(); });
+  }
+  // scroll reveal
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(n){ io.observe(n); });
+  } else { document.querySelectorAll('.reveal').forEach(function(n){ n.classList.add('in'); }); }
+})();
+</script>
+</body>
+</html>
