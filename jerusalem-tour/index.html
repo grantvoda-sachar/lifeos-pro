@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0b0d14" />
+<title>Up to Jerusalem · Tel Aviv → the Kotel — A Family Journey</title>
+<meta name="description" content="A living travel diary of the Sacharowitz family's journey from Tel Aviv up to Jerusalem and the Western Wall (the Kotel) — the light rail, the high-speed train, the stations, and 3,000 years of history along the way." />
+<meta property="og:title" content="Up to Jerusalem · Tel Aviv → the Kotel" />
+<meta property="og:description" content="From the Tel Aviv light rail to the deepest station in the Middle East — a family's ascent to the Western Wall, told through their photos and the history beneath their feet." />
+<style>
+  :root{
+    --bg:#0b0d14; --bg2:#0f1220; --panel:#141826; --panel2:#1a2033;
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+    --ink:#f1ede3; --ink2:#c7c0b1; --muted:#8d887a;
+    --gold:#e0b25f; --gold2:#f4d99e; --deepgold:#caa049;
+    --stone:#d9c9a6; --sky:#84b3d8; --sky2:#a7cbe6;
+    --rose:#cf6f74; --good:#89bd9c;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --wrap:1120px; --r:16px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.65;font-size:clamp(15px,1.1vw + 12px,17px);
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;image-orientation:from-image}
+  a{color:var(--gold2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:.2px}
+  .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+  section{padding-block:clamp(44px,7vw,84px)}
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;
+    font-size:12px;color:var(--gold);font-weight:600;margin:0 0 14px}
+  .lede{color:var(--ink2);font-size:clamp(16px,1vw + 13px,20px);max-width:64ch}
+  .center{text-align:center;margin-inline:auto}
+  .divider{height:1px;background:var(--line);border:0;margin:0}
+  .star{width:1em;height:1em;display:inline-block;vertical-align:-.12em;flex:none}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(11,13,20,.82);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:14px;min-height:56px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);
+    font-weight:600;font-size:17px;letter-spacing:.5px;white-space:nowrap}
+  .brand b{color:var(--gold2);letter-spacing:2px}
+  .navlinks{margin-left:auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{color:var(--ink2);font-size:13px;padding:7px 11px;border-radius:999px;white-space:nowrap;font-family:var(--sans)}
+  .navlinks a:hover{color:var(--ink);background:var(--panel);text-decoration:none}
+
+  /* HERO */
+  .hero{position:relative;min-height:90vh;display:flex;align-items:center;text-align:center;overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(120% 90% at 50% -8%,rgba(224,178,95,.18),transparent 55%),
+      radial-gradient(80% 60% at 82% 112%,rgba(132,179,216,.12),transparent 60%),
+      linear-gradient(180deg,#0d1019,#0b0d14 60%,#090a10);}
+  .hero .cityline{position:absolute;left:0;right:0;bottom:0;width:100%;opacity:.5;pointer-events:none}
+  .hero .starbig{width:min(96px,22vw);margin:0 auto 24px;filter:drop-shadow(0 0 26px rgba(224,178,95,.45))}
+  .hero .kicker-top{font-family:var(--sans);letter-spacing:.42em;text-transform:uppercase;
+    font-size:clamp(11px,2.4vw,14px);color:var(--gold);margin:0 0 18px}
+  .hero h1{font-size:clamp(40px,11vw,104px);margin:0;letter-spacing:.05em;color:var(--ink);font-weight:600;
+    text-shadow:0 0 42px rgba(224,178,95,.26);line-height:1.02}
+  .hero h1 .arrow{color:var(--gold2);font-weight:400;padding:0 .12em;opacity:.85}
+  .hero .sub{font-family:var(--serif);font-style:italic;color:var(--ink2);font-size:clamp(18px,4.4vw,30px);margin:16px 0 0}
+  .hero .heb{font-family:var(--serif);color:var(--gold2);font-size:clamp(20px,5vw,32px);margin:6px 0 0;direction:rtl}
+  .hero .place{margin:24px auto 0;max-width:62ch;color:var(--ink2)}
+  .tourribbon{display:inline-flex;align-items:center;gap:10px;margin:0 auto 20px;
+    background:linear-gradient(135deg,rgba(224,178,95,.18),rgba(224,178,95,.05));
+    border:1px solid rgba(224,178,95,.42);border-radius:999px;padding:9px 18px;
+    font-family:var(--serif);font-size:clamp(14px,2.6vw,19px);color:var(--gold2)}
+  .tourribbon b{font-weight:600}
+  .tourfeature{margin:30px auto 0;max-width:540px;border-radius:18px;overflow:hidden;
+    border:1px solid rgba(224,178,95,.35);box-shadow:0 16px 46px rgba(0,0,0,.55);background:var(--panel)}
+  .tourfeature img{width:100%;max-height:460px;object-fit:cover;object-position:50% 30%;display:block;cursor:zoom-in;background:var(--panel2)}
+  .tourfeature figcaption{padding:14px 18px;font-family:var(--serif);font-size:clamp(14px,2vw,16px);
+    color:var(--gold2);display:flex;align-items:center;gap:9px;justify-content:center;text-align:center}
+  .tourstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px auto 0;max-width:620px}
+  .tourstrip figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line2);
+    box-shadow:0 12px 34px rgba(0,0,0,.45);transition:transform .3s ease}
+  .tourstrip figure:hover{transform:translateY(-4px)}
+  .tourstrip img{width:100%;height:clamp(120px,20vw,160px);object-fit:cover;display:block;background:var(--panel2);cursor:zoom-in}
+  @media(max-width:560px){.tourstrip{gap:7px}}
+  .herocta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:30px auto 4px}
+  .herocta a{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:clamp(14px,1.4vw,15.5px);
+    padding:13px 24px;border-radius:999px;font-family:var(--sans);transition:transform .2s ease}
+  .herocta a.primary{background:linear-gradient(135deg,var(--gold2),var(--deepgold));color:#2a1e08;border:1px solid var(--gold)}
+  .herocta a.ghost{color:var(--ink);border:1px solid var(--line2);background:rgba(255,255,255,.04)}
+  .herocta a:hover{text-decoration:none;transform:translateY(-2px)}
+  .scrollcue{margin-top:34px;color:var(--muted);font-size:12px;letter-spacing:.25em;text-transform:uppercase}
+
+  .note{display:flex;gap:12px;align-items:flex-start;background:var(--panel);
+    border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;
+    padding:14px 16px;color:var(--ink2);font-size:14px;text-align:left}
+  .note svg{flex:none;margin-top:2px}
+  .hero .note{max-width:640px;margin:32px auto 0}
+
+  /* STAT BAND */
+  .stats{background:linear-gradient(180deg,#0e1119,#0b0d14)}
+  .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:14px;margin-top:8px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px;text-align:center;position:relative;overflow:hidden}
+  .stat::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+  .stat .num{font-family:var(--serif);font-size:clamp(28px,7vw,42px);color:var(--gold2);line-height:1;font-weight:600}
+  .stat .lab{margin-top:9px;font-size:13px;color:var(--ink2);letter-spacing:.02em}
+  .stat.sky .num{color:var(--sky2)}
+
+  /* generic */
+  .grid{display:grid;gap:18px}
+  .cols-2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+  .cols-3{grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;position:relative}
+  .card h3{margin:.1em 0 .5em;font-size:20px;color:var(--ink)}
+  .card p{margin:.5em 0;color:var(--ink2)}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+  /* FIELD / journey legs */
+  .stamp{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+  .stamp::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sky2);box-shadow:0 0 10px var(--sky2)}
+  .field{margin-top:24px;display:grid;gap:16px}
+  .field .lead{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line2)}
+  .field .lead img{width:100%;max-height:76vh;object-fit:cover;display:block;background:var(--panel2);cursor:zoom-in}
+  .field .lead .cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(20px,4vw,34px) clamp(16px,3vw,26px) clamp(14px,2vw,20px);
+    background:linear-gradient(180deg,transparent,rgba(6,7,11,.92))}
+  .field .lead .cap h3{margin:0 0 6px;font-size:clamp(19px,3.4vw,26px);color:#fff}
+  .field .lead .cap p{margin:0;color:#e0dbd0;font-size:clamp(13px,1.4vw,15px);max-width:66ch;line-height:1.55}
+  .field .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
+  .field .ph{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column}
+  .field .ph img{width:100%;height:clamp(300px,46vw,420px);object-fit:cover;display:block;background:var(--panel2);cursor:zoom-in}
+  .field .ph .d{padding:15px 17px;color:var(--ink2);font-size:14px;line-height:1.55}
+  .field .ph .d b{color:var(--ink);font-weight:600}
+  .loc{display:inline-block;font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--sky2);border:1px solid rgba(132,179,216,.35);border-radius:999px;padding:2px 8px;margin-bottom:8px;font-weight:600}
+
+  /* TIMELINE (day + history) */
+  .tl{position:relative;margin-top:26px;padding-left:34px}
+  .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--gold),rgba(224,178,95,.15))}
+  .tl .item{position:relative;padding:0 0 26px 6px}
+  .tl .item::before{content:"";position:absolute;left:-31px;top:5px;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--gold);box-shadow:0 0 0 4px rgba(224,178,95,.12)}
+  .tl .item.key::before{background:var(--gold);box-shadow:0 0 14px rgba(224,178,95,.7)}
+  .tl .item.sky::before{border-color:var(--sky2);box-shadow:0 0 0 4px rgba(132,179,216,.14)}
+  .tl .t{font-family:var(--serif);color:var(--gold2);font-size:18px;font-weight:600}
+  .tl .item.sky .t{color:var(--sky2)}
+  .tl .yr{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-bottom:2px}
+  .tl .d{color:var(--ink2);margin-top:3px}
+
+  /* MAP */
+  .mapwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-top:24px}
+  .mapwrap svg{width:100%;height:auto;display:block;border-radius:10px}
+  .legend{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px;font-size:13px;color:var(--ink2)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .dotp{width:11px;height:11px;border-radius:50%;flex:none}
+  .maptip{font-size:12.5px;color:var(--muted);margin-top:10px}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px;margin-top:24px}
+  figure.g{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  figure.g img{width:100%;height:230px;object-fit:cover;background:var(--panel2);cursor:zoom-in}
+  figure.g figcaption{padding:12px 14px;font-size:13px;color:var(--ink2)}
+
+  /* KOTEL feature */
+  .kotel{background:linear-gradient(135deg,#1a1710,#12131c);border:1px solid rgba(224,178,95,.22);border-radius:20px;
+    padding:clamp(22px,3.4vw,38px);margin-top:26px;position:relative;overflow:hidden}
+  .kotel::after{content:"";position:absolute;right:-50px;top:-50px;width:230px;height:230px;background:radial-gradient(circle,rgba(224,178,95,.14),transparent 70%)}
+  .kotel h3{font-size:clamp(22px,3.6vw,30px);margin:0 0 6px}
+  .quote{border-left:2px solid var(--gold);padding:4px 0 4px 16px;color:var(--ink2);font-style:italic;font-size:clamp(15px,2vw,17px);font-family:var(--serif);margin:18px 0}
+  .quote cite{display:block;font-style:normal;color:var(--muted);font-size:12.5px;margin-top:6px;letter-spacing:.04em}
+
+  /* mini info cards */
+  .minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:22px}
+  .mini{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px}
+  .mini .h{display:flex;align-items:center;gap:9px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .mini p{margin:0;font-size:14px;color:var(--ink2);line-height:1.55}
+  .mini .heb{font-family:var(--serif);color:var(--gold2);direction:rtl;font-size:17px}
+
+  /* VISIT */
+  .visit{background:linear-gradient(135deg,#12181c,#111420);border:1px solid rgba(132,179,216,.22);border-radius:20px;padding:clamp(20px,3vw,32px)}
+  .visit .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px;margin-top:18px}
+  .vitem{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .vitem .h{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--sky2);font-weight:600;margin-bottom:6px}
+  .vitem p{margin:0;font-size:14px;color:var(--ink2)}
+  .checklist{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+  .checklist li{display:flex;gap:11px;align-items:flex-start;color:var(--ink2);font-size:14.5px}
+  .checklist svg{flex:none;margin-top:3px}
+
+  footer{border-top:1px solid var(--line);background:#090a10;text-align:center}
+  footer .starf{width:40px;margin:0 auto 16px;opacity:.9}
+  footer p{color:var(--muted);font-size:13.5px;max-width:62ch;margin:8px auto}
+  footer .big{font-family:var(--serif);font-style:italic;color:var(--ink2);font-size:20px}
+  footer .heb{font-family:var(--serif);color:var(--gold2);direction:rtl;font-size:22px;margin-top:6px}
+
+  /* Lightbox */
+  #lightbox{position:fixed;inset:0;z-index:100;background:rgba(6,7,11,.95);display:none;
+    align-items:center;justify-content:center;flex-direction:column;padding:20px;cursor:zoom-out}
+  #lightbox.on{display:flex}
+  #lightbox img{max-width:96vw;max-height:82vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  #lightbox .lbcap{color:var(--ink2);font-size:13.5px;margin-top:14px;max-width:72ch;text-align:center}
+  #lightbox .lbx{position:absolute;top:16px;right:20px;color:var(--ink2);font-size:30px;line-height:1}
+
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="magen" viewBox="0 0 100 100">
+    <path d="M50 4 L61 24 84 24 72.5 44 84 64 61 64 50 84 39 64 16 64 27.5 44 16 24 39 24 Z" fill="none" stroke="url(#gg)" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M50 16 L57 28 71 28 64 40 71 52 57 52 50 64 43 52 29 52 36 40 29 28 43 28 Z" fill="none" stroke="rgba(244,217,158,.5)" stroke-width="2.4" stroke-linejoin="round"/>
+    <linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4d99e"/><stop offset="1" stop-color="#caa049"/></linearGradient>
+  </symbol>
+  <symbol id="wall" viewBox="0 0 24 24">
+    <g fill="none" stroke="#e0b25f" stroke-width="1.6">
+      <rect x="2" y="4" width="9" height="4.5"/><rect x="13" y="4" width="9" height="4.5"/>
+      <rect x="2" y="10.5" width="6" height="4.5"/><rect x="10" y="10.5" width="12" height="4.5"/>
+      <rect x="2" y="17" width="9" height="4.5"/><rect x="13" y="17" width="9" height="4.5"/>
+    </g>
+  </symbol>
+  <symbol id="train" viewBox="0 0 24 24">
+    <g fill="none" stroke="#84b3d8" stroke-width="1.7">
+      <rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14"/><path d="M8 20l-2 2M16 20l2 2"/>
+      <circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></g>
+  </symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><svg class="star" style="width:20px;height:20px"><use href="#magen"/></svg> <span>Up to <b>JERUSALEM</b></span></div>
+    <nav class="navlinks">
+      <a href="#journey">The Journey</a>
+      <a href="#legs">Every Station</a>
+      <a href="#map">The Ascent</a>
+      <a href="#custom">Going Up</a>
+      <a href="#history">3,000 Years</a>
+      <a href="#kotel">The Kotel</a>
+      <a href="#oldcity">The Old City</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">To the Wall</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <svg class="starbig" viewBox="0 0 100 100" aria-hidden="true"><use href="#magen"/></svg>
+    <div class="tourribbon"><svg class="star" style="width:16px;height:16px"><use href="#magen"/></svg> <span><b>The Sacharowitz Family</b> · 7 July 2026</span></div>
+    <p class="kicker-top">Tel Aviv · to · Jerusalem · to · the Kotel</p>
+    <h1>TEL&nbsp;AVIV <span class="arrow">→</span> JERUSALEM</h1>
+    <p class="heb">עֲלִיָּה לָרֶגֶל — עוֹלִים לִירוּשָׁלַיִם</p>
+    <p class="sub">Aliyah la-Regel — we're going <em>up</em> to the Wall</p>
+    <figure class="tourfeature">
+      <img data-lb data-cap="Mother and daughter aboard the high-speed train, climbing from the coast up to Jerusalem — 7 July 2026." src="./img/train-mother-daughter.jpg" alt="Mother and daughter smiling together on the train to Jerusalem" loading="eager">
+      <figcaption><svg class="star" style="width:15px;height:15px"><use href="#magen"/></svg> On the train, ascending to Jerusalem</figcaption>
+    </figure>
+    <div class="tourstrip">
+      <figure><img data-lb data-cap="Riding the Tel Aviv light rail Red Line through the city toward the station." src="./img/tram-mother-daughter.jpg" alt="On the Tel Aviv light rail" loading="lazy"></figure>
+      <figure><img data-lb data-cap="At the railway platform — coffee at ILAN'S before boarding for Jerusalem." src="./img/station-ilans-trio.jpg" alt="Family selfie at the train station" loading="lazy"></figure>
+      <figure><img data-lb data-cap="A traveller lays tefillin on the train — a prayer carried up to Jerusalem." src="./img/tefillin-train.jpg" alt="Tefillin laid on the train" loading="lazy"></figure>
+    </div>
+    <p class="place">In Hebrew you never simply <em>go</em> to Jerusalem — you go <em>up</em>. This is that ascent, told in real time: from the Tel Aviv light rail, through HaShalom station, onto the high-speed train that climbs some 750 metres into the Judean Hills, and up into the Old City to the last standing wall of the Temple — the Kotel.</p>
+    <div class="herocta">
+      <a class="primary" href="#kotel"><svg class="star" style="width:16px;height:16px"><use href="#wall"/></svg> The Kotel — the Western Wall</a>
+      <a class="ghost" href="#legs"><svg class="star" style="width:15px;height:15px"><use href="#train"/></svg> Follow every station</a>
+    </div>
+    <div class="note">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e0b25f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <span>A living diary — updated station by station as the photos arrive. This page went live from the train itself, somewhere between the coastal plain and the hills of Judea.</span>
+    </div>
+    <p class="scrollcue">Scroll — the ascent begins ↓</p>
+  </div>
+</section>
+
+<!-- STAT BAND -->
+<section class="stats" id="journey">
+  <div class="wrap reveal">
+    <p class="eyebrow">The Journey at a Glance</p>
+    <h2 style="margin:0 0 6px;font-size:clamp(24px,4vw,36px)">From sea level to the City of Gold</h2>
+    <p class="lede">Two cities, ~54 kilometres apart, joined by one of the most dramatic short train rides on earth — a climb from the Mediterranean shore up into the Judean Hills.</p>
+    <div class="statgrid">
+      <div class="stat"><div class="num">~54<span style="font-size:.5em"> km</span></div><div class="lab">Tel Aviv → Jerusalem</div></div>
+      <div class="stat sky"><div class="num">43<span style="font-size:.5em"> min</span></div><div class="lab">Direct high-speed ride</div></div>
+      <div class="stat"><div class="num">~754<span style="font-size:.5em"> m</span></div><div class="lab">Jerusalem's elevation</div></div>
+      <div class="stat sky"><div class="num">~80<span style="font-size:.5em"> m</span></div><div class="lab">Navon station — underground</div></div>
+      <div class="stat"><div class="num">3,000<span style="font-size:.5em"> yrs</span></div><div class="lab">Of Jerusalem history</div></div>
+    </div>
+    <p class="maptip">Numbers are approximate — the deep-dive is in <a href="#map">The Ascent</a> and <a href="#history">3,000 Years</a> below.</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- THE LEGS -->
+<section id="legs">
+  <div class="wrap">
+    <span class="stamp reveal">Real time · 7 July 2026</span>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,40px);margin:.1em 0">Every station, in order</h2>
+    <p class="lede reveal">The day unfolded one leg at a time. Here is the route exactly as we rode it — each stop with its place on the map and how far it sat from the next.</p>
+
+    <!-- LEG 1 -->
+    <div class="field reveal">
+      <div class="lead">
+        <img data-lb data-cap="The Tel Aviv apartment — the morning the journey began." src="./img/tlv-apartment.jpg" alt="The Tel Aviv apartment interior">
+        <div class="cap"><span class="loc">Leg 1 · Tel Aviv</span><h3>Where it began</h3>
+          <p>A bright Tel Aviv flat, bags packed, the light-rail app open. Tel Aviv sits right on the Mediterranean at barely a few metres above sea level — the beginning of an ascent that ends 750 metres higher.</p></div>
+      </div>
+    </div>
+
+    <!-- LEG 2 -->
+    <div class="field reveal">
+      <div class="two">
+        <div class="ph"><img data-lb data-cap="Mother and daughter on the Tel Aviv light rail Red Line, gliding through the city." src="./img/tram-mother-daughter.jpg" alt="On the Tel Aviv light rail">
+          <div class="d"><span class="loc">Leg 2 · Tel Aviv Light Rail</span><b>The Red Line.</b> Tel Aviv's first light-rail line opened in 2023 after years of work — a smooth glide through the heart of the city. Our route ran ~8 stops past <b>Dizengoff Center</b>, along leafy <b>Rothschild Boulevard</b> and the <b>HaBima</b> national theatre, toward the <b>Azrieli</b> towers.</div></div>
+        <div class="ph"><img data-lb data-cap="The Moovit route preview — bus/tram line toward Azrieli & Derech Menachem Begin, next to HaShalom station." src="./img/moovit-route.jpg" alt="Moovit transit route screenshot">
+          <div class="d"><span class="loc">Navigation</span><b>8 stops · 28 min.</b> The plan on screen: ride to <b>Azrieli / Derech Menachem Begin</b> — the glass towers that stand directly above <b>Tel Aviv HaShalom</b> railway station. Landmarks slide by: HaYarkon/Trumpeldor, Bograshov, Dizengoff Center, HaBima–Rothschild.</div></div>
+      </div>
+    </div>
+
+    <!-- LEG 3 -->
+    <div class="field reveal">
+      <div class="lead">
+        <img data-lb data-cap="At the railway platform — a family selfie by the ILAN'S coffee kiosk before boarding for Jerusalem." src="./img/station-ilans-trio.jpg" alt="Family at the train station platform by ILAN'S coffee">
+        <div class="cap"><span class="loc">Leg 3 · Tel Aviv HaShalom Station</span><h3>Coffee at ILAN'S, then the platform</h3>
+          <p>Under the Azrieli towers, on the platform at HaShalom — “<b>ILAN'S · Going Places · Coffee Pioneers since 1994</b>.” A last espresso on the coast before the climb. Platform 2, direction: Jerusalem.</p></div>
+      </div>
+    </div>
+
+    <!-- LEG 4 -->
+    <div class="field reveal">
+      <div class="two">
+        <div class="ph"><img data-lb data-cap="The Israel Railways app — Tel Aviv HaShalom to Jerusalem Yitzhak Navon, direct, 43 minutes." src="./img/rail-app.jpg" alt="Israel Railways app showing the route to Jerusalem">
+          <div class="d"><span class="loc">The Booking</span><b>HaShalom → Yitzhak Navon.</b> Direct trains, “no swap,” 43 minutes each: 17:09→17:52, 17:39→18:22, 18:09→18:52. This is the electrified <b>A1 high-speed line</b> — opened 2018–2019, it replaced a century-old winding track through the hills.</div></div>
+        <div class="ph"><img data-lb data-cap="The Rav-Kav travel card and an ILAN'S receipt — 7 July 2026, 17:01." src="./img/ravkav-receipt.jpg" alt="Rav-Kav card and receipt on the table">
+          <div class="d"><span class="loc">The Ticket</span><b>One card for everything.</b> The green-and-purple <b>Rav-Kav</b> is Israel's rechargeable travel card — it taps you onto the light rail, the buses and the train alike. Receipt time-stamped 17:01, minutes before boarding.</div></div>
+      </div>
+    </div>
+
+    <!-- LEG 5 -->
+    <div class="field reveal">
+      <div class="lead">
+        <img data-lb data-cap="On board and climbing — mother and daughter on the high-speed train into the Judean Hills." src="./img/train-mother-daughter.jpg" alt="Mother and daughter on the train to Jerusalem">
+        <div class="cap"><span class="loc">Leg 5 · On the Train</span><h3>The climb into the hills</h3>
+          <p>Aboard the blue-seated express. For 43 minutes the train dives through long tunnels and soars over deep valleys on tall bridges, gaining three-quarters of a kilometre in altitude — the coastal plain falling away behind, the hills of Judea rising ahead.</p></div>
+      </div>
+    </div>
+
+    <!-- LEG 6 -->
+    <div class="field reveal">
+      <div class="two">
+        <div class="ph"><img data-lb data-cap="Provisions for the ascent — an ILAN'S baguette and a Coca-Cola Zero on the train table." src="./img/train-snack-ilans.jpg" alt="ILAN'S sandwich and Coca-Cola on the train table">
+          <div class="d"><span class="loc">The Ride</span><b>Fuel for the climb.</b> An ILAN'S baguette and a cold Coke Zero on the fold-down table, phones full of the day, the window a blur of green hills. The small ordinary joys that make a pilgrimage a family memory.</div></div>
+        <div class="ph"><img data-lb data-cap="A traveller lays tefillin on the train — carrying a prayer up to Jerusalem." src="./img/tefillin-train.jpg" alt="Tefillin held on the train">
+          <div class="d"><span class="loc">A Prayer En Route</span><b>Tefillin on the rails.</b> The gold-lettered box of the <b>tefillin</b> — leather straps and tiny parchment scrolls of the Shema (Deut. 6). Even a moving train becomes, for a moment, a place of prayer on the way up to the holy city.</div></div>
+      </div>
+    </div>
+
+    <!-- LEG 7 -->
+    <div class="field reveal">
+      <div class="lead" style="background:linear-gradient(135deg,#1a1710,#12131c);border:1px solid rgba(224,178,95,.28);min-height:220px;display:flex;align-items:center">
+        <div style="padding:clamp(24px,4vw,44px)">
+          <span class="loc">Leg 7 · Jerusalem — Yitzhak Navon</span>
+          <h3 style="font-size:clamp(22px,3.6vw,30px);margin:.2em 0">Arrival, 80 metres beneath the city</h3>
+          <p style="color:var(--ink2);max-width:64ch">The train slides to a stop at <b>Yitzhak Navon</b> station — named for Israel's fifth president — one of the <b>deepest railway stations in the world</b>, carved roughly 80 metres into the bedrock of Jerusalem. Long escalators lift you up out of the mountain and into the light of the City of Gold. From here: the Light Rail, or a walk up through <b>Jaffa Gate</b> to the Old City and down to the Wall. <span style="color:var(--muted)">📷 Photos from the Kotel land here as they arrive.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- MAP -->
+<section id="map">
+  <div class="wrap">
+    <p class="eyebrow reveal">Proximity &amp; Location</p>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,40px);margin:.1em 0">The Ascent — sea to summit</h2>
+    <p class="lede reveal">One line, west to east: from the Mediterranean shore at Tel Aviv, across the coastal plain, then up through the Judean Hills to Jerusalem. The elevation profile tells the whole story.</p>
+    <div class="mapwrap reveal">
+      <svg viewBox="0 0 900 380" role="img" aria-label="Elevation profile from Tel Aviv at sea level rising to Jerusalem at 754 metres">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141b2b"/><stop offset="1" stop-color="#0e1220"/></linearGradient>
+          <linearGradient id="land" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#26364a"/><stop offset="1" stop-color="#3a3320"/></linearGradient>
+          <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22506e"/><stop offset="1" stop-color="#12314a"/></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="900" height="380" fill="url(#sky)"/>
+        <!-- sea -->
+        <path d="M0 300 L70 300 L70 380 L0 380 Z" fill="url(#sea)"/>
+        <text x="30" y="345" fill="#a7cbe6" font-size="12" font-family="Georgia" font-style="italic" text-anchor="middle">Med.</text>
+        <!-- terrain rising -->
+        <path d="M70 300 C 240 296, 360 285, 470 250 C 600 210, 700 120, 830 70 L 830 380 L 70 380 Z" fill="url(#land)" opacity=".9"/>
+        <path d="M70 300 C 240 296, 360 285, 470 250 C 600 210, 700 120, 830 70" fill="none" stroke="#e0b25f" stroke-width="3"/>
+        <!-- rail dashes -->
+        <path d="M70 300 C 240 296, 360 285, 470 250 C 600 210, 700 120, 830 70" fill="none" stroke="#84b3d8" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <!-- gridlines -->
+        <g stroke="rgba(255,255,255,.08)" stroke-width="1">
+          <line x1="70" y1="70" x2="830" y2="70"/><line x1="70" y1="185" x2="830" y2="185"/><line x1="70" y1="300" x2="830" y2="300"/>
+        </g>
+        <g fill="var(--muted)" font-size="11" font-family="system-ui" text-anchor="end">
+          <text x="62" y="74">~750 m</text><text x="62" y="189">~375 m</text><text x="62" y="304">sea level</text>
+        </g>
+        <!-- stations -->
+        <g font-family="system-ui">
+          <circle cx="70" cy="300" r="6" fill="#84b3d8" stroke="#0b0d14" stroke-width="2"/>
+          <text x="78" y="326" fill="#e6e0d4" font-size="13" font-weight="600">Tel Aviv HaShalom</text>
+          <text x="78" y="342" fill="#8d887a" font-size="11">~10 m · the coast</text>
+
+          <circle cx="360" cy="285" r="5" fill="#c7c0b1" stroke="#0b0d14" stroke-width="2"/>
+          <text x="360" y="272" fill="#c7c0b1" font-size="11" text-anchor="middle">Ben Gurion / plain</text>
+
+          <circle cx="560" cy="222" r="5" fill="#c7c0b1" stroke="#0b0d14" stroke-width="2"/>
+          <text x="560" y="210" fill="#c7c0b1" font-size="11" text-anchor="middle">Judean foothills · tunnels</text>
+
+          <circle cx="830" cy="70" r="7" fill="#f4d99e" stroke="#0b0d14" stroke-width="2"/>
+          <text x="822" y="56" fill="#f4d99e" font-size="14" font-weight="700" text-anchor="end">Jerusalem — Yitzhak Navon</text>
+          <text x="822" y="92" fill="#caa049" font-size="11" text-anchor="end">~754 m · then 80 m down to the platform</text>
+        </g>
+        <text x="450" y="360" fill="#6f6a5d" font-size="11" font-family="system-ui" text-anchor="middle">West ← coastal plain · Judean Hills → East · not to scale</text>
+      </svg>
+      <div class="legend">
+        <span><i class="dotp" style="background:#84b3d8"></i> A1 high-speed rail line (~57 km of track)</span>
+        <span><i class="dotp" style="background:#e0b25f"></i> Rising terrain — coast to hills</span>
+        <span><i class="dotp" style="background:#f4d99e"></i> Jerusalem, the destination</span>
+      </div>
+      <p class="maptip">The A1 line burrows through long tunnels and vaults deep valleys on soaring bridges — engineering that turns a twisting mountain journey into a 43-minute glide. Then, at Jerusalem, it dives ~80 m underground into the deepest station in the Middle East.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CUSTOM: Going up -->
+<section id="custom">
+  <div class="wrap">
+    <p class="eyebrow reveal">Custom &amp; Meaning</p>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,40px);margin:.1em 0">Why you always go <em>up</em> to Jerusalem</h2>
+    <p class="lede reveal">For three thousand years, in every direction on the map, the language has been the same: you <em>ascend</em> to Jerusalem. Here are the small sacred details that travelled with us.</p>
+    <div class="minis reveal">
+      <div class="mini">
+        <div class="h"><svg class="star" style="width:17px;height:17px"><use href="#magen"/></svg> Aliyah la-Regel</div>
+        <p class="heb">עֲלִיָּה לָרֶגֶל</p>
+        <p>“Going up on foot” — the ancient pilgrimage. Three times a year Jews would ascend to the Temple in Jerusalem. Because the city sits high in the hills, and higher still in the soul, one never travels <em>down</em> or <em>across</em> to Jerusalem — only <em>up</em>.</p>
+      </div>
+      <div class="mini">
+        <div class="h"><svg class="star" style="width:17px;height:17px"><use href="#train"/></svg> Rav-Kav</div>
+        <p class="heb">רַב-קַו</p>
+        <p>The single smartcard that carries a traveller across all of Israel's public transport — light rail, city buses and the intercity trains. One green-and-purple tap, from the streets of Tel Aviv to the platform bound for Jerusalem.</p>
+      </div>
+      <div class="mini">
+        <div class="h"><svg class="star" style="width:17px;height:17px"><use href="#magen"/></svg> Tefillin</div>
+        <p class="heb">תְּפִילִּין</p>
+        <p>Two small black leather boxes, bound to the arm and head, holding hand-written parchment scrolls of the Shema — “<em>Hear O Israel…</em>” (Deuteronomy 6). To lay them on the train is to carry the words up to Jerusalem, bound close to heart and mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="wrap">
+    <p class="eyebrow reveal">The City Below Your Feet</p>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,40px);margin:.1em 0">Jerusalem — three thousand years</h2>
+    <p class="lede reveal">No city on earth has been more loved, lost and rebuilt. Sacred to Judaism, Christianity and Islam, Jerusalem has been destroyed and raised again more times than almost any place in history. A brief walk down through the layers:</p>
+    <div class="tl reveal">
+      <div class="item"><span class="yr">c. 1800 BCE</span><div class="t">A city on the ridge</div><div class="d">A Canaanite / Jebusite town clings to a narrow spur above the Gihon Spring — the core we now call the City of David. Its name, likely “<em>Ir-Shalem</em>,” carries the root of <em>shalom</em>, peace.</div></div>
+      <div class="item key"><span class="yr">c. 1000 BCE</span><div class="t">King David's capital</div><div class="d">David captures the city and makes it the capital of a united Israel. His son <b>Solomon</b> builds the <b>First Temple</b> on Mount Moriah — the heart of Jewish worship.</div></div>
+      <div class="item"><span class="yr">586 BCE</span><div class="t">The First Destruction</div><div class="d">Babylon razes the Temple and exiles the people. By the rivers of Babylon they weep — “<em>If I forget thee, O Jerusalem…</em>” (Psalm 137).</div></div>
+      <div class="item"><span class="yr">516 BCE</span><div class="t">The Second Temple</div><div class="d">Returning exiles rebuild. Five centuries later <b>Herod the Great</b> vastly expands the Temple Mount on a colossal platform of stone — whose western retaining wall still stands today.</div></div>
+      <div class="item"><span class="yr">70 CE</span><div class="t">Rome and the ruin</div><div class="d">Rome destroys the Second Temple. Only the great retaining walls survive — the western one becoming the holiest place of Jewish prayer: the <b>Kotel</b>.</div></div>
+      <div class="item"><span class="yr">638 CE</span><div class="t">The city of three faiths</div><div class="d">Under Byzantine, then Islamic rule the city becomes sacred to Christianity and Islam too; the Dome of the Rock rises on the Mount in 691.</div></div>
+      <div class="item"><span class="yr">1099 – 1537</span><div class="t">Crusaders, then Ottomans</div><div class="d">Crusader kingdoms come and go. In <b>1537–41 Suleiman the Magnificent</b> builds the golden limestone walls and gates that still ring the Old City — including <b>Jaffa Gate</b>.</div></div>
+      <div class="item sky"><span class="yr">1948 – 1967</span><div class="t">Divided, then reunited</div><div class="d">The modern State of Israel is born in 1948; for 19 years the Old City lies beyond a border. In <b>June 1967</b> Jerusalem is reunited and Jews return to pray at the Wall for the first time in a generation.</div></div>
+      <div class="item key"><span class="yr">Today</span><div class="t">The City of Gold</div><div class="d">Built almost entirely of pale “Jerusalem stone” that glows honey-gold at sunset, the city rises ~754 m in the Judean Hills — the living destination at the top of this journey.</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- KOTEL -->
+<section id="kotel">
+  <div class="wrap">
+    <p class="eyebrow reveal">The Destination</p>
+    <h2 class="reveal" style="font-size:clamp(26px,4.6vw,42px);margin:.1em 0">The Kotel — the Western Wall</h2>
+    <p class="lede reveal">The last and holiest place at the end of the climb. Not a wall of the Temple itself, but the wall that has held the mountain up for two thousand years.</p>
+    <div class="kotel reveal">
+      <h3><svg class="star" style="width:22px;height:22px"><use href="#wall"/></svg> הַכּוֹתֶל הַמַּעֲרָבִי · HaKotel HaMa'aravi</h3>
+      <p style="color:var(--ink2);max-width:70ch">The Western Wall is a surviving section of the massive <b>retaining wall Herod the Great built (~19 BCE)</b> to enlarge the Temple Mount — not part of the Temple building, but the mighty stonework that supported its plaza. When Rome destroyed the Temple in 70 CE, this wall endured. For centuries Jews have come here to pray at the spot closest to where the Holy of Holies once stood; tradition holds the divine presence, the <em>Shechinah</em>, has never departed from it.</p>
+      <div class="minis" style="margin-top:20px">
+        <div class="mini" style="background:rgba(255,255,255,.03)"><div class="h">The stones</div><p>The visible wall rises about <b>19 m</b> above the plaza, part of a length of some <b>488 m</b>. Its great lower courses are original Herodian stones, each cut with a fine recessed border.</p></div>
+        <div class="mini" style="background:rgba(255,255,255,.03)"><div class="h">The notes</div><p>Visitors fold tiny prayers and press them into the cracks between the stones — <em>kvitlach</em>. More than a million a year are placed; twice a year they are gathered with care and buried on the Mount of Olives.</p></div>
+        <div class="mini" style="background:rgba(255,255,255,.03)"><div class="h">The plaza</div><p>An open square before the Wall, with separate sections for men and women to pray. Day and night, in every weather, it is never empty.</p></div>
+      </div>
+      <blockquote class="quote">“I rejoiced when they said unto me: Let us go up to the house of the Lord. Our feet are standing within thy gates, O Jerusalem.”<cite>— Psalm 122</cite></blockquote>
+      <blockquote class="quote">“If I forget thee, O Jerusalem, let my right hand forget her cunning.”<cite>— Psalm 137</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- OLD CITY -->
+<section id="oldcity">
+  <div class="wrap">
+    <p class="eyebrow reveal">Around the Wall</p>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,40px);margin:.1em 0">The Old City — gates &amp; holy ground</h2>
+    <p class="lede reveal">The Kotel sits inside a square kilometre ringed by golden walls, threaded with the deepest history in the Jewish world. From Jaffa Gate you walk in and down toward the Wall.</p>
+    <div class="grid cols-3 reveal" style="margin-top:24px">
+      <div class="card"><span class="kicker">The Gateway</span><h3>Jaffa Gate</h3><p>Built by Suleiman in <b>1538</b>, the great western gate faces the old road to Jaffa and the coast — the very direction we arrived from. In 1898 the wall beside it was breached to welcome Kaiser Wilhelm II; today it's the traveller's entrance into the Old City.</p></div>
+      <div class="card"><span class="kicker">The Holiest Place</span><h3>Temple Mount · Har HaBayit</h3><p>The raised platform above the Kotel — site of both Temples and, by tradition, the Foundation Stone of the world. The holiest site in Judaism; the golden <b>Dome of the Rock</b> crowns it now.</p></div>
+      <div class="card"><span class="kicker">The Four Quarters</span><h3>Inside the walls</h3><p>Eight gates pierce Suleiman's walls; within, the city divides into the <b>Jewish, Muslim, Christian and Armenian</b> Quarters. The path to the Wall runs down through the Jewish Quarter's honey-stone lanes.</p></div>
+      <div class="card"><span class="kicker">The Origin</span><h3>The City of David</h3><p>Just outside the southern wall lies the original city — ~3,000 years old — with <b>Hezekiah's Tunnel</b> still carrying spring water through the rock, hewn in the 8th century BCE.</p></div>
+      <div class="card"><span class="kicker">The Vista</span><h3>The Mount of Olives</h3><p>Across the Kidron Valley, the ridge holds the oldest continuously used Jewish cemetery on earth — and the classic golden view back across the Old City and the Mount.</p></div>
+      <div class="card"><span class="kicker">The Last Steps</span><h3>Reaching the Kotel</h3><p>From <b>Yitzhak Navon</b> station: hop the Jerusalem Light Rail Red Line toward City Hall / Damascus Gate, or walk up to Jaffa Gate — then down through the Jewish Quarter to the Western Wall plaza.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <p class="eyebrow reveal">The Album</p>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,40px);margin:.1em 0">Every frame of the day</h2>
+    <p class="lede reveal">Tap any photo to view it full-screen. New pictures drop in here as they arrive — from the coast, the train, and the Wall.</p>
+    <div class="gal reveal">
+      <figure class="g"><img data-lb data-cap="The Tel Aviv apartment where the day began." src="./img/tlv-apartment.jpg" alt="Tel Aviv apartment" loading="lazy"><figcaption>Tel Aviv · the morning start</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Mother and daughter on the Tel Aviv light rail." src="./img/tram-mother-daughter.jpg" alt="On the light rail" loading="lazy"><figcaption>The Red Line light rail</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Family selfie at HaShalom station by the ILAN'S coffee kiosk." src="./img/station-ilans-trio.jpg" alt="At the station" loading="lazy"><figcaption>HaShalom station · ILAN'S coffee</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Israel Railways app — HaShalom to Jerusalem Yitzhak Navon, 43 minutes." src="./img/rail-app.jpg" alt="Rail app" loading="lazy"><figcaption>Booking the 43-minute climb</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="The Moovit route across Tel Aviv toward the station." src="./img/moovit-route.jpg" alt="Moovit route" loading="lazy"><figcaption>8 stops across Tel Aviv</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Rav-Kav travel card and the ILAN'S receipt, 17:01." src="./img/ravkav-receipt.jpg" alt="Rav-Kav card and receipt" loading="lazy"><figcaption>Rav-Kav · one card for all</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="Mother and daughter aboard the high-speed train." src="./img/train-mother-daughter.jpg" alt="On the train" loading="lazy"><figcaption>On board · the ascent</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="ILAN'S baguette and a Coke Zero on the train table." src="./img/train-snack-ilans.jpg" alt="Train snack" loading="lazy"><figcaption>Fuel for the ride</figcaption></figure>
+      <figure class="g"><img data-lb data-cap="A traveller lays tefillin on the train to Jerusalem." src="./img/tefillin-train.jpg" alt="Tefillin on the train" loading="lazy"><figcaption>Tefillin on the rails</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- VISIT -->
+<section id="visit">
+  <div class="wrap">
+    <div class="visit reveal">
+      <p class="eyebrow" style="color:var(--sky2)">From the Platform to the Wall</p>
+      <h2 style="font-size:clamp(24px,4vw,34px);margin:.1em 0">How to reach the Kotel</h2>
+      <p class="lede" style="max-width:66ch">Stepping off at Yitzhak Navon, ~80 m underground — here's the last stretch up to the Western Wall.</p>
+      <div class="row">
+        <div class="vitem"><div class="h">1 · Rise up</div><p>Ride the long escalators and lift up out of the deepest station in the Middle East into central Jerusalem.</p></div>
+        <div class="vitem"><div class="h">2 · Red Line</div><p>Board the Jerusalem Light Rail toward <b>City Hall</b> / Damascus Gate — a short, scenic hop across the modern city.</p></div>
+        <div class="vitem"><div class="h">3 · Jaffa Gate</div><p>Enter the Old City through <b>Jaffa Gate</b> and walk down through the Jewish Quarter's stone lanes.</p></div>
+        <div class="vitem"><div class="h">4 · The Wall</div><p>Arrive at the Western Wall plaza. Open <b>24 hours, every day, free</b>. Modest dress; heads covered for men.</p></div>
+      </div>
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#89bd9c" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Write a note beforehand — you can press it into the cracks of the Wall.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#89bd9c" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Sunset and night are the most beautiful hours — the stone turns to gold, then silver.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#89bd9c" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Separate men's and women's sections; a respectful hush across the whole plaza.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding-block:clamp(40px,6vw,72px)">
+    <svg class="starf" viewBox="0 0 100 100" aria-hidden="true"><use href="#magen"/></svg>
+    <p class="big">From the shore of Tel Aviv to the stones of the Kotel —</p>
+    <p class="heb">לְשָׁנָה הַבָּאָה בִּירוּשָׁלַיִם</p>
+    <p style="color:var(--gold2);font-family:var(--serif);font-style:italic;font-size:16px">“Next year in Jerusalem.”</p>
+    <p>A living travel diary of the Sacharowitz family's ascent, 7 July 2026. Photographs by the family. History compiled with care — dates and distances are approximate and offered in a spirit of celebration, not scholarship.</p>
+    <p style="margin-top:14px"><a href="#top">↑ Back to the top of the climb</a></p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" aria-hidden="true">
+  <span class="lbx" aria-hidden="true">×</span>
+  <img alt="" />
+  <div class="lbcap"></div>
+</div>
+
+<script>
+  document.documentElement.classList.add('js');
+  // Lightbox
+  (function(){
+    var lb=document.getElementById('lightbox'), lbimg=lb.querySelector('img'), lbcap=lb.querySelector('.lbcap');
+    function open(src,cap){lbimg.src=src;lbcap.textContent=cap||'';lb.classList.add('on');lb.setAttribute('aria-hidden','false');}
+    function close(){lb.classList.remove('on');lb.setAttribute('aria-hidden','true');lbimg.src='';}
+    document.querySelectorAll('img[data-lb]').forEach(function(img){
+      img.addEventListener('click',function(){open(img.currentSrc||img.src,img.getAttribute('data-cap'));});
+    });
+    lb.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+  // Reveal on scroll
+  (function(){
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+</body>
+</html>
