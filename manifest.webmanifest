@@ -1,0 +1,74 @@
+{
+  "name": "LifeOS",
+  "short_name": "LifeOS",
+  "description": "Your private chief-of-staff \u2014 capture anything, it files itself and thinks with you.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0A0A0C",
+  "theme_color": "#0A0A0C",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Talk to LifeOS",
+      "short_name": "Talk",
+      "url": "./?voice",
+      "icons": [
+        {
+          "src": "./icon.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "New note",
+      "short_name": "Note",
+      "url": "./?capture=note",
+      "icons": [
+        {
+          "src": "./icon.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Take photo",
+      "short_name": "Photo",
+      "url": "./?capture=photo",
+      "icons": [
+        {
+          "src": "./icon.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Voice note",
+      "short_name": "Voice",
+      "url": "./?capture=voice",
+      "icons": [
+        {
+          "src": "./icon.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Add expense",
+      "short_name": "Expense",
+      "url": "./?capture=expense",
+      "icons": [
+        {
+          "src": "./icon.png",
+          "sizes": "512x512"
+        }
+      ]
+    }
+  ]
+}
