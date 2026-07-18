@@ -4,6 +4,22 @@
   "description": "Your private chief-of-staff \u2014 capture anything, it files itself and thinks with you.",
   "start_url": "./",
   "display": "standalone",
+  "share_target": {
+    "action": "./share.html",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["text/plain", ".txt", "application/zip", ".zip"]
+        }
+      ]
+    }
+  },
   "background_color": "#0A0A0C",
   "theme_color": "#0A0A0C",
   "icons": [
@@ -15,6 +31,17 @@
     }
   ],
   "shortcuts": [
+    {
+      "name": "Save WhatsApp chat",
+      "short_name": "WhatsApp",
+      "url": "./share.html",
+      "icons": [
+        {
+          "src": "./icon.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
     {
       "name": "Talk to LifeOS",
       "short_name": "Talk",

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0A0C" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+    <title>LifeOS — Save WhatsApp chat</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { background: #0A0A0C; color: #ECECF1; font-family: "Newsreader", Georgia, serif; min-height: 100%; }
+      body { padding: max(20px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom)); max-width: 640px; margin: 0 auto; }
+      header { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+      header img { width: 34px; height: 34px; border-radius: 9px; }
+      header h1 { font-size: 21px; font-weight: 500; letter-spacing: .2px; }
+      header .wa { color: #25D366; font-size: 13px; font-family: system-ui, sans-serif; letter-spacing: .6px; text-transform: uppercase; opacity: .9; }
+      .card { background: #131318; border: 1px solid #232330; border-radius: 16px; padding: 18px; margin-bottom: 14px; }
+      .muted { color: #8B8B99; font-size: 15px; line-height: 1.5; }
+      label { display: block; font-family: system-ui, sans-serif; font-size: 12px; letter-spacing: .8px; text-transform: uppercase; color: #8B8B99; margin: 14px 0 6px; }
+      input[type=text], textarea { width: 100%; background: #0E0E12; color: #ECECF1; border: 1px solid #2A2A38; border-radius: 10px; padding: 11px 12px; font-family: inherit; font-size: 16px; }
+      textarea { min-height: 150px; resize: vertical; line-height: 1.45; }
+      input:focus, textarea:focus { outline: none; border-color: #5E5CE6; }
+      .stats { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 4px; }
+      .stat b { display: block; font-size: 20px; font-weight: 500; }
+      .stat span { font-family: system-ui, sans-serif; font-size: 11.5px; letter-spacing: .6px; text-transform: uppercase; color: #8B8B99; }
+      .preview { margin-top: 12px; max-height: 180px; overflow-y: auto; background: #0E0E12; border: 1px solid #232330; border-radius: 10px; padding: 12px; font-size: 14.5px; line-height: 1.5; color: #B9B9C6; white-space: pre-wrap; word-break: break-word; }
+      button.primary { width: 100%; margin-top: 16px; background: #5E5CE6; color: #fff; border: 0; border-radius: 12px; padding: 15px; font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; }
+      button.primary:disabled { opacity: .45; }
+      button.ghost { width: 100%; margin-top: 10px; background: transparent; color: #8B8B99; border: 1px solid #2A2A38; border-radius: 12px; padding: 12px; font-family: system-ui, sans-serif; font-size: 14.5px; cursor: pointer; }
+      .filebtn { display: inline-block; margin-top: 10px; color: #5E5CE6; font-family: system-ui, sans-serif; font-size: 14.5px; cursor: pointer; }
+      .ok { color: #34C759; } .err { color: #FF6B6B; }
+      .status { font-family: system-ui, sans-serif; font-size: 14.5px; margin-top: 12px; line-height: 1.5; }
+      a { color: #5E5CE6; }
+      .hidden { display: none !important; }
+      .tag { display: inline-block; background: rgba(37,211,102,.12); color: #25D366; border-radius: 999px; padding: 3px 10px; font-family: system-ui, sans-serif; font-size: 12.5px; margin-right: 6px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="./icon.png" alt="" />
+      <div>
+        <h1>Save to LifeOS</h1>
+        <div class="wa">WhatsApp capture</div>
+      </div>
+    </header>
+
+    <div id="auth-warning" class="card hidden">
+      <p class="muted">You're not signed in. <a href="./">Open LifeOS</a>, log in, then share the chat again.</p>
+    </div>
+
+    <div id="input-card" class="card">
+      <p class="muted">Share a chat from WhatsApp (<b>⋮ → More → Export chat → Without media</b>, then pick LifeOS), share selected messages, or paste below.</p>
+      <label for="raw">Chat text</label>
+      <textarea id="raw" placeholder="Paste a WhatsApp conversation or export here…"></textarea>
+      <span class="filebtn" id="pickbtn">…or choose an exported .txt file</span>
+      <input type="file" id="file" accept=".txt,text/plain" class="hidden" />
+    </div>
+
+    <div id="preview-card" class="card hidden">
+      <span class="tag">#whatsapp</span>
+      <label for="title">Memory title</label>
+      <input type="text" id="title" />
+      <div class="stats" id="stats"></div>
+      <div class="preview" id="preview"></div>
+      <button class="primary" id="save">Save to memories</button>
+      <button class="ghost" id="reset">Start over</button>
+      <div class="status" id="status"></div>
+    </div>
+
+    <script src="./assets/supabase-js-2.umd.js"></script>
+    <script>
+      const SUPA_URL = "https://pzofhjymwzaxtwnwodsa.supabase.co";
+      const SUPA_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6b2Zoanltd3pheHR3bndvZHNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNDgwMDIsImV4cCI6MjA5ODcyNDAwMn0.Pc-O8Ex1QiMdU-Ey4nFABWT1hs3EnIlWiD2rcf80rkM";
+      const supa = window.supabase.createClient(SUPA_URL, SUPA_ANON);
+
+      const $ = (id) => document.getElementById(id);
+      let parsed = null;
+
+      // ---- WhatsApp export parsing -------------------------------------------
+      // Android: "12/07/2026, 18:51 - Daniel: message"
+      // iOS:     "[12/07/2026, 18:51:03] Daniel: message"  (often with U+200E marks)
+      const LINE_RE = /^‎?\[?(\d{1,4})[\/.\-](\d{1,2})[\/.\-](\d{1,4}),?\s+(\d{1,2}):(\d{2})(?::\d{2})?(?:\s*([AaPp])\.?[Mm]\.?)?\]?\s*(?:-\s*)?(.*)$/;
+
+      function parseChat(text) {
+        const rows = [];
+        for (const rawLine of text.split(/\r?\n/)) {
+          const line = rawLine.replace(/‎|‏/g, "");
+          const m = line.match(LINE_RE);
+          if (m) {
+            const rest = m[7];
+            const ci = rest.indexOf(": ");
+            let sender = null, body = rest;
+            if (ci > 0 && ci < 60) { sender = rest.slice(0, ci); body = rest.slice(ci + 2); }
+            let hour = parseInt(m[4], 10);
+            const ap = (m[6] || "").toLowerCase();
+            if (ap === "p" && hour < 12) hour += 12;
+            if (ap === "a" && hour === 12) hour = 0;
+            rows.push({ n1: +m[1], n2: +m[2], n3: +m[3], hour, min: +m[5], sender, body });
+          } else if (rows.length && rawLine.trim()) {
+            rows[rows.length - 1].body += "\n" + rawLine.trim();
+          }
+        }
+        const msgs = rows.filter((r) => r.sender);
+        if (!msgs.length) return null;
+
+        // Date order heuristic: WhatsApp uses D/M/Y or M/D/Y (or Y/M/D if n1 has 4 digits)
+        let toDate;
+        if (msgs.some((r) => r.n1 > 999)) {
+          toDate = (r) => new Date(r.n1, r.n2 - 1, r.n3, r.hour, r.min);
+        } else {
+          const dm = msgs.some((r) => r.n1 > 12) ? true : !msgs.some((r) => r.n2 > 12);
+          const yy = (y) => (y < 100 ? 2000 + y : y);
+          toDate = dm
+            ? (r) => new Date(yy(r.n3), r.n2 - 1, r.n1, r.hour, r.min)
+            : (r) => new Date(yy(r.n3), r.n1 - 1, r.n2, r.hour, r.min);
+        }
+        const senders = [...new Set(msgs.map((r) => r.sender))];
+        const first = toDate(msgs[0]);
+        const last = toDate(msgs[msgs.length - 1]);
+        return { msgs, senders, first, last, toDate };
+      }
+
+      function pad(n) { return String(n).padStart(2, "0"); }
+
+      function buildSummary(p) {
+        const parts = p.msgs.map((r) => `${pad(r.hour)}:${pad(r.min)} ${r.sender}: ${r.body.replace(/\s+/g, " ")}`);
+        let text = `${p.msgs.length} messages ` + parts.join(" ");
+        const CAP = 9000;
+        if (text.length > CAP) text = `${p.msgs.length} messages … ` + parts.join(" ").slice(-(CAP - 30));
+        return text;
+      }
+
+      function chatNameFrom(fileName, shareTitle, p) {
+        if (fileName) {
+          const m = fileName.match(/WhatsApp Chat (?:with|-)?\s*(.+?)\.(txt|zip)$/i);
+          if (m) return m[1].trim();
+        }
+        if (shareTitle && !/whatsapp chat/i.test(shareTitle) && shareTitle.length < 60) return shareTitle;
+        const others = p.senders.filter((s) => !/^me$/i.test(s));
+        if (others.length === 1) return others[0];
+        if (others.length === 2) return others.join(" & ");
+        return `${p.senders.length} participants`;
+      }
+
+      // ---- UI ----------------------------------------------------------------
+      function showPreview(text, fileName, shareTitle) {
+        const p = parseChat(text);
+        if (!p) {
+          $("status").textContent = "";
+          alert("That doesn't look like a WhatsApp conversation. Paste the exported chat text (export 'Without media').");
+          return;
+        }
+        parsed = p;
+        $("title").value = "WhatsApp — " + chatNameFrom(fileName, shareTitle, p);
+        const fmt = (d) => d.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+        $("stats").innerHTML =
+          `<div class="stat"><b>${p.msgs.length}</b><span>messages</span></div>` +
+          `<div class="stat"><b>${p.senders.length}</b><span>people</span></div>` +
+          `<div class="stat"><b>${fmt(p.first)}${fmt(p.first) === fmt(p.last) ? "" : " – " + fmt(p.last)}</b><span>dates</span></div>`;
+        const tail = p.msgs.slice(-8).map((r) => `${pad(r.hour)}:${pad(r.min)} ${r.sender}: ${r.body}`).join("\n");
+        $("preview").textContent = tail;
+        $("input-card").classList.add("hidden");
+        $("preview-card").classList.remove("hidden");
+      }
+
+      async function save() {
+        const btn = $("save");
+        btn.disabled = true;
+        $("status").textContent = "Saving…";
+        try {
+          const { data: { session } } = await supa.auth.getSession();
+          if (!session) {
+            $("auth-warning").classList.remove("hidden");
+            $("status").innerHTML = '<span class="err">Not signed in — open LifeOS, log in, then try again.</span>';
+            btn.disabled = false;
+            return;
+          }
+          const p = parsed;
+          const title = $("title").value.trim() || "WhatsApp chat";
+          const sourceId = "share-" + title.toLowerCase().replace(/\W+/g, "-") + "-" + p.last.toISOString().slice(0, 16);
+
+          const { data: dup } = await supa.from("memories").select("id").eq("source_id", sourceId).limit(1);
+          if (dup && dup.length) {
+            $("status").innerHTML = '<span class="ok">Already saved earlier — nothing to do.</span> <a href="./">Open LifeOS</a>';
+            return;
+          }
+          const { error } = await supa.from("memories").insert({
+            title,
+            summary: buildSummary(p),
+            primary_kind: "document",
+            life_areas: [],
+            categories: ["whatsapp"],
+            source_kind: "whatsapp",
+            source_module: "whatsapp",
+            source_id: sourceId,
+            occurred_at: p.last.toISOString(),
+          });
+          if (error) throw error;
+          $("status").innerHTML = '<span class="ok">Saved to your memories.</span> <a href="./">Open LifeOS</a>';
+        } catch (e) {
+          $("status").innerHTML = '<span class="err">Could not save: ' + (e.message || e) + "</span>";
+          btn.disabled = false;
+        }
+      }
+
+      $("save").addEventListener("click", save);
+      $("reset").addEventListener("click", () => {
+        parsed = null;
+        $("raw").value = "";
+        $("preview-card").classList.add("hidden");
+        $("input-card").classList.remove("hidden");
+        $("save").disabled = false;
+        $("status").textContent = "";
+      });
+      $("raw").addEventListener("change", () => { if ($("raw").value.trim()) showPreview($("raw").value, null, null); });
+      $("raw").addEventListener("paste", () => setTimeout(() => { if ($("raw").value.trim()) showPreview($("raw").value, null, null); }, 50));
+      $("pickbtn").addEventListener("click", () => $("file").click());
+      $("file").addEventListener("change", async () => {
+        const f = $("file").files[0];
+        if (!f) return;
+        if (/\.zip$/i.test(f.name)) { alert("That's a media export (.zip). In WhatsApp choose Export chat → Without media to get a .txt file."); return; }
+        showPreview(await f.text(), f.name, null);
+      });
+
+      // ---- Incoming shares ---------------------------------------------------
+      (async function init() {
+        const q = new URLSearchParams(location.search);
+        if (q.get("incoming") === "1") {
+          try {
+            const cache = await caches.open("lifeos-share-inbox");
+            const res = await cache.match("./__share-payload");
+            if (res) {
+              const payload = await res.json();
+              await cache.delete("./__share-payload");
+              const text = (payload.files && payload.files[0] && payload.files[0].text) || payload.text || "";
+              const fileName = payload.files && payload.files[0] && payload.files[0].name;
+              if (payload.files && payload.files[0] && /\.zip$/i.test(payload.files[0].name || "")) {
+                alert("That's a media export (.zip). In WhatsApp choose Export chat → Without media, then share again.");
+              } else if (text.trim()) {
+                showPreview(text, fileName, payload.title);
+              }
+            }
+          } catch (e) { /* fall through to manual UI */ }
+        } else if (q.get("text") || q.get("title")) {
+          const text = [q.get("title"), q.get("text"), q.get("url")].filter(Boolean).join("\n");
+          if (text.trim()) showPreview(text, null, q.get("title"));
+        }
+        const { data: { session } } = await supa.auth.getSession();
+        if (!session) $("auth-warning").classList.remove("hidden");
+      })();
+    </script>
+  </body>
+</html>
