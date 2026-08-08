@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0A0A0C" />
-    <link rel="apple-touch-icon" href="./icon.png" />
-    <title>Worry Munch · LifeOS</title>
+    <meta name="theme-color" content="#0B0B0F" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="icon" type="image/png" href="./icon-192.png" />
+    <title>Worry Munch</title>
     <style>
       :root {
         --lo-bg: #0b0b0f;
@@ -50,15 +52,6 @@
         gap: 12px;
         padding: 8px 0 4px;
       }
-      .back {
-        color: var(--lo-text-2);
-        text-decoration: none;
-        font-size: 0.9375rem;
-        padding: 8px 12px;
-        margin-left: -12px;
-        border-radius: var(--lo-r-pill);
-      }
-      .back:active { background: var(--lo-surface-2); }
       h1 { font-size: 1.375rem; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
       .tally {
         margin-left: auto;
@@ -192,7 +185,6 @@
   </head>
   <body>
     <header class="top">
-      <a class="back" href="./">‹ Back</a>
       <h1>Worry Munch</h1>
       <span class="tally" id="tally"></span>
     </header>
