@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0A0C" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+    <title>Worry Munch · LifeOS</title>
+    <style>
+      :root {
+        --lo-bg: #0b0b0f;
+        --lo-surface-1: #16161c;
+        --lo-surface-2: #21212a;
+        --lo-surface-3: #2a2a34;
+        --lo-border: rgba(255, 255, 255, 0.07);
+        --lo-border-strong: rgba(255, 255, 255, 0.12);
+        --lo-text-1: #f2f2f5;
+        --lo-text-2: #a1a1ac;
+        --lo-text-3: #6e6e78;
+        --lo-accent: #5e5ce6;
+        --lo-accent-press: #4a48c4;
+        --lo-accent-text: #8c8af2;
+        --lo-accent-ring: rgba(94, 92, 230, 0.32);
+        --lo-success: #30d158;
+        --lo-mood-calm: #2dd4bf;
+        --lo-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+        --lo-r-card: 16px;
+        --lo-r-pill: 999px;
+        --lo-ease-spatial: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
+      body {
+        background: var(--lo-bg);
+        color: var(--lo-text-1);
+        font-family: var(--lo-font);
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: max(16px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+        overflow-x: hidden;
+      }
+      .top {
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 0 4px;
+      }
+      .back {
+        color: var(--lo-text-2);
+        text-decoration: none;
+        font-size: 0.9375rem;
+        padding: 8px 12px;
+        margin-left: -12px;
+        border-radius: var(--lo-r-pill);
+      }
+      .back:active { background: var(--lo-surface-2); }
+      h1 { font-size: 1.375rem; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
+      .tally {
+        margin-left: auto;
+        font-size: 0.8125rem;
+        color: var(--lo-text-3);
+        background: var(--lo-surface-1);
+        border: 1px solid var(--lo-border);
+        border-radius: var(--lo-r-pill);
+        padding: 6px 12px;
+        white-space: nowrap;
+      }
+      .stage {
+        position: relative;
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .munch {
+        width: 190px;
+        height: 190px;
+        transition: transform 0.25s var(--lo-ease-spatial);
+      }
+      .munch.excited { transform: scale(1.06); }
+      .munch.chomping { animation: chomp-bounce 0.5s var(--lo-ease-spatial) 2; }
+      @keyframes chomp-bounce {
+        0%, 100% { transform: scale(1); }
+        35% { transform: scale(1.1, 0.92) translateY(4px); }
+        70% { transform: scale(0.96, 1.05) translateY(-3px); }
+      }
+      .munch .mouth-open { opacity: 0; }
+      .munch.excited .mouth-open, .munch.chomping .mouth-open { opacity: 1; }
+      .munch.excited .mouth-closed, .munch.chomping .mouth-closed { opacity: 0; }
+      .munch .eye { animation: blink 4.6s infinite; transform-origin: center; transform-box: fill-box; }
+      @keyframes blink {
+        0%, 94%, 100% { transform: scaleY(1); }
+        96% { transform: scaleY(0.08); }
+      }
+      .munch.happy .eye { animation: none; transform: scaleY(0.12); }
+      #flyer {
+        position: absolute;
+        max-width: 70%;
+        background: var(--lo-surface-2);
+        border: 1px solid var(--lo-border-strong);
+        border-radius: 14px;
+        padding: 10px 14px;
+        font-size: 0.9375rem;
+        color: var(--lo-text-1);
+        pointer-events: none;
+        opacity: 0;
+        z-index: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      #speech {
+        min-height: 1.5em;
+        margin-top: 14px;
+        font-size: 0.9375rem;
+        color: var(--lo-mood-calm);
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 0 12px;
+      }
+      #speech.show { opacity: 1; }
+      form {
+        width: 100%;
+        max-width: 480px;
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      label {
+        font-size: 0.8125rem;
+        color: var(--lo-text-3);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      textarea {
+        width: 100%;
+        min-height: 96px;
+        resize: vertical;
+        background: var(--lo-surface-1);
+        border: 1px solid var(--lo-border);
+        border-radius: var(--lo-r-card);
+        padding: 14px 16px;
+        color: var(--lo-text-1);
+        font-family: var(--lo-font);
+        font-size: 1rem;
+        line-height: 1.45;
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+      textarea:focus {
+        border-color: var(--lo-accent);
+        box-shadow: 0 0 0 3px var(--lo-accent-ring);
+      }
+      textarea::placeholder { color: var(--lo-text-3); }
+      button {
+        appearance: none;
+        border: none;
+        background: var(--lo-accent);
+        color: #fff;
+        font-family: var(--lo-font);
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 14px 20px;
+        border-radius: var(--lo-r-pill);
+        cursor: pointer;
+        transition: background 0.15s ease, transform 0.1s ease;
+      }
+      button:active { background: var(--lo-accent-press); transform: scale(0.98); }
+      button:disabled { opacity: 0.5; cursor: default; }
+      .privacy {
+        margin-top: 16px;
+        max-width: 480px;
+        text-align: center;
+        font-size: 0.8125rem;
+        color: var(--lo-text-3);
+        line-height: 1.5;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .munch, .munch.chomping { animation: none; transition: none; }
+        #flyer { transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <a class="back" href="./">‹ Back</a>
+      <h1>Worry Munch</h1>
+      <span class="tally" id="tally"></span>
+    </header>
+
+    <div class="stage">
+      <svg class="munch" id="munch" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <radialGradient id="bodyGrad" cx="50%" cy="35%" r="75%">
+            <stop offset="0%" stop-color="#8c8af2" />
+            <stop offset="100%" stop-color="#5e5ce6" />
+          </radialGradient>
+        </defs>
+        <!-- body -->
+        <path d="M100 18 C 150 18 172 58 172 104 C 172 152 158 182 100 182 C 42 182 28 152 28 104 C 28 58 50 18 100 18 Z" fill="url(#bodyGrad)" />
+        <!-- horns -->
+        <path d="M62 30 C 56 14 62 8 70 6 C 72 16 70 24 68 30 Z" fill="#4a48c4" />
+        <path d="M138 30 C 144 14 138 8 130 6 C 128 16 130 24 132 30 Z" fill="#4a48c4" />
+        <!-- belly -->
+        <ellipse cx="100" cy="128" rx="44" ry="38" fill="rgba(255,255,255,0.10)" />
+        <!-- eyes -->
+        <g class="eye">
+          <circle cx="72" cy="82" r="13" fill="#fff" />
+          <circle cx="74" cy="84" r="6" fill="#16161c" />
+        </g>
+        <g class="eye">
+          <circle cx="128" cy="82" r="13" fill="#fff" />
+          <circle cx="126" cy="84" r="6" fill="#16161c" />
+        </g>
+        <!-- mouth closed -->
+        <path class="mouth-closed" d="M74 118 Q 100 134 126 118" stroke="#16161c" stroke-width="5" stroke-linecap="round" fill="none" />
+        <!-- mouth open -->
+        <g class="mouth-open">
+          <ellipse cx="100" cy="126" rx="30" ry="22" fill="#16161c" />
+          <path d="M78 114 L 86 122 L 94 113 L 102 122 L 110 113 L 118 122 L 124 114" fill="#fff" />
+          <ellipse cx="100" cy="138" rx="14" ry="7" fill="#ff6a7d" />
+        </g>
+        <!-- feet -->
+        <ellipse cx="72" cy="182" rx="16" ry="8" fill="#4a48c4" />
+        <ellipse cx="128" cy="182" rx="16" ry="8" fill="#4a48c4" />
+      </svg>
+      <div id="flyer"></div>
+      <div id="speech" role="status"></div>
+    </div>
+
+    <form id="form">
+      <label for="worry">What's weighing on you?</label>
+      <textarea id="worry" placeholder="Type a worry, then feed it to Munch…" maxlength="500"></textarea>
+      <button type="submit" id="feed">Feed it to Munch</button>
+    </form>
+
+    <p class="privacy">Worries are never saved or sent anywhere — Munch eats them on the spot. Only your munch count sticks around, on this device.</p>
+
+    <script>
+      (function () {
+        var munch = document.getElementById("munch");
+        var flyer = document.getElementById("flyer");
+        var speech = document.getElementById("speech");
+        var form = document.getElementById("form");
+        var input = document.getElementById("worry");
+        var feedBtn = document.getElementById("feed");
+        var tally = document.getElementById("tally");
+
+        var COUNT_KEY = "lo-worry-munch-count";
+        var count = 0;
+        try { count = parseInt(localStorage.getItem(COUNT_KEY), 10) || 0; } catch (e) {}
+
+        var replies = [
+          "Gone. It can't follow you here.",
+          "Mmm. That one was heavy — you carried it long enough.",
+          "Munched. Take a slow breath with me.",
+          "All gone. It was just a thought, not a fact.",
+          "Devoured. You're allowed to set it down.",
+          "Crunch. Tomorrow's problems don't get today's energy.",
+          "Swallowed whole. Notice how your shoulders feel now.",
+        ];
+
+        function renderTally() {
+          tally.textContent = count === 1 ? "1 worry munched" : count + " worries munched";
+        }
+        renderTally();
+
+        input.addEventListener("input", function () {
+          munch.classList.toggle("excited", input.value.trim().length > 0);
+        });
+
+        var busy = false;
+        form.addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          var text = input.value.trim();
+          if (!text || busy) return;
+          busy = true;
+          feedBtn.disabled = true;
+          speech.classList.remove("show");
+
+          var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+          // Position the worry bubble over the textarea, then fly it into the mouth.
+          flyer.textContent = text;
+          var stage = munch.parentElement.getBoundingClientRect();
+          var from = input.getBoundingClientRect();
+          var to = munch.getBoundingClientRect();
+          flyer.style.transition = "none";
+          flyer.style.left = from.left - stage.left + from.width / 2 + "px";
+          flyer.style.top = from.top - stage.top + "px";
+          flyer.style.transform = "translateX(-50%) scale(1)";
+          flyer.style.opacity = "1";
+
+          input.value = "";
+          munch.classList.remove("excited");
+
+          function finish() {
+            flyer.style.opacity = "0";
+            munch.classList.remove("chomping");
+            munch.classList.add("happy");
+            count += 1;
+            try { localStorage.setItem(COUNT_KEY, String(count)); } catch (e) {}
+            renderTally();
+            speech.textContent = replies[Math.floor(Math.random() * replies.length)];
+            speech.classList.add("show");
+            setTimeout(function () {
+              munch.classList.remove("happy");
+              busy = false;
+              feedBtn.disabled = false;
+            }, 1200);
+          }
+
+          if (reduced) {
+            finish();
+            return;
+          }
+
+          munch.classList.add("chomping");
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              flyer.style.transition = "left 0.7s cubic-bezier(.16,1,.3,1), top 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1), opacity 0.25s ease 0.55s";
+              flyer.style.left = to.left - stage.left + to.width / 2 + "px";
+              flyer.style.top = to.top - stage.top + to.height * 0.62 + "px";
+              flyer.style.transform = "translateX(-50%) scale(0.1)";
+              flyer.style.opacity = "0";
+              setTimeout(finish, 750);
+            });
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
