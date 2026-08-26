@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0A0C" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
+    <title>LifeOS Documents</title>
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0}
+      html,body{background:#0A0A0C;color:#ECECF1;font-family:"Newsreader",Georgia,serif;min-height:100%}
+      body{padding:max(16px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom));max-width:820px;margin:0 auto}
+      header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+      header img{width:32px;height:32px;border-radius:8px}
+      h1{font-size:20px;font-weight:500}
+      .sub{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:#8B8B99}
+      .searchwrap{position:sticky;top:0;background:#0A0A0C;padding:8px 0 10px;z-index:5}
+      #q{width:100%;background:#131318;color:#ECECF1;border:1px solid #2A2A38;border-radius:12px;padding:13px 14px;font-family:inherit;font-size:17px}
+      #q:focus{outline:none;border-color:#5E5CE6}
+      .hint{font-family:system-ui,sans-serif;font-size:12px;color:#6B6B7B;margin-top:6px}
+      .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 4px}
+      .chip{background:#131318;border:1px solid #2A2A38;color:#B9B9C6;border-radius:999px;padding:6px 12px;font-family:system-ui,sans-serif;font-size:13px;cursor:pointer}
+      .chip.on{background:#5E5CE6;border-color:#5E5CE6;color:#fff}
+      .chip b{font-weight:600;opacity:.75;margin-left:5px}
+      .row{background:#131318;border:1px solid #232330;border-radius:13px;padding:13px 14px;margin-bottom:9px}
+      .row h3{font-size:17px;font-weight:500;line-height:1.35}
+      .row mark{background:rgba(94,92,230,.32);color:inherit;border-radius:3px;padding:0 2px}
+      .meta{font-family:system-ui,sans-serif;font-size:12.5px;color:#8B8B99;margin-top:5px;display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+      .badge{background:rgba(94,92,230,.15);color:#A5A3F5;border-radius:999px;padding:2px 9px;font-size:12px}
+      .snip{font-size:14.5px;color:#9E9EAC;margin-top:7px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+      .open{margin-top:9px;background:transparent;border:1px solid #2A2A38;color:#A5A3F5;border-radius:9px;padding:7px 13px;font-family:system-ui,sans-serif;font-size:13.5px;cursor:pointer}
+      .note{font-family:system-ui,sans-serif;font-size:14px;color:#8B8B99;padding:18px 2px;line-height:1.5}
+      .err{color:#FF6B6B}.ok{color:#34C759}
+      section h2{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:#8B8B99;margin:22px 0 9px}
+      .bar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:6px}
+      .btn{background:#5E5CE6;color:#fff;border:0;border-radius:10px;padding:10px 15px;font-family:system-ui,sans-serif;font-size:14px;font-weight:600;cursor:pointer}
+      .btn.ghost{background:transparent;border:1px solid #2A2A38;color:#B9B9C6;font-weight:500}
+      .btn:disabled{opacity:.45}
+      .recover{border-color:#4A3A1A;background:#17130B}
+      a{color:#A5A3F5}
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="./icon.png" alt="" />
+      <div><h1>Documents</h1><div class="sub">Search &amp; folders</div></div>
+    </header>
+
+    <div class="searchwrap">
+      <input id="q" type="search" placeholder="Search every document…" autocomplete="off" />
+      <div class="hint">Every word must match. Use "quotes" for an exact phrase. Press / to search, Esc to clear.</div>
+    </div>
+
+    <div class="chips" id="chips"></div>
+    <div id="status" class="note">Loading your documents…</div>
+    <div id="list"></div>
+
+    <section id="orphan-section" hidden>
+      <h2>Unlinked files — recoverable</h2>
+      <div class="note" style="padding:0 2px 10px">
+        These files are in your storage but are not attached to any memory. This is what the
+        capture bug left behind: the file uploaded, the link never saved.
+      </div>
+      <div id="orphans"></div>
+    </section>
+
+    <section id="backfill-section" hidden>
+      <h2>Save folders into LifeOS</h2>
+      <div class="note" style="padding:0 2px 8px" id="backfill-note"></div>
+      <div class="bar">
+        <button class="btn" id="apply">Preview changes</button>
+        <span id="backfill-status" class="sub" style="text-transform:none;letter-spacing:0;font-size:13px"></span>
+      </div>
+    </section>
+
+    <script src="./assets/supabase-js-2.umd.js"></script>
+    <script type="module">
+      import { prepare, search, folderCounts, folderFor, backfillPlan } from './docs-lib.js';
+
+      const SUPA_URL = "https://pzofhjymwzaxtwnwodsa.supabase.co";
+      const SUPA_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6b2Zoanltd3pheHR3bndvZHNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNDgwMDIsImV4cCI6MjA5ODcyNDAwMn0.Pc-O8Ex1QiMdU-Ey4nFABWT1hs3EnIlWiD2rcf80rkM";
+      const supa = window.supabase.createClient(SUPA_URL, SUPA_ANON);
+      const $ = (id) => document.getElementById(id);
+
+      let DOCS = [], MEDIA = new Map(), folder = null, plan = null;
+
+      const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+      const fmt = (d) => d ? new Date(d).toLocaleDateString(undefined, { day:'numeric', month:'short', year:'numeric' }) : '';
+
+      function highlight(text, query) {
+        const out = esc(text);
+        const terms = (query.toLowerCase().match(/"[^"]+"|\S+/g) || []).map((t) => t.replace(/^"|"$/g,'')).filter(Boolean);
+        if (!terms.length) return out;
+        const re = new RegExp('(' + terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|') + ')', 'ig');
+        return out.replace(re, '<mark>$1</mark>');
+      }
+
+      async function openPath(path, btn) {
+        btn.disabled = true; btn.textContent = 'Opening…';
+        const { data, error } = await supa.storage.from('lifeos-media').createSignedUrl(path, 3600);
+        btn.disabled = false; btn.textContent = 'Open file';
+        if (error || !data?.signedUrl) { btn.textContent = 'Could not open'; return; }
+        window.open(data.signedUrl, '_blank', 'noopener');
+      }
+
+      function render() {
+        const q = $('q').value;
+        let rows = search(DOCS, q);
+        if (folder) rows = rows.filter((d) => d._folder === folder);
+
+        const counts = folderCounts(search(DOCS, q));
+        $('chips').innerHTML =
+          `<button class="chip${folder ? '' : ' on'}" data-f="">All<b>${search(DOCS, q).length}</b></button>` +
+          counts.map(([f, n]) => `<button class="chip${folder === f ? ' on' : ''}" data-f="${esc(f)}">${esc(f)}<b>${n}</b></button>`).join('');
+
+        if (!rows.length) {
+          $('list').innerHTML = '';
+          $('status').innerHTML = q
+            ? `Nothing matches <b>${esc(q)}</b>${folder ? ' in ' + esc(folder) : ''}.`
+            : 'No documents found yet.';
+          $('status').hidden = false;
+          return;
+        }
+        $('status').hidden = true;
+        $('list').innerHTML = rows.slice(0, 400).map((d) => {
+          const files = MEDIA.get(d.id) || [];
+          return `<div class="row">
+            <h3>${highlight(d.title || d.file_name || 'Untitled', q)}</h3>
+            <div class="meta"><span class="badge">${esc(d._folder)}</span>
+              <span>${fmt(d.occurred_at || d.created_at)}</span>
+              ${d.file_name ? `<span>${esc(d.file_name)}</span>` : ''}
+              ${files.length ? `<span>${files.length} file${files.length > 1 ? 's' : ''}</span>` : '<span>no attachment</span>'}
+            </div>
+            ${d.summary ? `<div class="snip">${highlight(d.summary, q)}</div>` : ''}
+            ${files.map((f) => `<button class="open" data-path="${esc(f.storage_path)}">Open file</button>`).join(' ')}
+          </div>`;
+        }).join('');
+      }
+
+      $('chips').addEventListener('click', (e) => {
+        const b = e.target.closest('.chip'); if (!b) return;
+        folder = b.dataset.f || null; render();
+      });
+      $('list').addEventListener('click', (e) => {
+        const b = e.target.closest('.open'); if (b) openPath(b.dataset.path, b);
+      });
+      $('q').addEventListener('input', render);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== $('q')) { e.preventDefault(); $('q').focus(); }
+        if (e.key === 'Escape') { $('q').value = ''; render(); }
+      });
+
+      $('apply').addEventListener('click', async () => {
+        const btn = $('apply'), st = $('backfill-status');
+        if (!plan) {
+          plan = backfillPlan(DOCS);
+          if (!plan.length) { st.textContent = 'Every document already has its folder saved.'; return; }
+          const by = {};
+          for (const p of plan) by[p.folder] = (by[p.folder] || 0) + 1;
+          st.innerHTML = `<b>${plan.length}</b> document(s) would gain a folder tag: ` +
+            esc(Object.entries(by).sort((a,b)=>b[1]-a[1]).map(([f,n]) => `${f} (${n})`).join(', ')) +
+            '. Nothing is removed. Press again to apply.';
+          btn.textContent = `Apply to ${plan.length} document(s)`;
+          return;
+        }
+        btn.disabled = true; st.textContent = 'Applying…';
+        let done = 0, failed = 0;
+        for (const p of plan) {
+          const { error } = await supa.from('memories').update({ categories: p.categories }).eq('id', p.id);
+          error ? failed++ : done++;
+          st.textContent = `Applying… ${done + failed}/${plan.length}`;
+        }
+        st.innerHTML = failed
+          ? `<span class="err">Saved ${done}, ${failed} failed.</span>`
+          : `<span class="ok">Saved folders on ${done} document(s).</span>`;
+        btn.hidden = true; plan = null;
+      });
+
+      (async function init() {
+        const { data: { session } } = await supa.auth.getSession();
+        if (!session) {
+          $('status').innerHTML = 'You are not signed in. <a href="./">Open LifeOS</a>, log in, then reload this page.';
+          return;
+        }
+        const { data: docs, error } = await supa
+          .from('memories')
+          .select('id,title,summary,file_name,categories,occurred_at,created_at,source_module,primary_kind')
+          .or('primary_kind.eq.document,file_name.not.is.null')
+          .order('occurred_at', { ascending: false })
+          .limit(2000);
+        if (error) { $('status').innerHTML = `<span class="err">Could not load documents: ${esc(error.message)}</span>`; return; }
+
+        DOCS = prepare(docs || []);
+        const ids = DOCS.map((d) => d.id);
+        for (let i = 0; i < ids.length; i += 200) {
+          const { data: m } = await supa.from('media').select('id,memory_id,storage_path,kind').in('memory_id', ids.slice(i, i + 200));
+          for (const row of m || []) {
+            if (!MEDIA.has(row.memory_id)) MEDIA.set(row.memory_id, []);
+            MEDIA.get(row.memory_id).push(row);
+          }
+        }
+        render();
+
+        $('backfill-section').hidden = false;
+        $('backfill-note').textContent =
+          'Folders above are worked out live from each document, so they already cover everything you have ever captured. ' +
+          'Saving them writes a doc: tag onto each memory so the folder shows up in the main app too. It only ever adds.';
+
+        const { data: orphans } = await supa
+          .from('media').select('id,storage_path,kind,created_at')
+          .is('memory_id', null).order('created_at', { ascending: false }).limit(200);
+        if (orphans?.length) {
+          $('orphan-section').hidden = false;
+          $('orphans').innerHTML = orphans.map((o) => `<div class="row recover">
+            <h3>${esc((o.storage_path || '').split('/').pop())}</h3>
+            <div class="meta"><span class="badge">${esc(o.kind || 'file')}</span><span>${fmt(o.created_at)}</span></div>
+            <button class="open" data-path="${esc(o.storage_path)}">Open file</button>
+          </div>`).join('');
+          $('orphans').addEventListener('click', (e) => {
+            const b = e.target.closest('.open'); if (b) openPath(b.dataset.path, b);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

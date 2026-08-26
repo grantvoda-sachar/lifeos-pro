@@ -25,12 +25,28 @@
       "files": [
         {
           "name": "media",
-          "accept": ["image/*", "video/*", "audio/*", "application/pdf"]
+          "accept": [
+            "image/*",
+            "video/*",
+            "audio/*",
+            "application/pdf"
+          ]
         }
       ]
     }
   },
   "shortcuts": [
+    {
+      "name": "Documents",
+      "short_name": "Docs",
+      "url": "./documents.html",
+      "icons": [
+        {
+          "src": "./icon.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
     {
       "name": "Talk to LifeOS",
       "short_name": "Talk",
