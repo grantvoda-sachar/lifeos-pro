@@ -1,63 +1,72 @@
 ---
 name: exchange-unreplied
-description: Check Grant's Exchange (Microsoft 365 / Outlook) Sent Items for important emails that have had no reply, flag them, and prepare a follow-up draft. Use when asked to check sent items, find emails awaiting a reply, chase unanswered emails, or check whether someone (e.g. a supplier) has responded. Searches Exchange only (never Gmail); emails the draft to Grant if Outlook drafts are blocked.
+description: Check Grant's Exchange (Microsoft 365 / Outlook) Sent Items for important emails that have had no reply, draft follow-up replies in Outlook Drafts, and email Grant a summary. Use when asked to check sent items, find emails awaiting a reply, chase unanswered emails, or check whether someone (e.g. a supplier) has responded. Exchange only — never Gmail. Runs daily at ~17:00 SAST as a scheduled task.
 ---
 
 # Exchange unreplied-email checker
 
-Mailbox: `grants@sacharmobile.co.za` (Microsoft 365 connector, `mcp__Microsoft_365__*`). Only ever search/read the Exchange mailbox — never search Gmail. Gmail is used for one thing only: delivering the draft to Grant when Exchange can't save it (Step 5).
+Mailbox: `grants@sacharmobile.co.za` via the Microsoft 365 connector (`mcp__Microsoft_365__*`). Never use Gmail.
+Grant's own addresses: `grants@sacharmobile.co.za`, `grantsachar@gmail.com`, `grant.voda@gmail.com`.
 
-Run end-to-end without asking for confirmation: find → confirm no reply → flag → draft → deliver.
+Run end-to-end without asking for confirmation: collect → filter → confirm no reply → draft → summary email.
+Hard rules:
+- **Never send anything to a third party.** Follow-ups are saved as drafts only. The only email you send is the summary to Grant.
+- **Never create a duplicate draft** (see Step 4).
 
 ## Inputs
-- Optional target: a person, domain, or topic (e.g. "Zeroslack debit order"). If none, scan all of Sent Items.
-- Lookback window: default 30 days. Minimum wait before flagging: 3 business days (2 for anything with money at stake).
+- Optional target (person, domain or topic). If none: scan everything.
+- Lookback: 21 days. Minimum wait before flagging: 2 business days for money/legal/contract items, 3 business days for everything else.
 
-## Step 1 — Collect candidate sent emails
-- Targeted: `outlook_email_search` with `query` = topic keywords (no `folderName`, no `order`). Keep hits whose `sender` is `grants@sacharmobile.co.za` or starts with `/O=`.
-- Untargeted: `outlook_email_search` with `folderName: "Sent Items"`, `order: "newest"`, page with `offset` until past the lookback window.
+## Step 1 — Collect sent emails
+- Untargeted: `outlook_email_search` with `folderName: "Sent Items"`, `order: "newest"`, `limit: 25`; keep paging with `offset` until `sentDateTime` is older than the lookback.
+- Targeted: `outlook_email_search` with `query` = topic keywords (no `folderName`, no `order`); keep hits whose `sender` is Grant or starts with `/O=`.
 
-## Step 2 — Decide which are "important"
-Important if ANY of:
-- Asks for action or an answer (question, "please confirm", "arrange", "refund", "ASAP", deadline).
-- Involves money: refunds, debit orders, invoices, payments, contracts, cancellations, quotes.
-- Sent to an external party (supplier, bank, landlord, client, government) rather than internal staff.
-- Importance flag high.
-Skip: FYIs, thank-yous, "noted", newsletters, auto-replies, emails where Grant only forwarded info with no ask, and replies that close a thread.
+## Step 2 — Throw out noise (most of Sent Items is automated)
+Skip when ANY is true:
+- Every recipient is one of Grant's own addresses.
+- System/automated mail: "Your quote from Sachar Mobile …", Daily Proof, GRV status, CashOS, Heartbeat, Pulse, Harry, Sachar Orders, "Money Hour"/OVERDUE pushes, any report or notification layout.
+- Reply-closers with no ask: "thanks", "perfect", "noted", "will do", "I'll send it this morning", FYIs, forwards with no question.
+- Grant is the one who owes the action (he promised to send something). List these separately as "You promised" — do not draft a chase.
 
-## Step 3 — Confirm no reply (the part that matters — don't guess)
-For each candidate, `read_resource` the message to get `toRecipients`, `ccRecipients`, `sentDateTime`, `conversationId`. Then check BOTH:
-1. Each recipient: `outlook_email_search` with `sender` = recipient address and `afterDateTime` = sentDateTime. Domain-only `sender` values (e.g. `zeroslack.co.za`) often return nothing even when mail exists, so ALSO run `query` = the company/domain name (e.g. `zeroslack`) with `afterDateTime`, and check every hit's sender.
-2. Topic: `outlook_email_search` with `query` = subject keywords (strip RE:/FW:) and `afterDateTime` = sentDateTime.
-A reply = any message after sentDateTime from a recipient (or recipient's domain) on that subject/conversation. Auto-replies / out-of-office do NOT count — but mention them.
-Internal recipients replying (e.g. Anneke) do not count as the external party replying.
+Keep (important) when it asks someone else for an answer or action AND at least one is true:
+- Money: refund, debit order, invoice, payment, incentive, rebate, quote, contract, cancellation, severance.
+- External party (any domain other than sacharmobile.co.za / vodadealers.co.za).
+- Explicit deadline, "urgent", "ASAP", or high importance.
+- Internal staff asked for something specific with a deadline (e.g. a missing report).
 
-## Step 4 — Flag
-Report in chat, most urgent first, one block each:
-- Subject, recipients, date sent, days waiting
-- What was asked (one line)
-- Why it matters (amount / deadline)
-- Evidence checked ("no mail from @zeroslack.co.za since 6 Oct")
+## Step 3 — Confirm there's been no reply (don't guess)
+For each kept email, `read_resource` it to get `toRecipients`, `ccRecipients`, `sentDateTime`, `conversationId`, `subject`. Then:
+1. **Collapse threads.** If Grant sent a later message in the same thread (same subject stem after stripping RE:/FW:), evaluate only the latest one. The waiting clock starts from Grant's latest message. (Lesson: on 15 Oct Grant had already chased Zeroslack himself; a new draft would have been a duplicate.)
+2. Search for replies after `sentDateTime`:
+   - `outlook_email_search` `query` = subject stem, `afterDateTime` = sentDateTime.
+   - For each external recipient domain: `query` = company name (e.g. `zeroslack`), `afterDateTime` = sentDateTime. Domain-only `sender` searches are unreliable — don't rely on them.
+   - `sender` = each recipient's full address, `afterDateTime` = sentDateTime.
+3. A reply = a message after sentDateTime, from any recipient (or their domain), on that thread/topic. Auto-replies / out-of-office don't count (mention them). Replies from internal staff don't count when the ask was to an external party.
 
-Also try `outlook_modify_labels` to add category `Awaiting Reply` to the sent message. If it fails with missing `Mail.ReadWrite`, say so once and continue.
+## Step 4 — Draft the follow-up (Outlook Drafts)
+Before drafting, check for an existing draft: `outlook_email_search` with `folderName: "Drafts"` and `query` = subject stem. If one exists, don't create another — list it in the summary as "Draft already waiting".
 
-## Step 5 — Draft the follow-up
-Write a short, firm chaser that:
-- References the original date and that no response was received.
-- Restates the specific asks as a numbered list, with amounts and dates.
-- Sets a concrete deadline (next business day for money issues) and a consequence where appropriate (e.g. bank reversal of a debit order).
-- Signs off "Regards, Grant Sacharowitz".
+Otherwise `outlook_create_reply_all_draft` on Grant's latest message in the thread, `bodyType: "html"`. Draft style:
+- "Good day," opener; refer to the date of the last email and that no response has been received.
+- Restate the asks as a numbered list with amounts (R x,xxx.xx) and dates.
+- A concrete deadline: next business day for money issues, 2 business days otherwise.
+- A consequence only where it's real (e.g. a debit order → "I will instruct our bank to reverse and block it").
+- Sign off "Regards,<br>Grant Sacharowitz". Short. No fluff.
+- Second chase or later (an earlier chase has also gone unanswered): firmer, and add a more senior contact in Cc with `outlook_update_draft` when one is in the thread history.
 
-Deliver it, in this order:
-1. `outlook_create_reply_all_draft` on the original sent message (HTML body). Success → give Grant the draft's webLink. Done.
-2. If that fails with missing `Mail.ReadWrite`: email the draft to Grant with `mcp__Gmail__send_message`
-   - to: `grants@sacharmobile.co.za` only (never to the third party)
-   - subject: `DRAFT to send: <short subject>`
-   - plain-text body: one instruction line ("Reply All on your <date> '<subject>' email, add <cc> in Cc"), then To/Cc/Subject lines, a divider, then the draft text.
-   - Tell Grant it was sent from his Gmail and may land in Mimecast quarantine/junk.
-3. Always also show the draft in chat and save it to the scratchpad as `followup-<slug>.md`.
+Then `outlook_modify_labels` → add category `Awaiting Reply` to Grant's latest sent message in the thread.
 
-Never send anything to the other party — Grant sends the real reply himself.
+Fallback (only if a draft call fails with missing `Mail.ReadWrite`): put the full draft text in the summary email instead.
 
-## Permissions note
-Reading works with `Mail.Read`. Saving drafts and categories needs `Mail.ReadWrite` granted to the connector (client id 07c030f6-5743-41b7-ba00-0a6e85f37c17) in Microsoft Entra admin center → Enterprise applications → Permissions → Grant admin consent.
+## Step 5 — Summary email to Grant
+Always send one, even when there's nothing to chase. `outlook_send_mail`:
+- to: `grants@sacharmobile.co.za` only
+- subject: `Unreplied emails · <Day DD Mon> · <N> to chase` (or `· nothing to chase`)
+- bodyType `html`, short:
+  1. One line: how many sent emails were checked and how many are waiting.
+  2. **To chase** (most urgent first: money, then oldest), for each: subject, who, days waiting, what was asked, amount/deadline, "Draft ready in Outlook" + the draft's webLink.
+  3. **Draft already waiting**: drafts made earlier that Grant hasn't sent yet, with days since the original email.
+  4. **You promised**: things Grant said he'd do and hasn't sent yet (one line each).
+  5. **Replied since last run**: threads that were Awaiting Reply and now have a reply. Remove the `Awaiting Reply` category from those with `outlook_modify_labels`.
+
+Interactive runs: also show the summary in chat.
