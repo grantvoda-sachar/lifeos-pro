@@ -5,7 +5,9 @@ description: Check Grant's Exchange (Microsoft 365 / Outlook) Sent Items for imp
 
 # Exchange unreplied-email checker
 
-Mailbox: `grants@sacharmobile.co.za` (Microsoft 365 connector, `mcp__Microsoft_365__*`). Do NOT use Gmail tools.
+Mailbox: `grants@sacharmobile.co.za` (Microsoft 365 connector, `mcp__Microsoft_365__*`). Only ever search/read the Exchange mailbox — never search Gmail. Gmail is used for one thing only: delivering the draft to Grant when Exchange can't save it (Step 5).
+
+Run end-to-end without asking for confirmation: find → confirm no reply → flag → draft → deliver.
 
 ## Inputs
 - Optional target: a person, domain, or topic (e.g. "Zeroslack debit order"). If none, scan all of Sent Items.
@@ -25,7 +27,7 @@ Skip: FYIs, thank-yous, "noted", newsletters, auto-replies, emails where Grant o
 
 ## Step 3 — Confirm no reply (the part that matters — don't guess)
 For each candidate, `read_resource` the message to get `toRecipients`, `ccRecipients`, `sentDateTime`, `conversationId`. Then check BOTH:
-1. Each recipient: `outlook_email_search` with `sender` = recipient address and `afterDateTime` = sentDateTime. Also try the domain alone (e.g. `zeroslack.co.za`) and the person's display name — sender-address matching is unreliable.
+1. Each recipient: `outlook_email_search` with `sender` = recipient address and `afterDateTime` = sentDateTime. Domain-only `sender` values (e.g. `zeroslack.co.za`) often return nothing even when mail exists, so ALSO run `query` = the company/domain name (e.g. `zeroslack`) with `afterDateTime`, and check every hit's sender.
 2. Topic: `outlook_email_search` with `query` = subject keywords (strip RE:/FW:) and `afterDateTime` = sentDateTime.
 A reply = any message after sentDateTime from a recipient (or recipient's domain) on that subject/conversation. Auto-replies / out-of-office do NOT count — but mention them.
 Internal recipients replying (e.g. Anneke) do not count as the external party replying.
@@ -46,7 +48,16 @@ Write a short, firm chaser that:
 - Sets a concrete deadline (next business day for money issues) and a consequence where appropriate (e.g. bank reversal of a debit order).
 - Signs off "Regards, Grant Sacharowitz".
 
-Save it: try `outlook_create_reply_all_draft` on the original sent message (HTML body). If that fails with missing `Mail.ReadWrite`, write the draft to the scratchpad as `followup-<slug>.md` (To/Cc/Subject/Body), show it in chat, and tell Grant it needs to be pasted into Outlook. Never send — drafts only.
+Deliver it, in this order:
+1. `outlook_create_reply_all_draft` on the original sent message (HTML body). Success → give Grant the draft's webLink. Done.
+2. If that fails with missing `Mail.ReadWrite`: email the draft to Grant with `mcp__Gmail__send_message`
+   - to: `grants@sacharmobile.co.za` only (never to the third party)
+   - subject: `DRAFT to send: <short subject>`
+   - plain-text body: one instruction line ("Reply All on your <date> '<subject>' email, add <cc> in Cc"), then To/Cc/Subject lines, a divider, then the draft text.
+   - Tell Grant it was sent from his Gmail and may land in Mimecast quarantine/junk.
+3. Always also show the draft in chat and save it to the scratchpad as `followup-<slug>.md`.
+
+Never send anything to the other party — Grant sends the real reply himself.
 
 ## Permissions note
 Reading works with `Mail.Read`. Saving drafts and categories needs `Mail.ReadWrite` granted to the connector (client id 07c030f6-5743-41b7-ba00-0a6e85f37c17) in Microsoft Entra admin center → Enterprise applications → Permissions → Grant admin consent.
