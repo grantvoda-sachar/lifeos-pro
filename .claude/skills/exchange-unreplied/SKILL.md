@@ -1,6 +1,6 @@
 ---
 name: exchange-unreplied
-description: Check Grant's Exchange (Microsoft 365 / Outlook) Sent Items for important emails that have had no reply, flag them, and prepare a follow-up draft. Use when asked to check sent items, find emails awaiting a reply, chase unanswered emails, or check whether someone (e.g. a supplier) has responded. Exchange only — never Gmail.
+description: Check Grant's Exchange (Microsoft 365 / Outlook) Sent Items for important emails that have had no reply, flag them, and prepare a follow-up draft. Use when asked to check sent items, find emails awaiting a reply, chase unanswered emails, or check whether someone (e.g. a supplier) has responded. Searches Exchange only (never Gmail); emails the draft to Grant if Outlook drafts are blocked.
 ---
 
 # Exchange unreplied-email checker
